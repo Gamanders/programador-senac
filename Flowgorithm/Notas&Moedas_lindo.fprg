@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="Professor"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2022-08-25 12:03:27 "/>
+        <attribute name="created" value="UHJvZmVzc29yO000NjY5MTsyMDIyLTA4LTI1OyIxMTo1MTo0MiAiOzI0OTY="/>
+        <attribute name="edited" value="UHJvZmVzc29yO000NjY5MTsyMDIyLTA4LTI1OyIxMTo1NzozMyAiOzE7UHJvZmVzc29yO000NjY5MTsyMDIyLTA4LTIzOyIxMDoxNTo0NiAiO1VSSTEwMTgocGFyYSkuZnByZzs2NjQ1"/>
+        <attribute name="edited" value="UHJvZmVzc29yO000NjY5MTsyMDIyLTA4LTI1OyIxMjowMzoyNyAiOzI7MjYwNg=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="cedula" type="Real" array="True" size="12"/>
+            <assign variable="cedula[0]" expression="100"/>
+            <assign variable="cedula[1]" expression="50"/>
+            <assign variable="cedula[2]" expression="20"/>
+            <assign variable="cedula[3]" expression="10"/>
+            <assign variable="cedula[4]" expression="5"/>
+            <assign variable="cedula[5]" expression="2"/>
+            <assign variable="cedula[6]" expression="1"/>
+            <assign variable="cedula[7]" expression="0.50"/>
+            <assign variable="cedula[8]" expression="0.25"/>
+            <assign variable="cedula[9]" expression="0.10"/>
+            <assign variable="cedula[10]" expression="0.05"/>
+            <assign variable="cedula[11]" expression="0.01"/>
+            <declare name="valor" type="Real" array="False" size=""/>
+            <declare name="resto" type="Real" array="False" size=""/>
+            <input variable="valor"/>
+            <declare name="x" type="Integer" array="False" size=""/>
+            <for variable="x" start="0" end="11" direction="inc" step="1">
+                <assign variable="resto" expression="valor%cedula[x]"/>
+                <output expression="(valor-resto)/cedula[x]&amp;&quot; de R$ &quot;&amp;cedula[x]" newline="True"/>
+                <assign variable="valor" expression="resto"/>
+            </for>
+        </body>
+    </function>
+</flowgorithm>

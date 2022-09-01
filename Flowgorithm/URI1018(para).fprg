@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="Professor"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2022-08-23 10:46:16 "/>
+        <attribute name="created" value="UHJvZmVzc29yO000NjY5MTsyMDIyLTA4LTIzOyIxMDoxNTo0NiAiOzI0OTc="/>
+        <attribute name="edited" value="UHJvZmVzc29yO000NjY5MTsyMDIyLTA4LTIzOyIxMDo0NjoxNiAiOzI7MjYwNw=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="cedula" type="Integer" array="True" size="6"/>
+            <assign variable="cedula[0]" expression="100"/>
+            <assign variable="cedula[1]" expression="50"/>
+            <assign variable="cedula[2]" expression="20"/>
+            <assign variable="cedula[3]" expression="10"/>
+            <assign variable="cedula[4]" expression="5"/>
+            <assign variable="cedula[5]" expression="2"/>
+            <declare name="valor" type="Integer" array="False" size=""/>
+            <input variable="valor"/>
+            <output expression="valor" newline="True"/>
+            <declare name="x" type="Integer" array="False" size=""/>
+            <for variable="x" start="0" end="5" direction="inc" step="1">
+                <if expression="valor&gt;=cedula[x]">
+                    <then>
+                        <output expression="Int(valor/cedula[x]) &amp; &quot; nota(s) de R$ &quot;&amp;cedula[x]&amp;&quot;,00&quot;" newline="True"/>
+                        <assign variable="valor" expression="(valor/cedula[x]-Int(valor/cedula[x]))*cedula[x]"/>
+                    </then>
+                    <else>
+                        <output expression="&quot;0 nota(s) de R$ &quot;&amp;cedula[x]&amp;&quot;,00&quot;" newline="True"/>
+                    </else>
+                </if>
+            </for>
+            <if expression="valor=1">
+                <then>
+                    <output expression="&quot;1 nota(s) de R$ 1,00&quot;" newline="True"/>
+                </then>
+                <else>
+                    <output expression="&quot;0 nota(s) de R$ 1,00&quot;" newline="True"/>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="Professor"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2022-08-22 11:45:50 "/>
+        <attribute name="created" value="UHJvZmVzc29yO000NjY5MTsyMDIyLTA4LTIyOyIxMTowNzo1MSAiOzI0OTQ="/>
+        <attribute name="edited" value="UHJvZmVzc29yO000NjY5MTsyMDIyLTA4LTIyOyIxMTo0NTo1MCAiOzE7MjYwMw=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="raio" type="Real" array="False" size=""/>
+            <declare name="area" type="Real" array="False" size=""/>
+            <input variable="raio"/>
+            <declare name="n" type="Real" array="False" size=""/>
+            <assign variable="n" expression="3.14159"/>
+            <assign variable="area" expression="ToReal(ToFixed(n*raio^2,4))"/>
+            <output expression="&quot;A=&quot;&amp;area" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

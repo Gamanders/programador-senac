@@ -1,0 +1,1034 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="Professor"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2022-08-23 10:13:07 "/>
+        <attribute name="created" value="UHJvZmVzc29yO000NjY5MTsyMDIyLTA4LTIzOyIwOTo1MToyMiAiOzI0OTk="/>
+        <attribute name="edited" value="UHJvZmVzc29yO000NjY5MTsyMDIyLTA4LTIzOyIxMDoxMzowNyAiOzE7MjYwMA=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="valor" type="Integer" array="False" size=""/>
+            <input variable="valor"/>
+            <if expression="valor&gt;=100">
+                <then>
+                    <output expression="Int(valor/100)&amp;&quot; nota(s) de R$ 100,00&quot;" newline="True"/>
+                    <assign variable="valor" expression="(valor/100-int(valor/100))*100"/>
+                    <if expression="valor&gt;=50">
+                        <then>
+                            <output expression="Int(valor/50)&amp;&quot;nota(s) de R$ 50,00&quot;" newline="True"/>
+                            <assign variable="valor" expression="(valor/50-int(valor/50))*50"/>
+                            <if expression="valor&gt;=20">
+                                <then>
+                                    <output expression="Int(valor/20)&amp;&quot;nota(s) de R$ 20,00&quot;" newline="True"/>
+                                    <assign variable="valor" expression="(valor/20-int(valor/20))*20"/>
+                                    <if expression="valor&gt;=10">
+                                        <then>
+                                            <output expression="Int(valor/10)&amp;&quot;nota(s) de R$ 10,00&quot;" newline="True"/>
+                                            <assign variable="valor" expression="(valor/10-int(valor/10))*10"/>
+                                            <if expression="valor&gt;=5">
+                                                <then>
+                                                    <output expression="Int(valor/5)&amp;&quot;nota(s) de R$ 5,00&quot;" newline="True"/>
+                                                    <assign variable="valor" expression="(valor/5-int(valor/5))*5"/>
+                                                    <if expression="valor&gt;=2">
+                                                        <then>
+                                                            <output expression="Int(valor/2)&amp;&quot;nota(s) de R$ 2,00&quot;" newline="True"/>
+                                                            <assign variable="valor" expression="(valor/2-int(valor/2))*2"/>
+                                                            <if expression="valor=1">
+                                                                <then>
+                                                                    <output expression="&quot; 1 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </then>
+                                                                <else>
+                                                                    <output expression="&quot; 0 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </else>
+                                                            </if>
+                                                        </then>
+                                                        <else>
+                                                            <if expression="valor=1">
+                                                                <then>
+                                                                    <output expression="&quot; 1 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </then>
+                                                                <else>
+                                                                    <output expression="&quot; 0 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </else>
+                                                            </if>
+                                                        </else>
+                                                    </if>
+                                                </then>
+                                                <else>
+                                                    <if expression="valor&gt;=2">
+                                                        <then>
+                                                            <output expression="Int(valor/2)&amp;&quot;nota(s) de R$ 2,00&quot;" newline="True"/>
+                                                            <assign variable="valor" expression="(valor/2-int(valor/2))*2"/>
+                                                            <if expression="valor=1">
+                                                                <then>
+                                                                    <output expression="&quot; 1 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </then>
+                                                                <else>
+                                                                    <output expression="&quot; 0 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </else>
+                                                            </if>
+                                                        </then>
+                                                        <else>
+                                                            <if expression="valor=1">
+                                                                <then>
+                                                                    <output expression="&quot; 1 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </then>
+                                                                <else>
+                                                                    <output expression="&quot; 0 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </else>
+                                                            </if>
+                                                        </else>
+                                                    </if>
+                                                </else>
+                                            </if>
+                                        </then>
+                                        <else>
+                                            <if expression="valor&gt;=5">
+                                                <then>
+                                                    <output expression="Int(valor/5)&amp;&quot;nota(s) de R$ 5,00&quot;" newline="True"/>
+                                                    <assign variable="valor" expression="(valor/5-int(valor/5))*5"/>
+                                                    <if expression="valor&gt;=2">
+                                                        <then>
+                                                            <output expression="Int(valor/2)&amp;&quot;nota(s) de R$ 2,00&quot;" newline="True"/>
+                                                            <assign variable="valor" expression="(valor/2-int(valor/2))*2"/>
+                                                            <if expression="valor=1">
+                                                                <then>
+                                                                    <output expression="&quot; 1 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </then>
+                                                                <else>
+                                                                    <output expression="&quot; 0 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </else>
+                                                            </if>
+                                                        </then>
+                                                        <else>
+                                                            <if expression="valor=1">
+                                                                <then>
+                                                                    <output expression="&quot; 1 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </then>
+                                                                <else>
+                                                                    <output expression="&quot; 0 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </else>
+                                                            </if>
+                                                        </else>
+                                                    </if>
+                                                </then>
+                                                <else>
+                                                    <if expression="valor&gt;=2">
+                                                        <then>
+                                                            <output expression="Int(valor/2)&amp;&quot;nota(s) de R$ 2,00&quot;" newline="True"/>
+                                                            <assign variable="valor" expression="(valor/2-int(valor/2))*2"/>
+                                                            <if expression="valor=1">
+                                                                <then>
+                                                                    <output expression="&quot; 1 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </then>
+                                                                <else>
+                                                                    <output expression="&quot; 0 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </else>
+                                                            </if>
+                                                        </then>
+                                                        <else>
+                                                            <if expression="valor=1">
+                                                                <then>
+                                                                    <output expression="&quot; 1 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </then>
+                                                                <else>
+                                                                    <output expression="&quot; 0 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </else>
+                                                            </if>
+                                                        </else>
+                                                    </if>
+                                                </else>
+                                            </if>
+                                        </else>
+                                    </if>
+                                </then>
+                                <else>
+                                    <if expression="valor&gt;=10">
+                                        <then>
+                                            <output expression="Int(valor/10)&amp;&quot;nota(s) de R$ 10,00&quot;" newline="True"/>
+                                            <assign variable="valor" expression="(valor/10-int(valor/10))*10"/>
+                                            <if expression="valor&gt;=5">
+                                                <then>
+                                                    <output expression="Int(valor/5)&amp;&quot;nota(s) de R$ 5,00&quot;" newline="True"/>
+                                                    <assign variable="valor" expression="(valor/5-int(valor/5))*5"/>
+                                                    <if expression="valor&gt;=2">
+                                                        <then>
+                                                            <output expression="Int(valor/2)&amp;&quot;nota(s) de R$ 2,00&quot;" newline="True"/>
+                                                            <assign variable="valor" expression="(valor/2-int(valor/2))*2"/>
+                                                            <if expression="valor=1">
+                                                                <then>
+                                                                    <output expression="&quot; 1 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </then>
+                                                                <else>
+                                                                    <output expression="&quot; 0 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </else>
+                                                            </if>
+                                                        </then>
+                                                        <else>
+                                                            <if expression="valor=1">
+                                                                <then>
+                                                                    <output expression="&quot; 1 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </then>
+                                                                <else>
+                                                                    <output expression="&quot; 0 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </else>
+                                                            </if>
+                                                        </else>
+                                                    </if>
+                                                </then>
+                                                <else>
+                                                    <if expression="valor&gt;=2">
+                                                        <then>
+                                                            <output expression="Int(valor/2)&amp;&quot;nota(s) de R$ 2,00&quot;" newline="True"/>
+                                                            <assign variable="valor" expression="(valor/2-int(valor/2))*2"/>
+                                                            <if expression="valor=1">
+                                                                <then>
+                                                                    <output expression="&quot; 1 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </then>
+                                                                <else>
+                                                                    <output expression="&quot; 0 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </else>
+                                                            </if>
+                                                        </then>
+                                                        <else>
+                                                            <if expression="valor=1">
+                                                                <then>
+                                                                    <output expression="&quot; 1 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </then>
+                                                                <else>
+                                                                    <output expression="&quot; 0 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </else>
+                                                            </if>
+                                                        </else>
+                                                    </if>
+                                                </else>
+                                            </if>
+                                        </then>
+                                        <else>
+                                            <if expression="valor&gt;=5">
+                                                <then>
+                                                    <output expression="Int(valor/5)&amp;&quot;nota(s) de R$ 5,00&quot;" newline="True"/>
+                                                    <assign variable="valor" expression="(valor/5-int(valor/5))*5"/>
+                                                    <if expression="valor&gt;=2">
+                                                        <then>
+                                                            <output expression="Int(valor/2)&amp;&quot;nota(s) de R$ 2,00&quot;" newline="True"/>
+                                                            <assign variable="valor" expression="(valor/2-int(valor/2))*2"/>
+                                                            <if expression="valor=1">
+                                                                <then>
+                                                                    <output expression="&quot; 1 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </then>
+                                                                <else>
+                                                                    <output expression="&quot; 0 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </else>
+                                                            </if>
+                                                        </then>
+                                                        <else>
+                                                            <if expression="valor=1">
+                                                                <then>
+                                                                    <output expression="&quot; 1 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </then>
+                                                                <else>
+                                                                    <output expression="&quot; 0 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </else>
+                                                            </if>
+                                                        </else>
+                                                    </if>
+                                                </then>
+                                                <else>
+                                                    <if expression="valor&gt;=2">
+                                                        <then>
+                                                            <output expression="Int(valor/2)&amp;&quot;nota(s) de R$ 2,00&quot;" newline="True"/>
+                                                            <assign variable="valor" expression="(valor/2-int(valor/2))*2"/>
+                                                            <if expression="valor=1">
+                                                                <then>
+                                                                    <output expression="&quot; 1 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </then>
+                                                                <else>
+                                                                    <output expression="&quot; 0 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </else>
+                                                            </if>
+                                                        </then>
+                                                        <else>
+                                                            <if expression="valor=1">
+                                                                <then>
+                                                                    <output expression="&quot; 1 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </then>
+                                                                <else>
+                                                                    <output expression="&quot; 0 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </else>
+                                                            </if>
+                                                        </else>
+                                                    </if>
+                                                </else>
+                                            </if>
+                                        </else>
+                                    </if>
+                                </else>
+                            </if>
+                        </then>
+                        <else>
+                            <if expression="valor&gt;=20">
+                                <then>
+                                    <output expression="Int(valor/20)&amp;&quot;nota(s) de R$ 20,00&quot;" newline="True"/>
+                                    <assign variable="valor" expression="(valor/20-int(valor/20))*20"/>
+                                    <if expression="valor&gt;=10">
+                                        <then>
+                                            <output expression="Int(valor/10)&amp;&quot;nota(s) de R$ 10,00&quot;" newline="True"/>
+                                            <assign variable="valor" expression="(valor/10-int(valor/10))*10"/>
+                                            <if expression="valor&gt;=5">
+                                                <then>
+                                                    <output expression="Int(valor/5)&amp;&quot;nota(s) de R$ 5,00&quot;" newline="True"/>
+                                                    <assign variable="valor" expression="(valor/5-int(valor/5))*5"/>
+                                                    <if expression="valor&gt;=2">
+                                                        <then>
+                                                            <output expression="Int(valor/2)&amp;&quot;nota(s) de R$ 2,00&quot;" newline="True"/>
+                                                            <assign variable="valor" expression="(valor/2-int(valor/2))*2"/>
+                                                            <if expression="valor=1">
+                                                                <then>
+                                                                    <output expression="&quot; 1 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </then>
+                                                                <else>
+                                                                    <output expression="&quot; 0 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </else>
+                                                            </if>
+                                                        </then>
+                                                        <else>
+                                                            <if expression="valor=1">
+                                                                <then>
+                                                                    <output expression="&quot; 1 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </then>
+                                                                <else>
+                                                                    <output expression="&quot; 0 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </else>
+                                                            </if>
+                                                        </else>
+                                                    </if>
+                                                </then>
+                                                <else>
+                                                    <if expression="valor&gt;=2">
+                                                        <then>
+                                                            <output expression="Int(valor/2)&amp;&quot;nota(s) de R$ 2,00&quot;" newline="True"/>
+                                                            <assign variable="valor" expression="(valor/2-int(valor/2))*2"/>
+                                                            <if expression="valor=1">
+                                                                <then>
+                                                                    <output expression="&quot; 1 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </then>
+                                                                <else>
+                                                                    <output expression="&quot; 0 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </else>
+                                                            </if>
+                                                        </then>
+                                                        <else>
+                                                            <if expression="valor=1">
+                                                                <then>
+                                                                    <output expression="&quot; 1 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </then>
+                                                                <else>
+                                                                    <output expression="&quot; 0 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </else>
+                                                            </if>
+                                                        </else>
+                                                    </if>
+                                                </else>
+                                            </if>
+                                        </then>
+                                        <else>
+                                            <if expression="valor&gt;=5">
+                                                <then>
+                                                    <output expression="Int(valor/5)&amp;&quot;nota(s) de R$ 5,00&quot;" newline="True"/>
+                                                    <assign variable="valor" expression="(valor/5-int(valor/5))*5"/>
+                                                    <if expression="valor&gt;=2">
+                                                        <then>
+                                                            <output expression="Int(valor/2)&amp;&quot;nota(s) de R$ 2,00&quot;" newline="True"/>
+                                                            <assign variable="valor" expression="(valor/2-int(valor/2))*2"/>
+                                                            <if expression="valor=1">
+                                                                <then>
+                                                                    <output expression="&quot; 1 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </then>
+                                                                <else>
+                                                                    <output expression="&quot; 0 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </else>
+                                                            </if>
+                                                        </then>
+                                                        <else>
+                                                            <if expression="valor=1">
+                                                                <then>
+                                                                    <output expression="&quot; 1 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </then>
+                                                                <else>
+                                                                    <output expression="&quot; 0 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </else>
+                                                            </if>
+                                                        </else>
+                                                    </if>
+                                                </then>
+                                                <else>
+                                                    <if expression="valor&gt;=2">
+                                                        <then>
+                                                            <output expression="Int(valor/2)&amp;&quot;nota(s) de R$ 2,00&quot;" newline="True"/>
+                                                            <assign variable="valor" expression="(valor/2-int(valor/2))*2"/>
+                                                            <if expression="valor=1">
+                                                                <then>
+                                                                    <output expression="&quot; 1 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </then>
+                                                                <else>
+                                                                    <output expression="&quot; 0 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </else>
+                                                            </if>
+                                                        </then>
+                                                        <else>
+                                                            <if expression="valor=1">
+                                                                <then>
+                                                                    <output expression="&quot; 1 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </then>
+                                                                <else>
+                                                                    <output expression="&quot; 0 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </else>
+                                                            </if>
+                                                        </else>
+                                                    </if>
+                                                </else>
+                                            </if>
+                                        </else>
+                                    </if>
+                                </then>
+                                <else>
+                                    <if expression="valor&gt;=10">
+                                        <then>
+                                            <output expression="Int(valor/10)&amp;&quot;nota(s) de R$ 10,00&quot;" newline="True"/>
+                                            <assign variable="valor" expression="(valor/10-int(valor/10))*10"/>
+                                            <if expression="valor&gt;=5">
+                                                <then>
+                                                    <output expression="Int(valor/5)&amp;&quot;nota(s) de R$ 5,00&quot;" newline="True"/>
+                                                    <assign variable="valor" expression="(valor/5-int(valor/5))*5"/>
+                                                    <if expression="valor&gt;=2">
+                                                        <then>
+                                                            <output expression="Int(valor/2)&amp;&quot;nota(s) de R$ 2,00&quot;" newline="True"/>
+                                                            <assign variable="valor" expression="(valor/2-int(valor/2))*2"/>
+                                                            <if expression="valor=1">
+                                                                <then>
+                                                                    <output expression="&quot; 1 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </then>
+                                                                <else>
+                                                                    <output expression="&quot; 0 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </else>
+                                                            </if>
+                                                        </then>
+                                                        <else>
+                                                            <if expression="valor=1">
+                                                                <then>
+                                                                    <output expression="&quot; 1 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </then>
+                                                                <else>
+                                                                    <output expression="&quot; 0 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </else>
+                                                            </if>
+                                                        </else>
+                                                    </if>
+                                                </then>
+                                                <else>
+                                                    <if expression="valor&gt;=2">
+                                                        <then>
+                                                            <output expression="Int(valor/2)&amp;&quot;nota(s) de R$ 2,00&quot;" newline="True"/>
+                                                            <assign variable="valor" expression="(valor/2-int(valor/2))*2"/>
+                                                            <if expression="valor=1">
+                                                                <then>
+                                                                    <output expression="&quot; 1 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </then>
+                                                                <else>
+                                                                    <output expression="&quot; 0 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </else>
+                                                            </if>
+                                                        </then>
+                                                        <else>
+                                                            <if expression="valor=1">
+                                                                <then>
+                                                                    <output expression="&quot; 1 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </then>
+                                                                <else>
+                                                                    <output expression="&quot; 0 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </else>
+                                                            </if>
+                                                        </else>
+                                                    </if>
+                                                </else>
+                                            </if>
+                                        </then>
+                                        <else>
+                                            <if expression="valor&gt;=5">
+                                                <then>
+                                                    <output expression="Int(valor/5)&amp;&quot;nota(s) de R$ 5,00&quot;" newline="True"/>
+                                                    <assign variable="valor" expression="(valor/5-int(valor/5))*5"/>
+                                                    <if expression="valor&gt;=2">
+                                                        <then>
+                                                            <output expression="Int(valor/2)&amp;&quot;nota(s) de R$ 2,00&quot;" newline="True"/>
+                                                            <assign variable="valor" expression="(valor/2-int(valor/2))*2"/>
+                                                            <if expression="valor=1">
+                                                                <then>
+                                                                    <output expression="&quot; 1 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </then>
+                                                                <else>
+                                                                    <output expression="&quot; 0 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </else>
+                                                            </if>
+                                                        </then>
+                                                        <else>
+                                                            <if expression="valor=1">
+                                                                <then>
+                                                                    <output expression="&quot; 1 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </then>
+                                                                <else>
+                                                                    <output expression="&quot; 0 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </else>
+                                                            </if>
+                                                        </else>
+                                                    </if>
+                                                </then>
+                                                <else>
+                                                    <if expression="valor&gt;=2">
+                                                        <then>
+                                                            <output expression="Int(valor/2)&amp;&quot;nota(s) de R$ 2,00&quot;" newline="True"/>
+                                                            <assign variable="valor" expression="(valor/2-int(valor/2))*2"/>
+                                                            <if expression="valor=1">
+                                                                <then>
+                                                                    <output expression="&quot; 1 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </then>
+                                                                <else>
+                                                                    <output expression="&quot; 0 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </else>
+                                                            </if>
+                                                        </then>
+                                                        <else>
+                                                            <if expression="valor=1">
+                                                                <then>
+                                                                    <output expression="&quot; 1 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </then>
+                                                                <else>
+                                                                    <output expression="&quot; 0 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </else>
+                                                            </if>
+                                                        </else>
+                                                    </if>
+                                                </else>
+                                            </if>
+                                        </else>
+                                    </if>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                </then>
+                <else>
+                    <if expression="valor&gt;=50">
+                        <then>
+                            <output expression="Int(valor/50)&amp;&quot;nota(s) de R$ 50,00&quot;" newline="True"/>
+                            <assign variable="valor" expression="(valor/50-int(valor/50))*50"/>
+                            <if expression="valor&gt;=20">
+                                <then>
+                                    <output expression="Int(valor/20)&amp;&quot;nota(s) de R$ 20,00&quot;" newline="True"/>
+                                    <assign variable="valor" expression="(valor/20-int(valor/20))*20"/>
+                                    <if expression="valor&gt;=10">
+                                        <then>
+                                            <output expression="Int(valor/10)&amp;&quot;nota(s) de R$ 10,00&quot;" newline="True"/>
+                                            <assign variable="valor" expression="(valor/10-int(valor/10))*10"/>
+                                            <if expression="valor&gt;=5">
+                                                <then>
+                                                    <output expression="Int(valor/5)&amp;&quot;nota(s) de R$ 5,00&quot;" newline="True"/>
+                                                    <assign variable="valor" expression="(valor/5-int(valor/5))*5"/>
+                                                    <if expression="valor&gt;=2">
+                                                        <then>
+                                                            <output expression="Int(valor/2)&amp;&quot;nota(s) de R$ 2,00&quot;" newline="True"/>
+                                                            <assign variable="valor" expression="(valor/2-int(valor/2))*2"/>
+                                                            <if expression="valor=1">
+                                                                <then>
+                                                                    <output expression="&quot; 1 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </then>
+                                                                <else>
+                                                                    <output expression="&quot; 0 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </else>
+                                                            </if>
+                                                        </then>
+                                                        <else>
+                                                            <if expression="valor=1">
+                                                                <then>
+                                                                    <output expression="&quot; 1 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </then>
+                                                                <else>
+                                                                    <output expression="&quot; 0 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </else>
+                                                            </if>
+                                                        </else>
+                                                    </if>
+                                                </then>
+                                                <else>
+                                                    <if expression="valor&gt;=2">
+                                                        <then>
+                                                            <output expression="Int(valor/2)&amp;&quot;nota(s) de R$ 2,00&quot;" newline="True"/>
+                                                            <assign variable="valor" expression="(valor/2-int(valor/2))*2"/>
+                                                            <if expression="valor=1">
+                                                                <then>
+                                                                    <output expression="&quot; 1 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </then>
+                                                                <else>
+                                                                    <output expression="&quot; 0 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </else>
+                                                            </if>
+                                                        </then>
+                                                        <else>
+                                                            <if expression="valor=1">
+                                                                <then>
+                                                                    <output expression="&quot; 1 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </then>
+                                                                <else>
+                                                                    <output expression="&quot; 0 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </else>
+                                                            </if>
+                                                        </else>
+                                                    </if>
+                                                </else>
+                                            </if>
+                                        </then>
+                                        <else>
+                                            <if expression="valor&gt;=5">
+                                                <then>
+                                                    <output expression="Int(valor/5)&amp;&quot;nota(s) de R$ 5,00&quot;" newline="True"/>
+                                                    <assign variable="valor" expression="(valor/5-int(valor/5))*5"/>
+                                                    <if expression="valor&gt;=2">
+                                                        <then>
+                                                            <output expression="Int(valor/2)&amp;&quot;nota(s) de R$ 2,00&quot;" newline="True"/>
+                                                            <assign variable="valor" expression="(valor/2-int(valor/2))*2"/>
+                                                            <if expression="valor=1">
+                                                                <then>
+                                                                    <output expression="&quot; 1 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </then>
+                                                                <else>
+                                                                    <output expression="&quot; 0 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </else>
+                                                            </if>
+                                                        </then>
+                                                        <else>
+                                                            <if expression="valor=1">
+                                                                <then>
+                                                                    <output expression="&quot; 1 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </then>
+                                                                <else>
+                                                                    <output expression="&quot; 0 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </else>
+                                                            </if>
+                                                        </else>
+                                                    </if>
+                                                </then>
+                                                <else>
+                                                    <if expression="valor&gt;=2">
+                                                        <then>
+                                                            <output expression="Int(valor/2)&amp;&quot;nota(s) de R$ 2,00&quot;" newline="True"/>
+                                                            <assign variable="valor" expression="(valor/2-int(valor/2))*2"/>
+                                                            <if expression="valor=1">
+                                                                <then>
+                                                                    <output expression="&quot; 1 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </then>
+                                                                <else>
+                                                                    <output expression="&quot; 0 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </else>
+                                                            </if>
+                                                        </then>
+                                                        <else>
+                                                            <if expression="valor=1">
+                                                                <then>
+                                                                    <output expression="&quot; 1 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </then>
+                                                                <else>
+                                                                    <output expression="&quot; 0 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </else>
+                                                            </if>
+                                                        </else>
+                                                    </if>
+                                                </else>
+                                            </if>
+                                        </else>
+                                    </if>
+                                </then>
+                                <else>
+                                    <if expression="valor&gt;=10">
+                                        <then>
+                                            <output expression="Int(valor/10)&amp;&quot;nota(s) de R$ 10,00&quot;" newline="True"/>
+                                            <assign variable="valor" expression="(valor/10-int(valor/10))*10"/>
+                                            <if expression="valor&gt;=5">
+                                                <then>
+                                                    <output expression="Int(valor/5)&amp;&quot;nota(s) de R$ 5,00&quot;" newline="True"/>
+                                                    <assign variable="valor" expression="(valor/5-int(valor/5))*5"/>
+                                                    <if expression="valor&gt;=2">
+                                                        <then>
+                                                            <output expression="Int(valor/2)&amp;&quot;nota(s) de R$ 2,00&quot;" newline="True"/>
+                                                            <assign variable="valor" expression="(valor/2-int(valor/2))*2"/>
+                                                            <if expression="valor=1">
+                                                                <then>
+                                                                    <output expression="&quot; 1 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </then>
+                                                                <else>
+                                                                    <output expression="&quot; 0 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </else>
+                                                            </if>
+                                                        </then>
+                                                        <else>
+                                                            <if expression="valor=1">
+                                                                <then>
+                                                                    <output expression="&quot; 1 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </then>
+                                                                <else>
+                                                                    <output expression="&quot; 0 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </else>
+                                                            </if>
+                                                        </else>
+                                                    </if>
+                                                </then>
+                                                <else>
+                                                    <if expression="valor&gt;=2">
+                                                        <then>
+                                                            <output expression="Int(valor/2)&amp;&quot;nota(s) de R$ 2,00&quot;" newline="True"/>
+                                                            <assign variable="valor" expression="(valor/2-int(valor/2))*2"/>
+                                                            <if expression="valor=1">
+                                                                <then>
+                                                                    <output expression="&quot; 1 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </then>
+                                                                <else>
+                                                                    <output expression="&quot; 0 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </else>
+                                                            </if>
+                                                        </then>
+                                                        <else>
+                                                            <if expression="valor=1">
+                                                                <then>
+                                                                    <output expression="&quot; 1 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </then>
+                                                                <else>
+                                                                    <output expression="&quot; 0 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </else>
+                                                            </if>
+                                                        </else>
+                                                    </if>
+                                                </else>
+                                            </if>
+                                        </then>
+                                        <else>
+                                            <if expression="valor&gt;=5">
+                                                <then>
+                                                    <output expression="Int(valor/5)&amp;&quot;nota(s) de R$ 5,00&quot;" newline="True"/>
+                                                    <assign variable="valor" expression="(valor/5-int(valor/5))*5"/>
+                                                    <if expression="valor&gt;=2">
+                                                        <then>
+                                                            <output expression="Int(valor/2)&amp;&quot;nota(s) de R$ 2,00&quot;" newline="True"/>
+                                                            <assign variable="valor" expression="(valor/2-int(valor/2))*2"/>
+                                                            <if expression="valor=1">
+                                                                <then>
+                                                                    <output expression="&quot; 1 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </then>
+                                                                <else>
+                                                                    <output expression="&quot; 0 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </else>
+                                                            </if>
+                                                        </then>
+                                                        <else>
+                                                            <if expression="valor=1">
+                                                                <then>
+                                                                    <output expression="&quot; 1 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </then>
+                                                                <else>
+                                                                    <output expression="&quot; 0 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </else>
+                                                            </if>
+                                                        </else>
+                                                    </if>
+                                                </then>
+                                                <else>
+                                                    <if expression="valor&gt;=2">
+                                                        <then>
+                                                            <output expression="Int(valor/2)&amp;&quot;nota(s) de R$ 2,00&quot;" newline="True"/>
+                                                            <assign variable="valor" expression="(valor/2-int(valor/2))*2"/>
+                                                            <if expression="valor=1">
+                                                                <then>
+                                                                    <output expression="&quot; 1 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </then>
+                                                                <else>
+                                                                    <output expression="&quot; 0 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </else>
+                                                            </if>
+                                                        </then>
+                                                        <else>
+                                                            <if expression="valor=1">
+                                                                <then>
+                                                                    <output expression="&quot; 1 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </then>
+                                                                <else>
+                                                                    <output expression="&quot; 0 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </else>
+                                                            </if>
+                                                        </else>
+                                                    </if>
+                                                </else>
+                                            </if>
+                                        </else>
+                                    </if>
+                                </else>
+                            </if>
+                        </then>
+                        <else>
+                            <if expression="valor&gt;=20">
+                                <then>
+                                    <output expression="Int(valor/20)&amp;&quot;nota(s) de R$ 20,00&quot;" newline="True"/>
+                                    <assign variable="valor" expression="(valor/20-int(valor/20))*20"/>
+                                    <if expression="valor&gt;=10">
+                                        <then>
+                                            <output expression="Int(valor/10)&amp;&quot;nota(s) de R$ 10,00&quot;" newline="True"/>
+                                            <assign variable="valor" expression="(valor/10-int(valor/10))*10"/>
+                                            <if expression="valor&gt;=5">
+                                                <then>
+                                                    <output expression="Int(valor/5)&amp;&quot;nota(s) de R$ 5,00&quot;" newline="True"/>
+                                                    <assign variable="valor" expression="(valor/5-int(valor/5))*5"/>
+                                                    <if expression="valor&gt;=2">
+                                                        <then>
+                                                            <output expression="Int(valor/2)&amp;&quot;nota(s) de R$ 2,00&quot;" newline="True"/>
+                                                            <assign variable="valor" expression="(valor/2-int(valor/2))*2"/>
+                                                            <if expression="valor=1">
+                                                                <then>
+                                                                    <output expression="&quot; 1 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </then>
+                                                                <else>
+                                                                    <output expression="&quot; 0 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </else>
+                                                            </if>
+                                                        </then>
+                                                        <else>
+                                                            <if expression="valor=1">
+                                                                <then>
+                                                                    <output expression="&quot; 1 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </then>
+                                                                <else>
+                                                                    <output expression="&quot; 0 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </else>
+                                                            </if>
+                                                        </else>
+                                                    </if>
+                                                </then>
+                                                <else>
+                                                    <if expression="valor&gt;=2">
+                                                        <then>
+                                                            <output expression="Int(valor/2)&amp;&quot;nota(s) de R$ 2,00&quot;" newline="True"/>
+                                                            <assign variable="valor" expression="(valor/2-int(valor/2))*2"/>
+                                                            <if expression="valor=1">
+                                                                <then>
+                                                                    <output expression="&quot; 1 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </then>
+                                                                <else>
+                                                                    <output expression="&quot; 0 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </else>
+                                                            </if>
+                                                        </then>
+                                                        <else>
+                                                            <if expression="valor=1">
+                                                                <then>
+                                                                    <output expression="&quot; 1 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </then>
+                                                                <else>
+                                                                    <output expression="&quot; 0 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </else>
+                                                            </if>
+                                                        </else>
+                                                    </if>
+                                                </else>
+                                            </if>
+                                        </then>
+                                        <else>
+                                            <if expression="valor&gt;=5">
+                                                <then>
+                                                    <output expression="Int(valor/5)&amp;&quot;nota(s) de R$ 5,00&quot;" newline="True"/>
+                                                    <assign variable="valor" expression="(valor/5-int(valor/5))*5"/>
+                                                    <if expression="valor&gt;=2">
+                                                        <then>
+                                                            <output expression="Int(valor/2)&amp;&quot;nota(s) de R$ 2,00&quot;" newline="True"/>
+                                                            <assign variable="valor" expression="(valor/2-int(valor/2))*2"/>
+                                                            <if expression="valor=1">
+                                                                <then>
+                                                                    <output expression="&quot; 1 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </then>
+                                                                <else>
+                                                                    <output expression="&quot; 0 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </else>
+                                                            </if>
+                                                        </then>
+                                                        <else>
+                                                            <if expression="valor=1">
+                                                                <then>
+                                                                    <output expression="&quot; 1 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </then>
+                                                                <else>
+                                                                    <output expression="&quot; 0 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </else>
+                                                            </if>
+                                                        </else>
+                                                    </if>
+                                                </then>
+                                                <else>
+                                                    <if expression="valor&gt;=2">
+                                                        <then>
+                                                            <output expression="Int(valor/2)&amp;&quot;nota(s) de R$ 2,00&quot;" newline="True"/>
+                                                            <assign variable="valor" expression="(valor/2-int(valor/2))*2"/>
+                                                            <if expression="valor=1">
+                                                                <then>
+                                                                    <output expression="&quot; 1 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </then>
+                                                                <else>
+                                                                    <output expression="&quot; 0 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </else>
+                                                            </if>
+                                                        </then>
+                                                        <else>
+                                                            <if expression="valor=1">
+                                                                <then>
+                                                                    <output expression="&quot; 1 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </then>
+                                                                <else>
+                                                                    <output expression="&quot; 0 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </else>
+                                                            </if>
+                                                        </else>
+                                                    </if>
+                                                </else>
+                                            </if>
+                                        </else>
+                                    </if>
+                                </then>
+                                <else>
+                                    <if expression="valor&gt;=10">
+                                        <then>
+                                            <output expression="Int(valor/10)&amp;&quot;nota(s) de R$ 10,00&quot;" newline="True"/>
+                                            <assign variable="valor" expression="(valor/10-int(valor/10))*10"/>
+                                            <if expression="valor&gt;=5">
+                                                <then>
+                                                    <output expression="Int(valor/5)&amp;&quot;nota(s) de R$ 5,00&quot;" newline="True"/>
+                                                    <assign variable="valor" expression="(valor/5-int(valor/5))*5"/>
+                                                    <if expression="valor&gt;=2">
+                                                        <then>
+                                                            <output expression="Int(valor/2)&amp;&quot;nota(s) de R$ 2,00&quot;" newline="True"/>
+                                                            <assign variable="valor" expression="(valor/2-int(valor/2))*2"/>
+                                                            <if expression="valor=1">
+                                                                <then>
+                                                                    <output expression="&quot; 1 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </then>
+                                                                <else>
+                                                                    <output expression="&quot; 0 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </else>
+                                                            </if>
+                                                        </then>
+                                                        <else>
+                                                            <if expression="valor=1">
+                                                                <then>
+                                                                    <output expression="&quot; 1 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </then>
+                                                                <else>
+                                                                    <output expression="&quot; 0 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </else>
+                                                            </if>
+                                                        </else>
+                                                    </if>
+                                                </then>
+                                                <else>
+                                                    <if expression="valor&gt;=2">
+                                                        <then>
+                                                            <output expression="Int(valor/2)&amp;&quot;nota(s) de R$ 2,00&quot;" newline="True"/>
+                                                            <assign variable="valor" expression="(valor/2-int(valor/2))*2"/>
+                                                            <if expression="valor=1">
+                                                                <then>
+                                                                    <output expression="&quot; 1 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </then>
+                                                                <else>
+                                                                    <output expression="&quot; 0 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </else>
+                                                            </if>
+                                                        </then>
+                                                        <else>
+                                                            <if expression="valor=1">
+                                                                <then>
+                                                                    <output expression="&quot; 1 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </then>
+                                                                <else>
+                                                                    <output expression="&quot; 0 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </else>
+                                                            </if>
+                                                        </else>
+                                                    </if>
+                                                </else>
+                                            </if>
+                                        </then>
+                                        <else>
+                                            <if expression="valor&gt;=5">
+                                                <then>
+                                                    <output expression="Int(valor/5)&amp;&quot;nota(s) de R$ 5,00&quot;" newline="True"/>
+                                                    <assign variable="valor" expression="(valor/5-int(valor/5))*5"/>
+                                                    <if expression="valor&gt;=2">
+                                                        <then>
+                                                            <output expression="Int(valor/2)&amp;&quot;nota(s) de R$ 2,00&quot;" newline="True"/>
+                                                            <assign variable="valor" expression="(valor/2-int(valor/2))*2"/>
+                                                            <if expression="valor=1">
+                                                                <then>
+                                                                    <output expression="&quot; 1 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </then>
+                                                                <else>
+                                                                    <output expression="&quot; 0 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </else>
+                                                            </if>
+                                                        </then>
+                                                        <else>
+                                                            <if expression="valor=1">
+                                                                <then>
+                                                                    <output expression="&quot; 1 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </then>
+                                                                <else>
+                                                                    <output expression="&quot; 0 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </else>
+                                                            </if>
+                                                        </else>
+                                                    </if>
+                                                </then>
+                                                <else>
+                                                    <if expression="valor&gt;=2">
+                                                        <then>
+                                                            <output expression="Int(valor/2)&amp;&quot;nota(s) de R$ 2,00&quot;" newline="True"/>
+                                                            <assign variable="valor" expression="(valor/2-int(valor/2))*2"/>
+                                                            <if expression="valor=1">
+                                                                <then>
+                                                                    <output expression="&quot; 1 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </then>
+                                                                <else>
+                                                                    <output expression="&quot; 0 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </else>
+                                                            </if>
+                                                        </then>
+                                                        <else>
+                                                            <if expression="valor=1">
+                                                                <then>
+                                                                    <output expression="&quot; 1 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </then>
+                                                                <else>
+                                                                    <output expression="&quot; 0 nota de R$ 1,00&quot;" newline="True"/>
+                                                                </else>
+                                                            </if>
+                                                        </else>
+                                                    </if>
+                                                </else>
+                                            </if>
+                                        </else>
+                                    </if>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>

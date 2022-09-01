@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="Professor"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2022-08-25 09:38:27 "/>
+        <attribute name="created" value="UHJvZmVzc29yO000NjY5MTsyMDIyLTA4LTI1OyIwOToyODowNSAiOzI1MDY="/>
+        <attribute name="edited" value="UHJvZmVzc29yO000NjY5MTsyMDIyLTA4LTI1OyIwOTozODoyNyAiOzE7MjYxOQ=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="x" type="Real" array="False" size=""/>
+            <declare name="y" type="Real" array="False" size=""/>
+            <input variable="x"/>
+            <input variable="y"/>
+            <declare name="resultado" type="Real" array="False" size=""/>
+            <assign variable="resultado" expression="soma(x,y)"/>
+            <while expression="x&gt;=0 &amp;&amp; y&gt;=0">
+                <input variable="x"/>
+                <input variable="y"/>
+                <assign variable="resultado" expression="resultado+soma(x,y)"/>
+                <output expression="resultado" newline="True"/>
+            </while>
+            <do expression=""/>
+        </body>
+    </function>
+    <function name="soma" type="Real" variable="retorno">
+        <parameters>
+            <parameter name="x" type="Real" array="False"/>
+            <parameter name="y" type="Real" array="False"/>
+        </parameters>
+        <body>
+            <output expression="x+y" newline="True"/>
+            <declare name="retorno" type="Real" array="False" size=""/>
+            <assign variable="retorno" expression="x+y"/>
+        </body>
+    </function>
+</flowgorithm>

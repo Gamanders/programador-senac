@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="Professor"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2022-08-23 08:49:36 "/>
+        <attribute name="created" value="UHJvZmVzc29yO000NjY5MTsyMDIyLTA4LTIzOyIwODoxMjo0MCAiOzI0OTU="/>
+        <attribute name="edited" value="UHJvZmVzc29yO000NjY5MTsyMDIyLTA4LTIzOyIwODo0OTozNiAiOzE7MjYxOA=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="nro" type="Integer" array="False" size=""/>
+            <declare name="horas" type="Integer" array="False" size=""/>
+            <declare name="valor" type="Real" array="False" size=""/>
+            <input variable="nro"/>
+            <input variable="horas"/>
+            <input variable="valor"/>
+            <output expression="&quot;NUMBER =&quot;&amp;nro" newline="True"/>
+            <output expression="&quot;SALARY = U$&quot;&amp;ToFixed(valor*horas,2)" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
