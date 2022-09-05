@@ -12,7 +12,6 @@ class Veiculo{
         return $this;
     }
 }
-
 $carro = new Veiculo();
 $carro->qtdPassageiros = 5;
 print $carro->qtdPassageiros;
