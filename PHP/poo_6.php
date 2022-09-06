@@ -21,7 +21,6 @@ class Matematica{
         }
      }
 }
-
 Matematica::$valor = 30;
 print Matematica::$valor;
 print "\n";
@@ -32,5 +31,4 @@ print "\n";
 print Matematica::mul(6,5);
 print "\n";
 print Matematica::div(50,25);
-
 ?>

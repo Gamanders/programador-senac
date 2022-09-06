@@ -1,0 +1,20 @@
+<form method="GET" action="">
+    <!--
+        o atributo action corresponde ao local em que serão tratadas as infos enviadas pelo formulário qnd não informadas, o navegador enviar para a própria url em que o formulário é exibido.
+    -->
+    <!-- 
+        GET é o valor padrão de method, quando não informado esse atributo.
+    -->        
+    <input type="text" name="instrutor" placeholder="Insira o instrutor" title="Referente a nome do Instrutor">
+    <!-- 
+        text é o valor padrão de type, quando não informado esse atributo.
+    -->  
+    <input name="idade" min="18" max="65" step="2" type="number" placeholder="Insira sua Idade">
+    <!--
+        Alguns atributos só funcionam com o type correspondente,por exemplo, min, max e step funcionam number, date, ...
+    -->
+    <input type="email" name="email">                    
+    <button>
+        Enviar
+    </button>
+</form>
