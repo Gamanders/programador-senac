@@ -72,6 +72,33 @@ INSERT INTO `cursos` VALUES (1,'Cuidador de Idosos','2022-10-15','2022-11-15',40
 UNLOCK TABLES;
 
 --
+-- Table structure for table `cursosinteressados`
+--
+
+DROP TABLE IF EXISTS `cursosinteressados`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cursosinteressados` (
+  `cursos_id` int(11) NOT NULL,
+  `interessados_id` int(11) NOT NULL,
+  PRIMARY KEY (`cursos_id`,`interessados_id`),
+  KEY `interessados_id` (`interessados_id`),
+  CONSTRAINT `cursosinteressados_ibfk_1` FOREIGN KEY (`cursos_id`) REFERENCES `cursos` (`id`),
+  CONSTRAINT `cursosinteressados_ibfk_2` FOREIGN KEY (`interessados_id`) REFERENCES `interessados` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cursosinteressados`
+--
+
+LOCK TABLES `cursosinteressados` WRITE;
+/*!40000 ALTER TABLE `cursosinteressados` DISABLE KEYS */;
+INSERT INTO `cursosinteressados` VALUES (1,1),(1,2),(2,2),(3,2),(5,2);
+/*!40000 ALTER TABLE `cursosinteressados` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `interessados`
 --
 
@@ -79,14 +106,15 @@ DROP TABLE IF EXISTS `interessados`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `interessados` (
-  `nome` varchar(100) NOT NULL,
-  `idade` int(11) DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `contato` varchar(100) DEFAULT NULL,
   `email` varchar(100) DEFAULT NULL,
   `escolaridade` varchar(100) DEFAULT NULL,
-  `cpf` varchar(100) NOT NULL,
-  PRIMARY KEY (`cpf`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `dtNasc` date DEFAULT NULL,
+  `tpcontato` varchar(20) DEFAULT NULL,
+  `nome` varchar(150) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -95,6 +123,7 @@ CREATE TABLE `interessados` (
 
 LOCK TABLES `interessados` WRITE;
 /*!40000 ALTER TABLE `interessados` DISABLE KEYS */;
+INSERT INTO `interessados` VALUES (1,'87999999999','walter@gmail.com','técnico','2001-10-10','whatsapp','Walter'),(2,'8799998888','laura@gmail.com','técnico','2000-01-01','whatsapp','Laura');
 /*!40000 ALTER TABLE `interessados` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -107,4 +136,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-09-13  8:39:44
+-- Dump completed on 2022-09-13 11:37:47
