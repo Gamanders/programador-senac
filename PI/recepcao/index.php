@@ -25,12 +25,19 @@
         font-style:italic;
         text-decoration:none;
     }
+    li a{       
+        font-style:italic;
+        text-decoration:none;
+    }
     header a:hover{  
         background-color:gray;
         color:white;
     }
     main{
         min-height:70vh;        
+        display:flex;
+        justify-content:center;
+        align-items:center;
     }
     footer{
         background-color:darkgray;
@@ -55,24 +62,24 @@
                 $pagina =  $_GET['pagina'];
                 switch ($pagina){
                     case "home":
-                        include_once('home.php');
+                        include_once('paginas/home.php');
                         break;
                     case "cadastro":
-                        include_once('cadastro.php');
+                        include_once('paginas/cadastro.php');
                         break;
                     case "interessados":
-                        include_once('interessados.php');
+                        include_once('paginas/interessados.php');
                         break;
                     case "sobre":
-                        include_once('sobre.php');
+                        include_once('paginas/sobre.php');
                         break;
                     default:
-                        include_once('home.php');
+                        include_once('paginas/home.php');
                         break;
                 }
             }
             else{
-                include_once('home.php');
+                include_once('paginas/home.php');
             }
         ?>
     </main>
