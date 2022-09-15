@@ -1,0 +1,41 @@
+p{
+    font-size: 50px;
+    margin-left: 100px;
+}
+a{
+    color: red;
+}
+a:hover{
+    background-color: yellow;
+}
+p a{
+    color:green;
+    border: 5px solid green;
+    font-weight: 100;
+}
+[class="ancora"]{
+    color:pink;
+}
+
+li a{
+    color:white;
+    background-color: black;
+}
+
+li,a{
+    color:red;
+}
+
+[class]{
+    border:chocolate 3px solid;
+}
+.ancora{
+    font-style: italic;
+}
+#seletor_id{
+    background-color: crimson;
+}
+[title]{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
