@@ -104,5 +104,6 @@ if(isset($_POST['nome']) && isset($_POST['modalidade'])){
     $sqlinsert->bindParam(":NOME",$nome);
     $sqlinsert->bindParam(":MODALIDADE",$modalidade);
     $sqlinsert->execute();
+    $conexao->close();
 }
 ?>
