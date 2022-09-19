@@ -82,7 +82,25 @@
             else{
                 include_once('paginas/home.php');
             }
+
+
+            if(isset($_GET['nome'])){
+                print $_GET['nome'];
+            }
+
+            if(isset($_GET['modalidade'])){
+                print $_GET['modalidade'];
+            }
+
+            if(isset($_GET['pagina'])){
+                print $_GET['pagina'];
+            }
+
+            if(isset($_GET['cad'])){
+                print $_GET['cad'];
+            }
         ?>
+        
     </main>
     <footer>
         <p>

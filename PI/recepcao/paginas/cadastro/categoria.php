@@ -3,7 +3,9 @@
 </h1>
 
 <div style="width: 30vw; margin:auto;">
-    <form method="post">
+    <form method="get">
+        <input type="hidden" name="pagina" value="cadastro">
+        <input type="hidden" name="cad" value="categoria">
         <label>
             Nome
         </label>
