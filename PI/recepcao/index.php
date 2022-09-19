@@ -89,13 +89,20 @@
             Desenvolvido em sala - SENAC Garanhuns
         </p>
     </footer>
-</body>
+</body> 
 </html>
 
 <?php
-$conexao = new PDO("mysql:dbname=recepcao;host=localhost","root","");
-$sqlinsert = $conexao->PREPARE(
-    "INSERT INTO categoria (nome,modalidade) 
-    VALUES ('teste','ead')");
-$sqlinsert->execute();
+
+if(isset($_POST['nome']) && isset($_POST['modalidade'])){
+    $nome = $_POST['nome'];
+    $modalidade = $_POST['modalidade'];
+    $conexao = new PDO("mysql:dbname=recepcao;host=localhost","root","");
+    $sqlinsert = $conexao->PREPARE(
+        "INSERT INTO categoria (nome,modalidade) 
+        VALUES (:NOME,:MODALIDADE)");
+    $sqlinsert->bindParam(":NOME",$nome);
+    $sqlinsert->bindParam(":MODALIDADE",$modalidade);
+    $sqlinsert->execute();
+}
 ?>
