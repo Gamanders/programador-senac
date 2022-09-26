@@ -12,22 +12,14 @@
         $sucesso = $_POST['sucesso'];
         if($sucesso == "true"){
             print "
-                <div style='width:30vw; margin:auto; font-size:1.2em; background-color:light-green; margin: solid 2px darkgreen; border-radius:10px;'>
-                    <p style='text-align:center; color:darkgreen;'>
+                <div style='width:60vw; margin:auto; font-size:1.2em; padding:5px; border: solid 2px green; border-radius:10px; background:lightgreen;'>
+                    <p style='text-align:center; color:darkgreen; font-weight:900;'>
                         Cadastro realizado com sucesso!
                     </p>
                 </div>
             ";
         }
     }
-?>
-<?php
-    print " 
-        <div style='width:30vw; margin:auto; font-size:1.2em; background-color:light-green; margin'>
-            <p style='text-align:center; color:darkgreen;'>
-    ";
-
-
 ?>
 <div style="width:30vw; margin:auto; font-size:1.2em">
     <form  method="POST">
@@ -90,7 +82,7 @@
             </tr>
             <tr>
                 <td>
-                    <input style="width:100%; margin-bottom:10px; "type="number" name="cargaHoraria">
+                    <input style="width:100%; margin-bottom:10px; "type="number" name="cargahoraria">
                 </td>
                 <td>
                      <input style="width:100%; margin-bottom:10px; "type="number" name="capacidade">

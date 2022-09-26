@@ -103,15 +103,14 @@ if(isset($_POST['nomeCategoria']) && isset($_POST['modalidade'])){
         VALUES (:NOME,:MODALIDADE)");
     $sqlinsert->bindParam(":NOME",$nome);
     $sqlinsert->bindParam(":MODALIDADE",$modalidade);
-    $sqlinsert->execute();
-    $conexao->close();
+    $sqlinsert->execute();             
 }
 ?>
 
 <?php
 //cadastro cursos
-if(isset($_POST['nomeCurso']) && isset($_POST['categoria'])){
-    $nomeCurso = $_POST['nomeCurso'];
+if(isset($_POST['nomeCurso']) && isset($_POST['categoria'])){    
+    $nomeCurso = $_POST['nomeCurso'];    
     $categoria_id = $_POST['categoria'];
     $dtIni = $_POST['dataInicio'];
     $dtFim = $_POST['dataFim'];
@@ -121,13 +120,12 @@ if(isset($_POST['nomeCurso']) && isset($_POST['categoria'])){
     $sqlinsert = $conexao->PREPARE(
         "INSERT INTO cursos (nome, dtIni, dtFim, cargaHoraria, capacidade, categoria_id) 
         VALUES (:NOME,:DTINI, :DTFIM, :CARGAHORARIA, :CAPACIDADE, :CATEGORIA_ID)");
-    $sqlinsert->bindParam(":NOME",$nome);
+    $sqlinsert->bindParam(":NOME",$nomeCurso);
     $sqlinsert->bindParam(":DTINI",$dtIni);
     $sqlinsert->bindParam(":DTFIM",$dtFim);
     $sqlinsert->bindParam(":CARGAHORARIA",$cargaHoraria);
     $sqlinsert->bindParam(":CAPACIDADE",$capacidade);
     $sqlinsert->bindParam(":CATEGORIA_ID",$categoria_id);
-    $sqlinsert->execute();
-    $conexao->close();
+    $sqlinsert->execute();    
 }
 ?>
