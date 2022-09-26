@@ -93,6 +93,7 @@
 </html>
 
 <?php
+<<<<<<< HEAD
 //cadastro categoria
 if(isset($_POST['nomeCategoria']) && isset($_POST['modalidade'])){
     $nome = $_POST['nome'];
@@ -131,3 +132,42 @@ if(isset($_POST['nomeCurso']) && isset($_POST['categoria'])){
     $conexao->close();
 }
 ?>
+=======
+    // Cadastro Categoria
+    if(isset($_POST['nomeCategoria']) && isset($_POST['modalidade'])){
+        $nome = $_POST['nome'];
+        $modalidade = $_POST['modalidade'];
+        $conexao = new PDO("mysql:dbname=recepcao;host=localhost","root","");
+        $sqlinsert = $conexao->PREPARE(
+            "INSERT INTO categoria (nome,modalidade) 
+            VALUES (:NOME,:MODALIDADE)");
+        $sqlinsert->bindParam(":NOME",$nome);
+        $sqlinsert->bindParam(":MODALIDADE",$modalidade);
+        $sqlinsert->execute();
+        $conexao->close();
+    }
+    // Cadastro Cursos
+    if(isset($_POST['nomeCurso']) && isset($_POST['categoria'])){
+        print $_POST['nomeCurso']." - ".$_POST['categoria']." - ".$_POST['dataInicio']." - ".$_POST['dataFim']." - ".$_POST['cargaHoraria']." - ".$_POST['capacidade'];
+        $nome = $_POST['nomeCurso'];
+        $categoria_id = $_POST['categoria'];
+        $dtIni = $_POST['dataInicio'];
+        $dtFim = $_POST['dataFim'];
+        $cargaHoraria = $_POST['cargaHoraria'];
+        $capacidade = $_POST['capacidade'];
+        $conexao = new PDO("mysql:dbname=recepcao;host=localhost","root","");
+        $sqlinsert = $conexao->PREPARE(
+            "INSERT INTO cursos (nome,dtIni,dtFim,cargaHoraria,capacidade,categoria_id) 
+            VALUES (:NOME,:DTINI,:DTFIM,:CARGAHORARIA,:CAPACIDADE,:CATEGORIA_ID)");
+        $sqlinsert->bindParam(":NOME",$nome);
+        $sqlinsert->bindParam(":DTINI",$dtIni);
+        $sqlinsert->bindParam(":DTFIM",$dtFim);
+        $sqlinsert->bindParam(":CARGAHORARIA",$cargaHoraria);
+        $sqlinsert->bindParam(":CAPACIDADE",$capacidade);
+        $sqlinsert->bindParam(":CATEGORIA_ID",$categoria_id);
+        $sqlinsert->execute();
+        //$conexao->close();
+    }
+?>
+
+>>>>>>> c3c70cb2c83ff01e3a6574aee3062ad9c8a8dec0
