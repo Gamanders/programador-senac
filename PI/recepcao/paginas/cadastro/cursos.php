@@ -10,7 +10,7 @@
 ?>
 <?php
     print " 
-        <div style="width:30vw; margin:auto; font-size:1.2em; background-color:light-green; margin">
+        <div style='width:30vw; margin:auto; font-size:1.2em; background-color:light-green; margin'>
             <p style='text-align:center; color:darkgreen;'>
     ";
 
