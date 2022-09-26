@@ -93,8 +93,8 @@
 </html>
 
 <?php
-
-if(isset($_POST['nome']) && isset($_POST['modalidade'])){
+//cadastro categoria
+if(isset($_POST['nomeCategoria']) && isset($_POST['modalidade'])){
     $nome = $_POST['nome'];
     $modalidade = $_POST['modalidade'];
     $conexao = new PDO("mysql:dbname=recepcao;host=localhost","root","");
@@ -103,6 +103,30 @@ if(isset($_POST['nome']) && isset($_POST['modalidade'])){
         VALUES (:NOME,:MODALIDADE)");
     $sqlinsert->bindParam(":NOME",$nome);
     $sqlinsert->bindParam(":MODALIDADE",$modalidade);
+    $sqlinsert->execute();
+    $conexao->close();
+}
+?>
+
+<?php
+//cadastro cursos
+if(isset($_POST['nomeCurso']) && isset($_POST['categoria'])){
+    $nomeCurso = $_POST['nomeCurso'];
+    $categoria_id = $_POST['categoria'];
+    $dtIni = $_POST['dataInicio'];
+    $dtFim = $_POST['dataFim'];
+    $cargaHoraria = $_POST['cargahoraria'];
+    $capacidade = $_POST['capacidade'];
+    $conexao = new PDO("mysql:dbname=recepcao;host=localhost","root","");
+    $sqlinsert = $conexao->PREPARE(
+        "INSERT INTO cursos (nome, dtIni, dtFim, cargaHoraria, capacidade, categoria_id) 
+        VALUES (:NOME,:DTINI, :DTFIM, :CARGAHORARIA, :CAPACIDADE, :CATEGORIA_ID)");
+    $sqlinsert->bindParam(":NOME",$nome);
+    $sqlinsert->bindParam(":DTINI",$dtIni);
+    $sqlinsert->bindParam(":DTFIM",$dtFim);
+    $sqlinsert->bindParam(":CARGAHORARIA",$cargaHoraria);
+    $sqlinsert->bindParam(":CAPACIDADE",$capacidade);
+    $sqlinsert->bindParam(":CATEGORIA_ID",$categoria_id);
     $sqlinsert->execute();
     $conexao->close();
 }

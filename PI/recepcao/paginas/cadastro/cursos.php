@@ -1,72 +1,92 @@
 <h1>
     Cursos
 </h1>
-<<<<<<< HEAD
-
-=======
->>>>>>> 4223898847eeebcb0bdb391c34c260656cfbe979
 <?php
     $conexao = new PDO("mysql:dbname=recepcao;host=localhost","root","");
     $sqlselect = $conexao->PREPARE("SELECT * FROM categoria");
     $sqlselect->execute();
-<<<<<<< HEAD
     $resultado=$sqlselect->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
+<?php
+    print " 
+        <div style="width:30vw; margin:auto; font-size:1.2em; background-color:light-green; margin">
+            <p style='text-align:center; color:darkgreen;'>
+    ";
 
-<div style="width:30vw; margin:auto; font-seize:1.2em">
+
+?>
+<div style="width:30vw; margin:auto; font-size:1.2em">
     <form  method="POST">
+        <input type="hidden" name="pagina" value="cadastro">
+        <input type="hidden" name="cad" value="curso">
+        <input type="hidden" name="sucesso" value="true">
         <label>
             Categoria
         </label>
-        <select style="width:100%; margin-bottom:10px;" name="modalidade" >
+        <select style="width:100%; margin-bottom:10px;" name="categoria" >
             <?php
              foreach($resultado as $res){
-                print "<option value";
+                print "<option value=";
                 print $res['id'].">";
-                print $res['nome']."/".$res['modalidade'];
+                print $res['nome']." / ".$res['modalidade'];
                 echo "</option>";
-            }
-                print "<option value"; 
+            } 
             ?>
         </select>
-        <input style="width:100%; margin-bottom:10px; "type="text" name="nome do curso">
-        <br>
-        <input style="width:100%; margin-bottom:10px; "type="date" name="data de inicio">
-        <br>
-        <input style="width:100%; margin-bottom:10px; "type="date" name="data de fim">
-        <br> 
-        <input style="width:100%; margin-bottom:10px; "type="number" name="carga horaria">
-        <br>
-        <input style="width:100%; margin-bottom:10px; "type="number" name="capacidade">
-        <br>
+        <label>
+            nome cursos
+        </label>
+        <input style="width:100%; margin-bottom:10px; "type="text" name="nomeCurso">
+        <table style = "width:100%;">
+           <tr>
+                <td>
+                    <label>
+                        data de inicio
+                    </label>
+                </td>
+                <td>
+                    <label>
+                        data de fim
+                    </label>
+                </td>
+           </tr>
+           <tr>
+                <td>
+                    <input style="width:100%; margin-bottom:10px; "type="date" name="dataInicio">
+                   
+                </td>
+                <td>
+                    <input style="width:100%; margin-bottom:10px; "type="date" name="dataFim">
+                </td>
+           </tr>
+        </table>
+
+        <table style="width:100%">
+            <tr>
+                <td>
+                    <label>
+                        carga horaria
+                     </label>
+                </td>
+                <td>
+                    <label>
+                         capacidade
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input style="width:100%; margin-bottom:10px; "type="number" name="cargaHoraria">
+                </td>
+                <td>
+                     <input style="width:100%; margin-bottom:10px; "type="number" name="capacidade">
+                </td>
+            </tr>
+        </table>
+
         <button>
             cadastrar
         </button>
     </form>
 </div>
-=======
-    $resultado = $sqlselect->fetchAll(PDO::FETCH_ASSOC); 
-    echo "<hr>";    
-?>
-<div style="width: 30vw; margin:auto;">
-    <form method="POST">               
-        <label>
-           Categoria
-        </label>
-        <select style="width:100%; margin-bottom:10px;" name="modalidade">            
-            <?php
-                foreach($resultado as $res){
-                    print "<option value='";
-                    print $res['id']."'>";
-                    print $res['nome']." / ".$res['modalidade'];
-                    print "</option>";
-                }
-            ?>
-        </select>        
-        <button>
-            Cadastrar
-        </button>
-    </form> 
-</div> 
->>>>>>> 4223898847eeebcb0bdb391c34c260656cfbe979

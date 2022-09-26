@@ -9,7 +9,7 @@
         <label>
             Nome
         </label>
-        <input style="width:100%; margin-bottom:10px;" type="text" name="nome">
+        <input style="width:100%; margin-bottom:10px;" type="text" name="nomeCategoria">
         <label>
             Modalidade
         </label>
