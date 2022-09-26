@@ -1,0 +1,19 @@
+.items{
+    width: 20vw;
+    float:left;
+    border-right: 5px solid darkgray;
+    min-height:69vh;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+
+.items li{
+    list-style-type: none;
+    border-bottom:2px gray solid;
+    font-size: 1.5em;    
+}
+.conteudo{
+    width: 80vw;
+    float:right;            
+}
