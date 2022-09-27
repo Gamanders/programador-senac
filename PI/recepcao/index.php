@@ -95,7 +95,7 @@
 <?php
 //cadastro categoria
 if(isset($_POST['nomeCategoria']) && isset($_POST['modalidade'])){
-    $nome = $_POST['nome'];
+    $nome = $_POST['nomeCategoria'];
     $modalidade = $_POST['modalidade'];
     $conexao = new PDO("mysql:dbname=recepcao;host=localhost","root","");
     $sqlinsert = $conexao->PREPARE(
@@ -128,4 +128,20 @@ if(isset($_POST['nomeCurso']) && isset($_POST['categoria'])){
     $sqlinsert->bindParam(":CATEGORIA_ID",$categoria_id);
     $sqlinsert->execute();    
 }
+?>
+
+<?php    
+    //excluir categoria
+    if(isset($_GET['excluir'])){
+        $id = $_GET['excluir'];        
+        $con = new PDO("mysql:dbname=recepcao;host=localhost","root","");
+        $verifica = $con->PREPARE("SELECT count(*) AS 'qtd' FROM categoria JOIN cursos ON categoria.id = cursos.categoria_id WHERE categoria.id = :ID");
+        $verifica->bindParam(":ID",$id);
+        $verifica->execute();
+        $result = $verifica->fetchAll(PDO::FETCH_ASSOC);
+        print $result[0]['qtd'];
+        $delete = $con->PREPARE("DELETE FROM categoria WHERE id = :ID");
+        $delete->bindParam(":ID",$id);
+        $delete->execute();
+    }
 ?>
