@@ -55,7 +55,7 @@
                                 <td>".$categoria['id']."</td>
                                 <td>".$categoria['nome']."</td>
                                 <td>".$categoria['modalidade']."</td>
-                                <td> <a href=''>Editar</a> | <a href=''>Excluir</a></td>
+                                <td> <a href=''>Editar</a> | <a href='?pagina=cadastro&cad=categoria&excluir=".$categoria['id']."'>Excluir</a></td>
                             </tr>
                         ";
                     }
@@ -64,5 +64,9 @@
         </table>
     </div>
 </div>
+
+<?php
+  //  print isset($_GET['excluir'])?$_GET['excluir']:"sem info";
+?>
     
 
