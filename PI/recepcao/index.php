@@ -94,7 +94,8 @@
 
 <?php
 //cadastro categoria
-if(isset($_POST['nomeCategoria']) && isset($_POST['modalidade'])){
+if(isset($_POST['nomeCategoria']) && isset($_POST['modalidade'])&&!isset($_GET['editar'])){
+    print "<h1> Cadastro </h1>";
     $nome = $_POST['nomeCategoria'];
     $modalidade = $_POST['modalidade'];
     $conexao = new PDO("mysql:dbname=recepcao;host=localhost","root","");
@@ -104,6 +105,23 @@ if(isset($_POST['nomeCategoria']) && isset($_POST['modalidade'])){
     $sqlinsert->bindParam(":NOME",$nome);
     $sqlinsert->bindParam(":MODALIDADE",$modalidade);
     $sqlinsert->execute();             
+}
+?>
+
+<?php
+//atualizar Categoria
+if(isset($_POST['nomeCategoria']) && isset($_POST['modalidade'])&&isset($_GET['editar'])){
+    print "<h1> Atualizar </h1>";
+    $nome = $_POST['nomeCategoria'];
+    $modalidade = $_POST['modalidade'];
+    $id = $_GET['editar'];
+    $conexao = new PDO("mysql:dbname=recepcao;host=localhost","root","");
+    $sqlupdate = $conexao->PREPARE(
+        "UPDATE categoria SET nome = :NOME, modalidade = :MODALIDADE WHERE id = :ID");
+    $sqlupdate->bindParam(":ID",$id);
+    $sqlupdate->bindParam(":NOME",$nome);
+    $sqlupdate->bindParam(":MODALIDADE",$modalidade);
+    $sqlupdate->execute();             
 }
 ?>
 
@@ -144,4 +162,5 @@ if(isset($_POST['nomeCurso']) && isset($_POST['categoria'])){
         $delete->bindParam(":ID",$id);
         $delete->execute();
     }
+                    
 ?>

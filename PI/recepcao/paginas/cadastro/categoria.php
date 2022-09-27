@@ -1,3 +1,14 @@
+<?php
+    $conexao = new PDO("mysql:dbname=recepcao;host:localhost","root","");
+    if(isset($_GET['editar'])){
+        $edicao = $_GET['editar'];
+        $atualiza = $conexao->PREPARE("SELECT * FROM categoria WHERE id = :ID;");
+        $atualiza->bindParam(":ID",$edicao);
+        $atualiza->execute();
+        $ratualiza = $atualiza->fetchAll(PDO::FETCH_ASSOC);
+    }
+?>
+
 <h1 style="text-align:center;">
     Categoria
 </h1>
@@ -6,34 +17,76 @@
         <form method="POST">
             <input type="hidden" name="pagina" value="cadastro">
             <input type="hidden" name="cad" value="categoria">
+            <?php
+                if(isset($ratualiza)){
+                    print "<input type='hidden' name='atualizar' value='".$edicao."'>";                    
+                }
+            ?>
             <label>
                 Nome
             </label>
-            <input style="width:100%; margin-bottom:10px;" type="text" name="nomeCategoria">
+            <input style="width:100%; margin-bottom:10px;" type="text" name="nomeCategoria"
+                <?php                    
+                        if(isset($ratualiza)){
+                            print "value='".$ratualiza[0]['nome']."'";
+                        }
+                ?>
+            >
             <label>
                 Modalidade
             </label>
             <select style="width:100%; margin-bottom:10px;" name="modalidade">
-                <option value="ead">
+                <option value="ead"
+                        <?php
+                            if(isset($ratualiza)){
+                                if($ratualiza[0]['modalidade']=="ead"){
+                                    print "selected";
+                                }
+                            }
+                        ?>
+                    >
                     Ensino à Distância
                 </option>
-                <option value="presencial">
+                <option value="presencial"
+                        <?php
+                            if(isset($ratualiza)){
+                                if($ratualiza[0]['modalidade']=="presencial"){
+                                    print "selected";
+                                }
+                            }
+                        ?>
+                    >
                     Presencial
                 </option>
-                <option value="hibrido">
+                <option value="hibrido"
+                        <?php
+                            if(isset($ratualiza)){
+                                if($ratualiza[0]['modalidade']=="semi-presencial"){
+                                    print "selected";
+                                }
+                            }
+                        ?>
+                    >
                     Híbrido
                 </option>
             </select>
             <br>
             <button>
-                Cadastrar
+                <?php
+                    if(isset($ratualiza)){
+                        print "Atualizar";
+                    }
+                    else{
+                        print "Cadastrar";
+                    }
+                ?>
             </button>
         </form> 
     </div>
     <div style="width: 30vw;">
         <h4 style="text-align:center;">
             Listagem de Categorias
-        </h4>
+        </h4>        
         <table>
             <thead>
                 <tr>
@@ -44,8 +97,7 @@
                 </tr>
             </thead>
             <tbody>
-                <?php
-                    $conexao = new PDO("mysql:dbname=recepcao;host:localhost","root","");
+                <?php                    
                     $sqlselect = $conexao->PREPARE("SELECT * FROM categoria");
                     $sqlselect->execute();
                     $categorias = $sqlselect->fetchAll(PDO::FETCH_ASSOC);
@@ -55,7 +107,7 @@
                                 <td>".$categoria['id']."</td>
                                 <td>".$categoria['nome']."</td>
                                 <td>".$categoria['modalidade']."</td>
-                                <td> <a href=''>Editar</a> | <a href='?pagina=cadastro&cad=categoria&excluir=".$categoria['id']."'>Excluir</a></td>
+                                <td> <a href='?pagina=cadastro&cad=categoria&editar=".$categoria['id']."'>Editar</a> | <a href='?pagina=cadastro&cad=categoria&excluir=".$categoria['id']."'>Excluir</a></td>
                             </tr>
                         ";
                     }
