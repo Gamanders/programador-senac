@@ -1,8 +1,8 @@
--- MariaDB dump 10.17  Distrib 10.4.14-MariaDB, for Win64 (AMD64)
+-- MariaDB dump 10.19  Distrib 10.4.24-MariaDB, for Win64 (AMD64)
 --
 -- Host: localhost    Database: recepcao
 -- ------------------------------------------------------
--- Server version	10.4.14-MariaDB
+-- Server version	10.4.24-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -27,7 +27,7 @@ CREATE TABLE `categoria` (
   `nome` varchar(60) DEFAULT NULL,
   `modalidade` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -36,7 +36,7 @@ CREATE TABLE `categoria` (
 
 LOCK TABLES `categoria` WRITE;
 /*!40000 ALTER TABLE `categoria` DISABLE KEYS */;
-INSERT INTO `categoria` VALUES (1,'Saude','presencial'),(2,'Saude','ead'),(3,'Saude','semi-presencial'),(4,'Beleza','presencial'),(5,'Beleza','ead'),(6,'Beleza','semi-presencial'),(7,'Informatica','presencial'),(8,'Informatica','ead'),(9,'Informatica','semi-presencial'),(10,'Administrativo','presencial'),(11,'Administrativo','ead'),(12,'Administrativo','semi-presencial');
+INSERT INTO `categoria` VALUES (1,'Saude','presencial'),(2,'Saude','ead'),(3,'Saude','semi-presencial'),(4,'Beleza','presencial'),(5,'Beleza','ead'),(6,'Beleza','semi-presencial'),(7,'Informatica','presencial'),(8,'Informatica','ead'),(9,'Informatica','semi-presencial'),(10,'Administrativo','presencial'),(11,'Administrativo','ead'),(12,'Administrativo','semi-presencial'),(15,'Beleza','hibrido'),(16,NULL,NULL);
 /*!40000 ALTER TABLE `categoria` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -58,7 +58,7 @@ CREATE TABLE `cursos` (
   PRIMARY KEY (`id`),
   KEY `categoria_id` (`categoria_id`),
   CONSTRAINT `cursos_ibfk_1` FOREIGN KEY (`categoria_id`) REFERENCES `categoria` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -67,7 +67,7 @@ CREATE TABLE `cursos` (
 
 LOCK TABLES `cursos` WRITE;
 /*!40000 ALTER TABLE `cursos` DISABLE KEYS */;
-INSERT INTO `cursos` VALUES (1,'Cuidador de Idosos','2022-10-15','2022-11-15',40,15,1),(2,'Cuidador de Idosos','2022-10-15','2022-11-15',40,15,2),(3,'Informatica Basica','2022-09-30','2022-10-15',30,15,7),(4,'Informatica Basica','2022-09-20','2022-10-10',15,15,9),(5,'Excel','2022-10-10','2022-10-30',20,60,8);
+INSERT INTO `cursos` VALUES (1,'Cuidador de Idosos','2022-10-15','2022-11-15',40,15,1),(2,'Cuidador de Idosos','2022-10-15','2022-11-15',40,15,2),(3,'Informatica Basica','2022-09-30','2022-10-15',30,15,7),(4,'Informatica Basica','2022-09-20','2022-10-10',15,15,9),(5,'Excel','2022-10-10','2022-10-30',20,60,8),(8,'Cuidador de CrianÃ§as','2022-10-10','2022-10-20',10,20,1),(9,'Programador de Sistemas','2022-10-15','2022-10-30',200,15,7),(13,'Maquiagem','2022-10-20','2022-11-10',10,15,4),(14,'Aplicativos BÃ¡sicos','2022-11-10','2022-12-30',40,15,9),(15,'Excel AvanÃ§ado','2022-10-15','2022-11-05',20,15,8),(16,'Vendedor Topado','2022-05-10','2022-11-30',10,15,12),(17,'PrÃ¡tica CirurgÃ­ca de Catarata','2022-10-10','2022-11-10',5,100,2),(18,'Uso Baton de Cerveja','2022-10-15','2022-10-29',15,5,5),(19,'Mala Direta Word com Excel','2022-10-15','2022-10-30',15,50,8);
 /*!40000 ALTER TABLE `cursos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -136,4 +136,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-09-13 11:37:47
+-- Dump completed on 2022-09-27  8:21:30
