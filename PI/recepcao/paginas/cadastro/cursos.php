@@ -1,4 +1,4 @@
-<h1>
+<h1 style="text-align:center;">
     Cursos
 </h1>
 <?php
@@ -96,19 +96,20 @@
             </button>
         </form>
     </div>
-    <div style="width:30vw; margin:auto; font-size:1.2em">
+    <div style="width:40vw; margin:auto; font-size:0.9em">
          <?php
             $conexao = new PDO("mysql:dbname=recepcao;host=localhost","root","");
-            $selectCursos = $conexao->PREPARE("select cursos.id, cursos.nome, categoria.modalidade FROM cursos join categoria ON cursos.categoria_id = categoria.id");
+            $selectCursos = $conexao->PREPARE("select cursos.id, cursos.nome, categoria.nome as 'categoria', categoria.modalidade FROM cursos join categoria ON cursos.categoria_id = categoria.id");
             $selectCursos->execute();
             $cursos = $selectCursos->fetchAll(PDO::FETCH_ASSOC);
             //var_dump($cursos);
          ?>
         <table>
             <thead>
-                <tr>
+                <tr style="font-weight:900; text-align:center;">
                     <td>id</td>
                     <td>Curso</td>
+                    <td>Categoria</td>
                     <td>Modalidade</td>
                     <td>Ações</td>
                 </tr>
@@ -119,11 +120,15 @@
                     foreach($cursos as $curso){
                         print 
                             "
-                            <tr>
+                            <tr style='text-align:center;'>
                                 <td>".$curso['id']."</td>
                                 <td>".$curso['nome']."</td>
+                                <td>".$curso['categoria']."</td>
                                 <td>".$curso['modalidade']."</td>
-                                <td>"."<a href=''>Editar</a> <a href=''>Excluir</a> <a href=''>Visualizar</a>"."</td>
+                                <td>"."
+                                    <a href=''><i style='color:orange;'class='fa-solid fa-pencil'></i></a>
+                                    <a href=''><i style='color:red;' class='fa-solid fa-trash'></i></a> 
+                                    <a href=''><i style='color:blue;'class='fa-solid fa-eye'></i></a>"."</td>
                             </tr>";
 
                     }
