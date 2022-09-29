@@ -126,9 +126,9 @@
                                 <td>".$curso['categoria']."</td>
                                 <td>".$curso['modalidade']."</td>
                                 <td>"."
-                                    <a href=''><i style='color:orange;'class='fa-solid fa-pencil'></i></a>
-                                    <a href=''><i style='color:red;' class='fa-solid fa-trash'></i></a> 
-                                    <a href=''><i style='color:blue;'class='fa-solid fa-eye'></i></a>"."</td>
+                                    <a href='?pagina=cadastro&cad=curso&editar=".$curso['id']."'><i style='color:orange;'class='fa-solid fa-pencil'></i></a>
+                                    <a href='?pagina=cadastro&cad=curso&excluir=".$curso['id']."'><i style='color:red;' class='fa-solid fa-trash'></i></a> 
+                                    <a href='?pagina=cadastro&cad=curso&detalhes=".$curso['id']."'><i style='color:blue;'class='fa-solid fa-eye'></i></a>"."</td>
                             </tr>";
 
                     }

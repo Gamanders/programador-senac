@@ -107,7 +107,7 @@
                                 <td>".$categoria['id']."</td>
                                 <td>".$categoria['nome']."</td>
                                 <td>".$categoria['modalidade']."</td>
-                                <td> <a href='?pagina=cadastro&cad=categoria&editar=".$categoria['id']."'>Editar</a> | <a href='?pagina=cadastro&cad=categoria&excluir=".$categoria['id']."'>Excluir</a></td>
+                                <td> <a href='?pagina=cadastro&cad=categoria&editar=".$categoria['id']."'> <i style='color:orange;'class='fa-solid fa-pencil'> </a> | <a href='?pagina=cadastro&cad=categoria&excluir=".$categoria['id']."'><i style='color:red;' class='fa-solid fa-trash'></a></td>
                             </tr>
                         ";
                     }
