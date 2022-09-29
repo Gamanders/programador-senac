@@ -12,6 +12,7 @@
 <h1 style="text-align:center;">
     Categoria
 </h1>
+<hr>
 <div style="display:flex; justify-content:center;">
     <div style="width: 30vw; margin:auto;">
         <form method="POST">

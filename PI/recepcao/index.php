@@ -194,8 +194,9 @@ if(isset($_POST['nomeCurso']) && isset($_POST['categoria'])){
         $sqlupdate->bindParam(":DTINI",$dtIni);
         $sqlupdate->bindParam(":DTFIM",$dtFim);
         $sqlupdate->bindParam(":CARGAHORARIA",$cargaHoraria);
-        $sqlupdate->bindParam(":CAPACIDADE",$capacidade);
-        $sqlupdate->execute();             
+        $sqlupdate->bindParam(":CAPACIDADE",$capacidade);        
+        print "<h1>Alterar</h1>".$cad." ".$id;            
+        //$sqlupdate->execute();             
     }
 ?>
 <!--
@@ -204,7 +205,7 @@ if(isset($_POST['nomeCurso']) && isset($_POST['categoria'])){
 <?php
     if(isset($_GET['excluir'])&&($_GET['cad'])){
         $cad = $_GET['cad'];
-        if($cad == "cursos"){
+        if($cad == "curso"){
             $id = $_GET['excluir'];        
             $con = new PDO("mysql:dbname=recepcao;host=localhost","root","");
                 //$verifica = $con->PREPARE("SELECT count(*) AS 'qtd' FROM categoria JOIN cursos ON 
