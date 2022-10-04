@@ -12,10 +12,11 @@
     $interessados = $selectinteressados->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <div style="display: flex; justify-content:center;">
-    <form>
-        <input type="hidden" name="cad" value="interesses">    
+    <form method="POST">    
+        <input type="hidden" name="cadcurso" value="interesses">
+        <input type="hidden" name="cadinteressado" value="cadastro">        
         <label style="font-weight:900;">Cursos</label>   
-        <select style="width=100%;" name="cursos">
+        <select style="width=100%;" name="cadcurso">
             <?php
                 foreach ($cursos as $c){
                     print 
@@ -26,7 +27,7 @@
             ?>
         </select>
         <label style="font-weight:900;">Interessados</label>   
-        <select style="width=100%;" name="cursos">
+        <select style="width=100%;" name="cadinteressado">
             <?php
                 foreach ($interessados as $i){
                     print 
@@ -42,3 +43,26 @@
     </form>
 </div>
 <hr>
+<hr>
+<table style="width:100%">
+    <thead>
+        <tr style="font-weight:900;">
+            <td>id</td>            
+            <td>Categoria/Modalidade</td>
+            <td>Curso</td>
+            <td>Interessado</td>
+            <td>Contato</td>
+            <td>Email</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>valor</td>
+            <td>valor</td>
+            <td>valor</td>
+            <td>valor</td>
+            <td>valor</td>
+            <td>valor</td>
+        </tr>
+    </tbody>
+</table>

@@ -139,7 +139,7 @@
                                     .$interessado['contato'].
                                 "</a>"
                                 ."</td>
-                                <td>".$interessado['tpcontato']."</td>
+                                <td>".$interessado['tpcontato']."   </td>
                                 <td>".$interessado['email']."</td>
                                 <td>"."
                                     <a href='?pagina=cadastro&cad=interessado&editar=".$interessado['id']."'><i style='color:orange;'class='fa-solid fa-pencil'></i></a>

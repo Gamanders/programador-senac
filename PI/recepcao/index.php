@@ -223,3 +223,21 @@ if(isset($_POST['nomeCurso']) && isset($_POST['categoria'])){
     }               
 ?>
 
+    <!--
+    Cadastrar Interesses
+    -->
+    <?php    
+    if(isset($_POST['cadcurso']) && isset($_POST['cadinteressado'])){
+        print "<h1> Cadastro </h1>";
+        $idCurso = $_POST['cadcurso'];
+        $idInteressado = $_POST['cadinteressado'];  
+        $conexao = new PDO("mysql:dbname=recepcao;host=localhost","root","");
+        $sqlinsert = $conexao->PREPARE(
+            "INSERT INTO cursosinteressados (cursos_id,interessados_id) 
+            VALUES (:CADCURSO,:CADINTERESSADO)");
+        $sqlinsert->bindParam(":CADCURSO",$idCurso);
+        $sqlinsert->bindParam(":CADINTERESSADO",$idInteressado);
+        $sqlinsert->execute();
+    }
+?>
+
