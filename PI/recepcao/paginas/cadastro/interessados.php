@@ -26,85 +26,81 @@
                     print "<input type='hidden' name='atualizar' value='".$edicao."'>";                    
                 }
             ?>
-            contato
-            email
-            escolaridade
-            dtNasc
-            tpcontato
-            nome
             <label>
                 Nome
             </label>
             <input type="text" name="nome" style="width:100%; margin-bottom:10px;">
-            <label>
-                Email
-            </label>
-            <input type="email" name="email" style="width:100%; margin-bottom:10px;">
-            <label>
-                Escolaridade
-            </label>
-            <select style="width:100%; margin-bottom:10px;" name="escolaridade" >
-                <option value="fundamental">
-                     Fundamental
-               </option>
-               <option value="medio">
-                     Médio   
-               </option>
-               <option value="superior">
-                     Médio   
-               </option>
-            </select>
-            <label>
-                nome cursos
-            </label>
-            <input style="width:100%; margin-bottom:10px; "type="text" name="nomeCurso">
-            <table style = "width:100%;">
-            <tr>
-                    <td>
-                        <label>
-                            data de inicio
-                        </label>
-                    </td>
-                    <td>
-                        <label>
-                            data de fim
-                        </label>
-                    </td>
-            </tr>
-            <tr>
-                    <td>
-                        <input style="width:100%; margin-bottom:10px; "type="date" name="dataInicio">
-                    
-                    </td>
-                    <td>
-                        <input style="width:100%; margin-bottom:10px; "type="date" name="dataFim">
-                    </td>
-            </tr>
-            </table>
-
             <table style="width:100%">
                 <tr>
                     <td>
                         <label>
-                            carga horaria
+                           Contato
                         </label>
                     </td>
                     <td>
                         <label>
-                            capacidade
+                            Tipo de Contato
                         </label>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <input style="width:100%; margin-bottom:10px; "type="number" name="cargahoraria">
+                        <input type="tel" name="contato" style="width:100%; margin-bottom:10px;">
                     </td>
                     <td>
-                        <input style="width:100%; margin-bottom:10px; "type="number" name="capacidade">
+                    <select style="width:100%; margin-bottom:10px;" name="tpcontato" >
+                        <option value="soligacao">
+                                Só Ligação
+                        </option>
+                        <option value="whastapp">
+                                whastapp
+                        </option>
+                        <option value="telegram">
+                                Telegram
+                        </option>               
+                    </select>            
+                    </td>
+                </tr>
+            </table>               
+            <label>
+                Email
+            </label>
+            <input type="email" name="email" style="width:100%; margin-bottom:10px;">            
+            <table style = "width:100%;">
+                <tr>
+                    <td>
+                        <label>
+                            Escolaridade
+                        </label>
+                    </td>
+                    <td>
+                        <label>
+                            Data de Nascimento
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <select style="width:100%; margin-bottom:10px;" name="escolaridade" >
+                            <option value="fundamental">
+                                    Fundamental
+                            </option>
+                            <option value="medio">
+                                    Médio   
+                            </option>
+                            <option value="superior">
+                                    Superior   
+                            </option>
+                            <option value="posgraduado">
+                                    posgraduado   
+                            </option>
+                        </select>
+                    </td>
+                    <td>
+                        <input style="width:100%; margin-bottom:10px; "type="date" name="dataNascimento">
                     </td>
                 </tr>
             </table>
-
             <button>
                 cadastrar
             </button>
@@ -113,39 +109,44 @@
     <div style="width:40vw; margin:auto; font-size:0.9em">
          <?php
             $conexao = new PDO("mysql:dbname=recepcao;host=localhost","root","");
-            $selectCursos = $conexao->PREPARE("select cursos.id, cursos.nome, categoria.nome as 'categoria', categoria.modalidade FROM cursos join categoria ON cursos.categoria_id = categoria.id");
-            $selectCursos->execute();
-            $cursos = $selectCursos->fetchAll(PDO::FETCH_ASSOC);
+            $selectInteressados = $conexao->PREPARE("select * FROM interessados");
+            $selectInteressados->execute();
+            $interessados = $selectInteressados->fetchAll(PDO::FETCH_ASSOC);
             //var_dump($cursos);
          ?>
         <table>
             <thead>
                 <tr style="font-weight:900; text-align:center;">
                     <td>id</td>
-                    <td>Curso</td>
-                    <td>Categoria</td>
-                    <td>Modalidade</td>
+                    <td>Nome</td>
+                    <td>Contato</td>
+                    <td>Tipo</td>
+                    <td>Email</td>
                     <td>Ações</td>
                 </tr>
             </thead>
-            
             <tbody>
                 <?php
-                    foreach($cursos as $curso){
-                        print 
+                    foreach($interessados as $interessado){
+                        print
                             "
                             <tr style='text-align:center;'>
-                                <td>".$curso['id']."</td>
-                                <td>".$curso['nome']."</td>
-                                <td>".$curso['categoria']."</td>
-                                <td>".$curso['modalidade']."</td>
+                                <td>".$interessado['id']."</td>
+                                <td>".$interessado['nome']."</td>                                    
                                 <td>"."
-                                    <a href='?pagina=cadastro&cad=curso&editar=".$curso['id']."'><i style='color:orange;'class='fa-solid fa-pencil'></i></a>
-                                    <a href='?pagina=cadastro&cad=curso&excluir=".$curso['id']."'><i style='color:red;' class='fa-solid fa-trash'></i></a> 
-                                    <a href='?pagina=cadastro&cad=curso&detalhes=".$curso['id']."'><i style='color:blue;'class='fa-solid fa-eye'></i></a>"."</td>
+                                <a href='https://api.whatsapp.com/send?phone='"
+                                .$interessado['contato'].">"
+                                    .$interessado['contato'].
+                                "</a>"
+                                ."</td>
+                                <td>".$interessado['tpcontato']."</td>
+                                <td>".$interessado['email']."</td>
+                                <td>"."
+                                    <a href='?pagina=cadastro&cad=interessado&editar=".$interessado['id']."'><i style='color:orange;'class='fa-solid fa-pencil'></i></a>
+                                    <a href='?pagina=cadastro&cad=interessado&excluir=".$interessado['id']."'><i style='color:red;' class='fa-solid fa-trash'></i></a> 
+                                    <a href='?pagina=cadastro&cad=interessado&detalhes=".$interessado['id']."'><i style='color:blue;'class='fa-solid fa-eye'></i></a>"."</td>
                             </tr>";
-
-                    }
+                        }
                 ?>
             </tbody>
         </table>
