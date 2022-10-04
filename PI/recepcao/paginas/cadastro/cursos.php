@@ -1,6 +1,7 @@
 <h1 style="text-align:center;">
     Cursos
 </h1>
+<hr>
 <?php
     $conexao = new PDO("mysql:dbname=recepcao;host=localhost","root","");
     $sqlselect = $conexao->PREPARE("SELECT * FROM categoria");
@@ -27,17 +28,22 @@
             <input type="hidden" name="pagina" value="cadastro">
             <input type="hidden" name="cad" value="curso">
             <input type="hidden" name="sucesso" value="true">
+            <?php
+                if(isset($ratualiza)){
+                    print "<input type='hidden' name='atualizar' value='".$edicao."'>";                    
+                }
+            ?>
             <label>
                 Categoria
             </label>
             <select style="width:100%; margin-bottom:10px;" name="categoria" >
                 <?php
-                foreach($resultado as $res){
-                    print "<option value=";
-                    print $res['id'].">";
-                    print $res['nome']." / ".$res['modalidade'];
-                    echo "</option>";
-                } 
+                    foreach($resultado as $res){
+                        print "<option value=";
+                        print $res['id'].">";
+                        print $res['nome']." / ".$res['modalidade'];
+                        echo "</option>";
+                    } 
                 ?>
             </select>
             <label>
@@ -126,9 +132,9 @@
                                 <td>".$curso['categoria']."</td>
                                 <td>".$curso['modalidade']."</td>
                                 <td>"."
-                                    <a href=''><i style='color:orange;'class='fa-solid fa-pencil'></i></a>
-                                    <a href=''><i style='color:red;' class='fa-solid fa-trash'></i></a> 
-                                    <a href=''><i style='color:blue;'class='fa-solid fa-eye'></i></a>"."</td>
+                                    <a href='?pagina=cadastro&cad=curso&editar=".$curso['id']."'><i style='color:orange;'class='fa-solid fa-pencil'></i></a>
+                                    <a href='?pagina=cadastro&cad=curso&excluir=".$curso['id']."'><i style='color:red;' class='fa-solid fa-trash'></i></a> 
+                                    <a href='?pagina=cadastro&cad=curso&detalhes=".$curso['id']."'><i style='color:blue;'class='fa-solid fa-eye'></i></a>"."</td>
                             </tr>";
 
                     }

@@ -10,7 +10,9 @@
 >>>>>>> ddc72ae7d393bd4b2a55c4813d994f1836536a59
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/estilo.css">    
-    <title>SENAC - Procura Cursos</title>
+    <title>
+        SENAC - Procura Cursos
+    </title>
 </head>
 <style>
     body{
@@ -96,42 +98,65 @@
     </footer>
 </body> 
 </html>
-
-<?php
-//cadastro categoria
-if(isset($_POST['nomeCategoria']) && isset($_POST['modalidade'])&&!isset($_GET['editar'])){
-    print "<h1> Cadastro </h1>";
-    $nome = $_POST['nomeCategoria'];
-    $modalidade = $_POST['modalidade'];
-    $conexao = new PDO("mysql:dbname=recepcao;host=localhost","root","");
-    $sqlinsert = $conexao->PREPARE(
-        "INSERT INTO categoria (nome,modalidade) 
-        VALUES (:NOME,:MODALIDADE)");
-    $sqlinsert->bindParam(":NOME",$nome);
-    $sqlinsert->bindParam(":MODALIDADE",$modalidade);
-    $sqlinsert->execute();             
-}
+    <!--
+    Cadastrar categoria
+    -->
+<?php    
+    if(isset($_POST['nomeCategoria']) && isset($_POST['modalidade'])&&!isset($_GET['editar'])){
+        print "<h1> Cadastro </h1>";
+        $nome = $_POST['nomeCategoria'];
+        $modalidade = $_POST['modalidade'];
+        $conexao = new PDO("mysql:dbname=recepcao;host=localhost","root","");
+        $sqlinsert = $conexao->PREPARE(
+            "INSERT INTO categoria (nome,modalidade) 
+            VALUES (:NOME,:MODALIDADE)");
+        $sqlinsert->bindParam(":NOME",$nome);
+        $sqlinsert->bindParam(":MODALIDADE",$modalidade);
+        $sqlinsert->execute();             
+    }
 ?>
-
+    <!--
+    Atualizar categoria
+    --> 
 <?php
-//atualizar Categoria
-if(isset($_POST['nomeCategoria']) && isset($_POST['modalidade'])&&isset($_GET['editar'])){
-    print "<h1> Atualizar </h1>";
-    $nome = $_POST['nomeCategoria'];
-    $modalidade = $_POST['modalidade'];
-    $id = $_GET['editar'];
-    $conexao = new PDO("mysql:dbname=recepcao;host=localhost","root","");
-    $sqlupdate = $conexao->PREPARE(
-        "UPDATE categoria SET nome = :NOME, modalidade = :MODALIDADE WHERE id = :ID");
-    $sqlupdate->bindParam(":ID",$id);
-    $sqlupdate->bindParam(":NOME",$nome);
-    $sqlupdate->bindParam(":MODALIDADE",$modalidade);
-    $sqlupdate->execute();             
-}
+    if(isset($_POST['nomeCategoria']) && isset($_POST['modalidade'])&&isset($_GET['editar'])){
+        print "<h1> Atualizar </h1>";
+        $nome = $_POST['nomeCategoria'];
+        $modalidade = $_POST['modalidade'];
+        $id = $_GET['editar'];
+        $conexao = new PDO("mysql:dbname=recepcao;host=localhost","root","");
+        $sqlupdate = $conexao->PREPARE(
+            "UPDATE categoria SET nome = :NOME, modalidade = :MODALIDADE WHERE id = :ID");
+        $sqlupdate->bindParam(":ID",$id);
+        $sqlupdate->bindParam(":NOME",$nome);
+        $sqlupdate->bindParam(":MODALIDADE",$modalidade);
+        $sqlupdate->execute();             
+    }
 ?>
-
+    <!--
+    Excluir categoria
+    -->   
 <?php
-//cadastro cursos
+    if(isset($_GET['excluir'])&&($_GET['cad'])){
+        $cad = $_GET['cad'];
+        if($cad == "categoria"){
+            $id = $_GET['excluir'];        
+            $con = new PDO("mysql:dbname=recepcao;host=localhost","root","");
+            $verifica = $con->PREPARE("SELECT count(*) AS 'qtd' FROM categoria JOIN cursos ON categoria.id = cursos.categoria_id WHERE categoria.id = :ID");
+            $verifica->bindParam(":ID",$id);
+            $verifica->execute();
+            $result = $verifica->fetchAll(PDO::FETCH_ASSOC);
+            print $result[0]['qtd'];
+            $delete = $con->PREPARE("DELETE FROM categoria WHERE id = :ID");
+            $delete->bindParam(":ID",$id);
+            $delete->execute();
+        }
+    }               
+?>
+<!--
+    Cadastro cursos
+-->
+<?php
 if(isset($_POST['nomeCurso']) && isset($_POST['categoria'])){    
     $nomeCurso = $_POST['nomeCurso'];    
     $categoria_id = $_POST['categoria'];
@@ -152,20 +177,53 @@ if(isset($_POST['nomeCurso']) && isset($_POST['categoria'])){
     $sqlinsert->execute();    
 }
 ?>
-
-<?php    
-    //excluir categoria
-    if(isset($_GET['excluir'])){
-        $id = $_GET['excluir'];        
-        $con = new PDO("mysql:dbname=recepcao;host=localhost","root","");
-        $verifica = $con->PREPARE("SELECT count(*) AS 'qtd' FROM categoria JOIN cursos ON categoria.id = cursos.categoria_id WHERE categoria.id = :ID");
-        $verifica->bindParam(":ID",$id);
-        $verifica->execute();
-        $result = $verifica->fetchAll(PDO::FETCH_ASSOC);
-        print $result[0]['qtd'];
-        $delete = $con->PREPARE("DELETE FROM categoria WHERE id = :ID");
-        $delete->bindParam(":ID",$id);
-        $delete->execute();
+<!--
+    Atualizar cursos
+-->
+<?php
+    if(isset($_POST['nomeCurso']) && isset($_POST['categoria'])&&isset($_GET['editar'])){
+        print "<h1> Atualizar </h1>";
+        $nome = $_POST['nomeCurso'];        
+        $categoria = $_POST['categoria'];
+        $dtIni = $_POST['dtInicio'];
+        $dtFim = $_POST['dtFim'];
+        $cargaHoraria = $_POST['cargaHoraria'];
+        $capacidade = $_POST['capacidade'];   
+        $id = $_GET['editar'];
+        $conexao = new PDO("mysql:dbname=recepcao;host=localhost","root","");
+        // id nome dtIni dtFim cargaHoraria capacidade categoria_id
+        $sqlupdate = $conexao->PREPARE(
+            "UPDATE cursos SET nome = :NOME, categoria_id = :CATEGORIA, dtIni = :DTINI, dtFim = :DTFIM, cargaHoraria = :CARGAHORARIA, capacidade = :CAPACIDADE WHERE id = :ID");
+        $sqlupdate->bindParam(":ID",$id);
+        $sqlupdate->bindParam(":NOME",$nome);
+        $sqlupdate->bindParam(":CATEGORIA",$categoria);
+        $sqlupdate->bindParam(":DTINI",$dtIni);
+        $sqlupdate->bindParam(":DTFIM",$dtFim);
+        $sqlupdate->bindParam(":CARGAHORARIA",$cargaHoraria);
+        $sqlupdate->bindParam(":CAPACIDADE",$capacidade);        
+        print "<h1>Alterar</h1>".$cad." ".$id;            
+        //$sqlupdate->execute();             
     }
-                    
 ?>
+<!--
+    Excluir Cursos
+-->
+<?php
+    if(isset($_GET['excluir'])&&($_GET['cad'])){
+        $cad = $_GET['cad'];
+        if($cad == "curso"){
+            $id = $_GET['excluir'];        
+            $con = new PDO("mysql:dbname=recepcao;host=localhost","root","");
+                //$verifica = $con->PREPARE("SELECT count(*) AS 'qtd' FROM categoria JOIN cursos ON 
+                //categoria.id = cursos.categoria_id WHERE categoria.id = :ID");
+                //$verifica->bindParam(":ID",$id);
+                //$verifica->execute();
+                //$result = $verifica->fetchAll(PDO::FETCH_ASSOC);
+                //print $result[0]['qtd'];
+            $delete = $con->PREPARE("DELETE FROM cursos WHERE id = :ID");
+            $delete->bindParam(":ID",$id);
+            $delete->execute();
+        }
+    }               
+?>
+
