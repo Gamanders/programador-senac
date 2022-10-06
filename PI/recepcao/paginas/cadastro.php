@@ -37,9 +37,15 @@
                     include_once('paginas/cadastro/interessados.php');
                     break;
                 case "interesses":
-                        include_once('paginas/cadastro/interesses.php');
-                        break;             
+                    include_once('paginas/cadastro/interesses.php');
+                    break; 
+                default:
+                    include_once('paginas/cadastro/default.php');
+                    break;
             }
+        }
+        else{
+            include_once('paginas/cadastro/default.php');
         }
     ?>
 </div>
