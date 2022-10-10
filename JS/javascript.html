@@ -100,9 +100,31 @@
      <span class="titulo"> Texto de span</span>
      <br>
      <button onclick="alteraTexto()">Altera Texto</button>
+
+
+     <hr>
+
+     <h1>
+        Alterando estilo com JavaScript
+     </h1>
+
+     <p id="texto">
+        Porque somos felizes?
+     </p>
+     <button onclick="saiba()">
+        Descubra
+     </button>
 </body>
 
 <script>
+    function saiba(){
+        let s = document.getElementById("texto");
+        s.style.color = "red";
+        s.style.fontWeight = 900;
+        s.style.textAlign = "center";
+        s.innerHTML = "Sou empresario e de Canhotinho ... sucesso para o Mundo";
+    }
+
     function imc(){
         let nome, peso, altura,imc;        
         nome = document.getElementById('nome').value;
@@ -116,7 +138,10 @@
         alert(imc);
     }
     function alteraTexto(){
-        document.getElementsByClassName("titulo")[0].innerHTML = "Texto NOVO";
+        let elementos = document.getElementsByClassName("titulo");
+            for(var i =0;i<=2;i++){
+            elementos[i].innerHTML = "Texto Novo";
+            }  
     }
 </script>
 </html>
