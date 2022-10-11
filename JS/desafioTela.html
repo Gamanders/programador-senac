@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,16 +21,41 @@
     }
 </style>
 <body>    
-    <div style="width: 20vw;  height: 100vh; border-right: 2px red solid; float:left;">
+    <div id="ladoesquerdo" style="width: 20vw;  height: 100vh; border-right: 2px red solid; float:left;">
         <div style="width: 15vw;  height: 90vh; margin: auto; display:flex; flex-direction:column;  justify-content: center; align-items: center;">
-            <a href="" class="texto" onclick="recolheMenu()">Texto1</a>
-            <a href="" class="texto" onclick="recolheMenu()">Texto2</a>
-            <a href="" class="texto" onclick="recolheMenu()">Texto3</a>
-            <a href="" class="texto" onclick="recolheMenu()">Texto4</a>
+            <a href="" class="texto" onclick="recolheMenu(1)">Texto1</a>
+            <a href="" class="texto" onclick="recolheMenu(2)">Texto2</a>
+            <a href="" class="texto" onclick="recolheMenu(3)">Texto3</a>
+            <a href="" class="texto" onclick="recolheMenu(4)">Texto4</a>
         </div>
     </div>
-    <div style="width: 77vw;  height: 100vh;float:right;">
-
+    <div id="ladodireito" style="width: 77vw;  height: 100vh;float:right;">
+        <div id="ladodireito_div"style="width: 70vw; display: flex; justify-content: end;">
+            <a onclick="expandeMenu()">
+                Voltar  
+            </a>
+        </div>
+        <p style="text-align: center;"id="txtcentro">
+            teste
+        </p>
     </div>
 </body>
+<script>
+    function recolheMenu(menu){
+        //console.log(menu);
+        //alert(menu);
+        //texto = document.getElementsByClassName('texto');
+        //for (i=0;i<=3;i++){
+        //texto[0].innerHTML('teste');
+        //}
+        let txt = "texto "+ menu;
+        //alert(txt);
+        document.getElementById('txtcentro').innerHTML("Texto 1");
+        document.getElementById('ladoesquerdo').style.width("10vw");
+        document.getElementById('ladodireito').style.background("red");
+    }
+    function expandeMenu(){
+
+    }
+</script>
 </html>

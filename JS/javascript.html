@@ -1,147 +1,121 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Conceitos de JavaScript</title>
-</head>
-<body>
-    <table style="width:100px;">
-        <thead>
-            <tr style="font-weight: 900;">
-                <td colspan="3">Informe seus dados</td>
-            </tr>
-            <tr>
-                <td>Nome</td>
-                <td>Peso</td>
-                <td>Altura</td>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>
-                    <input type="text" id="nome" value="">
-                </td> 
-                <td>
-                    <input type="text" id="altura" value="">
-                </td>
-                <td>
-                    <input type="text" id="peso" value="">
-                </td>                
-            </tr>
-        </tbody>
-        <tfoot>
-            <tr>
-                <td colspan="3">
-                    <p id="resultado" style="text-align: center;">
+  </head>
+  <body>
+    <table style="width: 100px">
+      <thead>
+        <tr style="font-weight: 900">
+          <td colspan="3">Informe seus dados</td>
+        </tr>
+        <tr>
+          <td>Nome</td>
+          <td>Peso</td>
+          <td>Altura</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <input type="text" id="nome" value="" />
+          </td>
+          <td>
+            <input type="text" id="altura" value="" />
+          </td>
+          <td>
+            <input type="text" id="peso" value="" />
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="3">
+            <p id="resultado" style="text-align: center"></p>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+    <button onclick="imc()">Clique aqui para saber seu IMC!</button>
 
-                    </p>                    
-                </td>
-            </tr>
-        </tfoot>
-    </table>    
-    <button onclick="imc()">
-        Clique aqui para saber seu IMC!
-    </button>
+    <hr />
 
-    <hr>
-
-    <p>
-        Formas de Imprimir
-    </p>
+    <p>Formas de Imprimir</p>
     <ul>
-        <li id="inner" onclick="document.getElementById('inner').innerHTML = 'usando innerHTML'">
-            innerHTML
-        </li>
-        <li onclick="console.log('Imprime no console')">
-            console.log
-        </li>
-        <li  onclick="alert('Abre janela de Alerta')">
-            alert
-        </li>
-        <li onclick="document.write('Abre o conteudo em outra janela')">
-            write
-        </li>        
+      <li
+        id="inner"
+        onclick="document.getElementById('inner').innerHTML = 'usando innerHTML'"
+      >
+        innerHTML
+      </li>
+      <li onclick="console.log('Imprime no console')">console.log</li>
+      <li onclick="alert('Abre janela de Alerta')">alert</li>
+      <li onclick="document.write('Abre o conteudo em outra janela')">write</li>
     </ul>
-    <p >
-        Eventos JavaScript
-    </p>
+    <p>Eventos JavaScript</p>
 
-        <ul>
-            <li>
-                <button onmouseleave="alert('mouse saiu')">
-                    Quando Mouse Sai
-                </button>
-            </li>
-            <li>
-                <button onmouseup="console.log('mouse passou por cima')">
-                    Mouse passou por cima
-                </button>
-            </li>
-            <li>
-                <button onclick="alert('Click do Mouse')">
-                    Click do Mouse
-                </button>
-            </li>
-            <li>
-                <button>
-                    Event 4
-                </button>
-            </li>
-            <li>
-                <button>
-                    Event 5
-                </button>
-            </li>
-        </ul>
-    <hr>
-     <a class="titulo" href="">Texto de Link</a>
-     <p class="titulo"> Texto de Paragrafo</p>
-     <span class="titulo"> Texto de span</span>
-     <br>
-     <button onclick="alteraTexto()">Altera Texto</button>
+    <ul>
+      <li>
+        <button onmouseleave="alert('mouse saiu')">Quando Mouse Sai</button>
+      </li>
+      <li>
+        <button onmouseup="console.log('mouse passou por cima')">
+          Mouse passou por cima
+        </button>
+      </li>
+      <li>
+        <button onclick="alert('Click do Mouse')">Click do Mouse</button>
+      </li>
+      <li>
+        <button>Event 4</button>
+      </li>
+      <li>
+        <button>Event 5</button>
+      </li>
+    </ul>
+    <hr />
+    <a class="titulo" href="">Texto de Link</a>
+    <p class="titulo">Texto de Paragrafo</p>
+    <span class="titulo"> Texto de span</span>
+    <br />
+    <button onclick="alteraTexto()">Altera Texto</button>
 
+    <hr />
 
-     <hr>
+    <h1>Alterando estilo com JavaScript</h1>
 
-     <h1>
-        Alterando estilo com JavaScript
-     </h1>
+    <p id="texto">Porque somos felizes?</p>
+    <button onclick="saiba()">Descubra</button>
+  </body>
 
-     <p id="texto">
-        Porque somos felizes?
-     </p>
-     <button onclick="saiba()">
-        Descubra
-     </button>
-</body>
-
-<script>
-    function saiba(){
-        let s = document.getElementById("texto");
-        s.style.color = "red";
-        s.style.fontWeight = 900;
-        s.style.textAlign = "center";
-        s.innerHTML = "Sou empresario e de Canhotinho ... sucesso para o Mundo";
+  <script>
+    function saiba() {
+      let s = document.getElementById("texto");
+      s.style.color = "red";
+      s.style.fontWeight = 900;
+      s.style.textAlign = "center";
+      s.innerHTML = "Sou empresario e de Canhotinho ... sucesso para o Mundo";
     }
 
-    function imc(){
-        let nome, peso, altura,imc;        
-        nome = document.getElementById('nome').value;
-        peso = document.getElementById('peso').value;
-        altura = document.getElementById('altura').value;
-        imc = (peso*100)/(altura^2);
-        document.getElementById('resultado').innerHTML = imc; 
-        console.log("Está calculando errado");
-        //console.log(imc);
-        //document.write("texte dafasfsdaf");
-        alert(imc);
+    function imc() {
+      let nome, peso, altura, imc;
+      nome = document.getElementById("nome").value;
+      peso = document.getElementById("peso").value;
+      altura = document.getElementById("altura").value;
+      imc = (peso * 100) / (altura ^ 2);
+      document.getElementById("resultado").innerHTML = imc;
+      console.log("Está calculando errado");
+      //console.log(imc);
+      //document.write("texte dafasfsdaf");
+      alert(imc);
     }
-    function alteraTexto(){
-        let elementos = document.getElementsByClassName("titulo");
-            for(var i =0;i<=2;i++){
-            elementos[i].innerHTML = "Texto Novo";
-            }  
+    function alteraTexto() {
+      let elementos = document.getElementsByClassName("titulo");
+      for (var i = 0; i <= 2; i++) {
+        elementos[i].innerHTML = "Texto Novo";
+      }
     }
-</script>
+  </script>
 </html>
