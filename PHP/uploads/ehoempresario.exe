@@ -1,0 +1,233 @@
+insert into categoria(cod,servico) values(1,;"""";Tecnico de Enfermagem;""")";?
+insert into categoria(cod,servico) values(2,;"""";Abastecedor de Caldeira;""")";?
+insert into categoria(cod,servico) values(3,;"""";Abastecedor de Combustivel de Aeronave;""")";?
+insert into categoria(cod,servico) values(4,;"""";Abatedor;""")";?
+insert into categoria(cod,servico) values(5,;"""";Abelheiro;""")";?
+insert into categoria(cod,servico) values(6,;"""";Abridor de La;""")";?
+insert into categoria(cod,servico) values(7,;"""";Acabador de Calcados;""")";?
+insert into categoria(cod,servico) values(8,;"""";Acabador de Embalagens - Flexiveis e Cartotecnicas;""")";?
+insert into categoria(cod,servico) values(9,;"""";Acabador de Pedras;""")";?
+insert into categoria(cod,servico) values(10,;"""";Acafelador;""")";?
+insert into categoria(cod,servico) values(11,;"""";Acaizeiro;""")";?
+insert into categoria(cod,servico) values(12,;"""";Acepilhador de Metais;""")";?
+insert into categoria(cod,servico) values(13,;"""";Acompanhante de Idosos;""")";?
+insert into categoria(cod,servico) values(14,;"""";Acougueiro;""")";?
+insert into categoria(cod,servico) values(15,;"""";Acrobata;""")";?
+insert into categoria(cod,servico) values(16,;"""";Acupuntor;""")";?
+insert into categoria(cod,servico) values(17,;"""";Acupunturista;""")";?
+insert into categoria(cod,servico) values(18,;"""";Adestrador de Animais;""")";?
+insert into categoria(cod,servico) values(19,;"""";Administrador;""")";?
+insert into categoria(cod,servico) values(20,;"""";Administrador de Arquivos;""")";?
+insert into categoria(cod,servico) values(21,;"""";Administrador de Banco de Dados;""")";?
+insert into categoria(cod,servico) values(22,;"""";Administrador de Marketing;""")";?
+insert into categoria(cod,servico) values(23,;"""";Administrador Financeiro;""")";?
+insert into categoria(cod,servico) values(24,;"""";Administrador Publico;""")";?
+insert into categoria(cod,servico) values(25,;"""";Adubador;""")";?
+insert into categoria(cod,servico) values(26,;"""";Advogado;""")";?
+insert into categoria(cod,servico) values(27,;"""";Aeromoca;""")";?
+insert into categoria(cod,servico) values(28,;"""";Afiador de Ferramentas;""")";?
+insert into categoria(cod,servico) values(29,;"""";Afinador de Instrumentos Musicais;""")";?
+insert into categoria(cod,servico) values(30,;"""";Agenciador de Cargas;""")";?
+insert into categoria(cod,servico) values(31,;"""";Agenciador de Propaganda;""")";?
+insert into categoria(cod,servico) values(32,;"""";Agenciador de Publicidade;""")";?
+insert into categoria(cod,servico) values(33,;"""";Agente Administrativo;""")";?
+insert into categoria(cod,servico) values(34,;"""";Agente Comunitario de Saude;""")";?
+insert into categoria(cod,servico) values(35,;"""";Agente de Carga;""")";?
+insert into categoria(cod,servico) values(36,;"""";Agropecuarista;""")";?
+insert into categoria(cod,servico) values(37,;"""";Ajudante de Acougueiro;""")";?
+insert into categoria(cod,servico) values(38,;"""";Ajudante de Afiador;""")";?
+insert into categoria(cod,servico) values(39,;"""";Ajudante de Banhos (vidros;""")";?
+insert into categoria(cod,servico) values(40,;"""";Ajudante de Carga e Descarga de Mercadoria;""")";?
+insert into categoria(cod,servico) values(41,;"""";Ajudante de Cozinha;""")";?
+insert into categoria(cod,servico) values(42,;"""";Ajudante de Eletricista;""")";?
+insert into categoria(cod,servico) values(43,;"""";Alfaiate;""")";?
+insert into categoria(cod,servico) values(44,;"""";Alimentador de Peixe;""")";?
+insert into categoria(cod,servico) values(45,;"""";Alinhador de Pneus;""")";?
+insert into categoria(cod,servico) values(46,;"""";Alinhador de Rodas;""")";?
+insert into categoria(cod,servico) values(47,;"""";Alugador;""")";?
+insert into categoria(cod,servico) values(48,;"""";Amaciador de Couros e Peles;""")";?
+insert into categoria(cod,servico) values(49,;"""";Ambientador;""")";?
+insert into categoria(cod,servico) values(50,;"""";Analista (psicanalise;""")";?
+insert into categoria(cod,servico) values(51,;"""";Analista Administrativo;""")";?
+insert into categoria(cod,servico) values(52,;"""";Analista de Contabilidade;""")";?
+insert into categoria(cod,servico) values(53,;"""";Analista de Estudos Economicos;""")";?
+insert into categoria(cod,servico) values(54,;"""";Analista de Marketing;""")";?
+insert into categoria(cod,servico) values(55,;"""";Analista de Rede;""")";?
+insert into categoria(cod,servico) values(56,;"""";Analista Economico;""")";?
+insert into categoria(cod,servico) values(57,;"""";Anestesiologista;""")";?
+insert into categoria(cod,servico) values(58,;"""";Baba;""")";?
+insert into categoria(cod,servico) values(59,;"""";Balconista;""")";?
+insert into categoria(cod,servico) values(60,;"""";Banhista de Animais Domésticos;""")";?
+insert into categoria(cod,servico) values(61,;"""";Barman;""")";?
+insert into categoria(cod,servico) values(62,;"""";Bibliografo;""")";?
+insert into categoria(cod,servico) values(63,;"""";Bibliotecario;""")";?
+insert into categoria(cod,servico) values(64,;"""";Bilheteiro;""")";?
+insert into categoria(cod,servico) values(65,;"""";Biografo;""")";?
+insert into categoria(cod,servico) values(66,;"""";Biologo;""")";?
+insert into categoria(cod,servico) values(67,;"""";Biomédico;""")";?
+insert into categoria(cod,servico) values(68,;"""";Boiadeiro;""")";?
+insert into categoria(cod,servico) values(69,;"""";Bombeiro;""")";?
+insert into categoria(cod,servico) values(70,;"""";Borracheiro;""")";?
+insert into categoria(cod,servico) values(71,;"""";Botanico;""")";?
+insert into categoria(cod,servico) values(72,;"""";Boxeador;""")";?
+insert into categoria(cod,servico) values(73,;"""";Cabeleireiro;""")";?
+insert into categoria(cod,servico) values(74,;"""";Caixa;""")";?
+insert into categoria(cod,servico) values(75,;"""";Camareira;""")";?
+insert into categoria(cod,servico) values(76,;"""";Camelo;""")";?
+insert into categoria(cod,servico) values(77,;"""";Caminhoneiro;""")";?
+insert into categoria(cod,servico) values(78,;"""";Carpinteiro;""")";?
+insert into categoria(cod,servico) values(79,;"""";Carpinteiro Auxiliar;""")";?
+insert into categoria(cod,servico) values(80,;"""";Carpinteiro Naval;""")";?
+insert into categoria(cod,servico) values(81,;"""";Carregador;""")";?
+insert into categoria(cod,servico) values(82,;"""";Carroceiro;""")";?
+insert into categoria(cod,servico) values(83,;"""";Caranguejeiro;""")";?
+insert into categoria(cod,servico) values(84,;"""";Carteiro;""")";?
+insert into categoria(cod,servico) values(85,;"""";Cartografo;""")";?
+insert into categoria(cod,servico) values(86,;"""";Castrador;""")";?
+insert into categoria(cod,servico) values(87,;"""";Cavador ;""")";?
+insert into categoria(cod,servico) values(88,;"""";Caucheiro;""")";?
+insert into categoria(cod,servico) values(89,;"""";Cenografo;""")";?
+insert into categoria(cod,servico) values(90,;"""";Chacareiro;""")";?
+insert into categoria(cod,servico) values(91,;"""";Chefe Administrativo;""")";?
+insert into categoria(cod,servico) values(92,;"""";Chefe de Cozinha;""")";?
+insert into categoria(cod,servico) values(93,;"""";Chefe de Escritorio;""")";?
+insert into categoria(cod,servico) values(94,;"""";Chefe de Orcamento;""")";?
+insert into categoria(cod,servico) values(95,;"""";Chofer;""")";?
+insert into categoria(cod,servico) values(96,;"""";Clarificador de Vinhos;""")";?
+insert into categoria(cod,servico) values(97,;"""";Coletor de Lixo;""")";?
+insert into categoria(cod,servico) values(98,;"""";Colunista;""")";?
+insert into categoria(cod,servico) values(99,;"""";Comentarista;""")";?
+insert into categoria(cod,servico) values(100,;"""";Comerciante;""")";?
+insert into categoria(cod,servico) values(101,;"""";Compositor de Texto;""")";?
+insert into categoria(cod,servico) values(102,;"""";Compositor de Imagens;""")";?
+insert into categoria(cod,servico) values(103,;"""";Condutor de Maquinas;""")";?
+insert into categoria(cod,servico) values(104,;"""";Condutor de Taxi;""")";?
+insert into categoria(cod,servico) values(105,;"""";Confeiteiro;""")";?
+insert into categoria(cod,servico) values(106,;"""";Consultor de Vendas;""")";?
+insert into categoria(cod,servico) values(107,;"""";Consultor de Viagem;""")";?
+insert into categoria(cod,servico) values(108,;"""";Consultor;""")";?
+insert into categoria(cod,servico) values(109,;"""";Contador;""")";?
+insert into categoria(cod,servico) values(110,;"""";Contabilista;""")";?
+insert into categoria(cod,servico) values(111,;"""";Controlador de Voo;""")";?
+insert into categoria(cod,servico) values(112,;"""";Coordenador de Ensino;""")";?
+insert into categoria(cod,servico) values(113,;"""";Coordenador Escolar;""")";?
+insert into categoria(cod,servico) values(114,;"""";Coordenador Executivo;""")";?
+insert into categoria(cod,servico) values(115,;"""";Cortador de Vidros;""")";?
+insert into categoria(cod,servico) values(116,;"""";Costureiro;""")";?
+insert into categoria(cod,servico) values(117,;"""";Coveiro;""")";?
+insert into categoria(cod,servico) values(118,;"""";Cozinheiro;""")";?
+insert into categoria(cod,servico) values(119,;"""";Criador de Abelhas;""")";?
+insert into categoria(cod,servico) values(120,;"""";Criador de Animais;""")";?
+insert into categoria(cod,servico) values(121,;"""";Criador de Gado;""")";?
+insert into categoria(cod,servico) values(122,;"""";Criminalista;""")";?
+insert into categoria(cod,servico) values(123,;"""";Critico;""")";?
+insert into categoria(cod,servico) values(124,;"""";Cuidador de Idosos;""")";?
+insert into categoria(cod,servico) values(125,;"""";Decorador;""")";?
+insert into categoria(cod,servico) values(126,;"""";Defensor Publico;""")";?
+insert into categoria(cod,servico) values(127,;"""";Defumador;""")";?
+insert into categoria(cod,servico) values(128,;"""";Demolidor;""")";?
+insert into categoria(cod,servico) values(129,;"""";Dentista;""")";?
+insert into categoria(cod,servico) values(130,;"""";Desenhista;""")";?
+insert into categoria(cod,servico) values(131,;"""";Desenvolvedor;""")";?
+insert into categoria(cod,servico) values(132,;"""";Designer;""")";?
+insert into categoria(cod,servico) values(133,;"""";Desinfestador;""")";?
+insert into categoria(cod,servico) values(134,;"""";Destilador;""")";?
+insert into categoria(cod,servico) values(135,;"""";Detetive de Policia;""")";?
+insert into categoria(cod,servico) values(136,;"""";Digitador;""")";?
+insert into categoria(cod,servico) values(137,;"""";Distribuidor;""")";?
+insert into categoria(cod,servico) values(138,;"""";Economista;""")";?
+insert into categoria(cod,servico) values(139,;"""";Editor;""")";?
+insert into categoria(cod,servico) values(140,;"""";Educador;""")";?
+insert into categoria(cod,servico) values(141,;"""";Eletricista;""")";?
+insert into categoria(cod,servico) values(142,;"""";Embalador;""")";?
+insert into categoria(cod,servico) values(143,;"""";Empacotador;""")";?
+insert into categoria(cod,servico) values(144,;"""";Empregada Doméstica;""")";?
+insert into categoria(cod,servico) values(145,;"""";Encaixotador;""")";?
+insert into categoria(cod,servico) values(146,;"""";Encanador;""")";?
+insert into categoria(cod,servico) values(147,;"""";Enfermeiro;""")";?
+insert into categoria(cod,servico) values(148,;"""";Engarrafador;""")";?
+insert into categoria(cod,servico) values(149,;"""";Engenheiro;""")";?
+insert into categoria(cod,servico) values(150,;"""";Escrivao;""")";?
+insert into categoria(cod,servico) values(151,;"""";Speclhador;""")";?
+insert into categoria(cod,servico) values(152,;"""";FarmacÃªutico;""")";?
+insert into categoria(cod,servico) values(153,;"""";Faxineiro;""")";?
+insert into categoria(cod,servico) values(154,;"""";Ferreiro;""")";?
+insert into categoria(cod,servico) values(155,;"""";Fiscal;""")";?
+insert into categoria(cod,servico) values(156,;"""";Forneiro;""")";?
+insert into categoria(cod,servico) values(157,;"""";Fotografo;""")";?
+insert into categoria(cod,servico) values(158,;"""";Frentista;""")";?
+insert into categoria(cod,servico) values(159,;"""";Garcom;""")";?
+insert into categoria(cod,servico) values(160,;"""";Gerente Administrativo e Financeiro;""")";?
+insert into categoria(cod,servico) values(161,;"""";Gerente Comercial;""")";?
+insert into categoria(cod,servico) values(162,;"""";Gerente;""")";?
+insert into categoria(cod,servico) values(163,;"""";Gestor;""")";?
+insert into categoria(cod,servico) values(164,;"""";Guarda de Seguranca;""")";?
+insert into categoria(cod,servico) values(165,;"""";Guarda Florestal;""")";?
+insert into categoria(cod,servico) values(166,;"""";Guarda Ambiental;""")";?
+insert into categoria(cod,servico) values(167,;"""";Guarda-civil;""")";?
+insert into categoria(cod,servico) values(168,;"""";Guarda-costas;""")";?
+insert into categoria(cod,servico) values(169,;"""";Inspetor;""")";?
+insert into categoria(cod,servico) values(170,;"""";Instalador;""")";?
+insert into categoria(cod,servico) values(171,;"""";Instrutor;""")";?
+insert into categoria(cod,servico) values(172,;"""";Interprete;""")";?
+insert into categoria(cod,servico) values(173,;"""";Jardineiro;""")";?
+insert into categoria(cod,servico) values(174,;"""";Joalheiro;""")";?
+insert into categoria(cod,servico) values(175,;"""";Jornalista;""")";?
+insert into categoria(cod,servico) values(176,;"""";Legista;""")";?
+insert into categoria(cod,servico) values(177,;"""";Lixeiro;""")";?
+insert into categoria(cod,servico) values(178,;"""";Locutor;""")";?
+insert into categoria(cod,servico) values(179,;"""";Manobrista;""")";?
+insert into categoria(cod,servico) values(180,;"""";Maquiador;""")";?
+insert into categoria(cod,servico) values(181,;"""";Maquinista ;""")";?
+insert into categoria(cod,servico) values(182,;"""";Marceneiro;""")";?
+insert into categoria(cod,servico) values(183,;"""";Massagista;""")";?
+insert into categoria(cod,servico) values(184,;"""";Mecanico;""")";?
+insert into categoria(cod,servico) values(185,;"""";Médico;""")";?
+insert into categoria(cod,servico) values(186,;"""";Mensageiro;""")";?
+insert into categoria(cod,servico) values(187,;"""";Mergulhador;""")";?
+insert into categoria(cod,servico) values(188,;"""";Montador;""")";?
+insert into categoria(cod,servico) values(189,;"""";Motorista;""")";?
+insert into categoria(cod,servico) values(190,;"""";Narrador;""")";?
+insert into categoria(cod,servico) values(191,;"""";Operador de Caixa;""")";?
+insert into categoria(cod,servico) values(192,;"""";Operador de Maquina;""")";?
+insert into categoria(cod,servico) values(193,;"""";Padeiro;""")";?
+insert into categoria(cod,servico) values(194,;"""";Pedreiro;""")";?
+insert into categoria(cod,servico) values(195,;"""";Perito Criminal;""")";?
+insert into categoria(cod,servico) values(196,;"""";Pescador;""")";?
+insert into categoria(cod,servico) values(197,;"""";Pintor;""")";?
+insert into categoria(cod,servico) values(198,;"""";Policial;""")";?
+insert into categoria(cod,servico) values(199,;"""";Porteiro;""")";?
+insert into categoria(cod,servico) values(200,;"""";Professor de Ensino Fundamental de Primeira a Quarta Séries;""")";?
+insert into categoria(cod,servico) values(201,;"""";Professor de Ensino Fundamental nas Quatro Primeiras Séries;""")";?
+insert into categoria(cod,servico) values(202,;"""";Professor de Ensino Profissionalizante no Ensino de Nivel Médio;""")";?
+insert into categoria(cod,servico) values(203,;"""";Professor de Ensino Superior;""")";?
+insert into categoria(cod,servico) values(204,;"""";Programador;""")";?
+insert into categoria(cod,servico) values(205,;"""";Radiologista;""")";?
+insert into categoria(cod,servico) values(206,;"""";Recepcionista;""")";?
+insert into categoria(cod,servico) values(207,;"""";Recreador;""")";?
+insert into categoria(cod,servico) values(208,;"""";RelacÃµes Publicas;""")";?
+insert into categoria(cod,servico) values(209,;"""";Revisor;""")";?
+insert into categoria(cod,servico) values(210,;"""";Revisor Grafico;""")";?
+insert into categoria(cod,servico) values(211,;"""";Sambista;""")";?
+insert into categoria(cod,servico) values(212,;"""";Secretario(a;""")";?
+insert into categoria(cod,servico) values(213,;"""";Seguranca Comunitario;""")";?
+insert into categoria(cod,servico) values(214,;"""";Seguranca de Evento;""")";?
+insert into categoria(cod,servico) values(215,;"""";Seguranca Pessoal;""")";?
+insert into categoria(cod,servico) values(216,;"""";Serrador;""")";?
+insert into categoria(cod,servico) values(217,;"""";Servente de Pedreiro;""")";?
+insert into categoria(cod,servico) values(218,;"""";Sorveteiro;""")";?
+insert into categoria(cod,servico) values(219,;"""";Superintendente Administrativo e Financeiro;""")";?
+insert into categoria(cod,servico) values(220,;"""";Supervisor Administrativo;""")";?
+insert into categoria(cod,servico) values(221,;"""";Supervisor;""")";?
+insert into categoria(cod,servico) values(222,;"""";Técnico Ambiental;""")";?
+insert into categoria(cod,servico) values(223,;"""";Técnico Agricola;""")";?
+insert into categoria(cod,servico) values(224,;"""";Técnico Analista;""")";?
+insert into categoria(cod,servico) values(225,;"""";Técnico de Analise Quimica;""")";?
+insert into categoria(cod,servico) values(226,;"""";Técnico de audio (radio;""")";?
+insert into categoria(cod,servico) values(227,;"""";Técnico de Artes Graficas;""")";?
+insert into categoria(cod,servico) values(228,;"""";Técnico de Contabilidade;""")";?
+insert into categoria(cod,servico) values(229,;"""";Técnico de Enfermagem;""")";?
+insert into categoria(cod,servico) values(230,;"""";Técnico de Equipamentos Elétricos;""")";?
+insert into categoria(cod,servico) values(231,;"""";Técnico de Industria Eletronica;""")";?
+insert into categoria(cod,servico) values(232,;"""";Técnico de Laboratorio;""")";?
+insert into categoria(cod,servico) values(233,;"""";Técnico de Manutencao;""")";?
