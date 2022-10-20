@@ -59,6 +59,7 @@
         <a href="?pagina=cadastro">Cadastro</a>
         <a href="?pagina=interessados">Interessados</a>
         <a href="?pagina=sobre">Sobre</a>
+        <a href="?pagina=login">Login</a>
     </header>
     <main>
         <?php
@@ -76,6 +77,9 @@
                         break;
                     case "sobre":
                         include_once('paginas/sobre.php');
+                        break;
+                    case "login":
+                        include_once('paginas/login.php');
                         break;
                     default:
                         include_once('paginas/home.php');
