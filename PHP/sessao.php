@@ -55,7 +55,6 @@ echo "<hr>";
 //session_destroy();
 
 switch(session_status()) {
-git 
     case PHP_SESSION_DISABLED:
     echo "Sessões desabilitadas";
     break;
@@ -79,4 +78,10 @@ echo session_id();
 echo "<hr>";
 
 var_dump($_SESSION);
+
+echo "<hr>";
+
+echo session_id();
+
+session_destroy();
 ?>

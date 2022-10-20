@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="css/estilo.css">    
+    <link rel="stylesheet" href="css/estilo.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">    
     <title>
         SENAC - Procura Cursos
     </title>
@@ -60,6 +61,25 @@
         <a href="?pagina=interessados">Interessados</a>
         <a href="?pagina=sobre">Sobre</a>
         <a href="?pagina=login">Login</a>
+        <a href="">
+            <?php
+                switch(session_status()) {
+                    case PHP_SESSION_DISABLED:
+                    echo "Sessões desabilitadas";
+                    break;
+                
+                    case PHP_SESSION_NONE:
+                        echo "Sessões habilitadas, mas não existem";
+                        echo session_id();
+                    break;
+                
+                    case PHP_SESSION_ACTIVE:
+                    echo "Sessões habilitadas e existem";
+                    break;
+                
+                }
+            ?>              
+        </a>        
     </header>
     <main>
         <?php
@@ -95,12 +115,13 @@
         <p>
             Desenvolvido em sala - SENAC Garanhuns
         </p>
-    </footer>
+    </footer>    
 </body> 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 </html>
-    <!--
-    Cadastrar categoria
-    -->
+<!--
+Cadastrar categoria
+-->
 <?php    
     if(isset($_POST['nomeCategoria']) && isset($_POST['modalidade'])&&!isset($_GET['editar'])){
         print "<h1> Cadastro </h1>";
@@ -115,9 +136,9 @@
         $sqlinsert->execute();             
     }
 ?>
-    <!--
-    Atualizar categoria
-    --> 
+<!--
+Atualizar categoria
+--> 
 <?php
     if(isset($_POST['nomeCategoria']) && isset($_POST['modalidade'])&&isset($_GET['editar'])){
         print "<h1> Atualizar </h1>";
@@ -133,9 +154,9 @@
         $sqlupdate->execute();             
     }
 ?>
-    <!--
-    Excluir categoria
-    -->   
+<!--
+Excluir categoria
+-->
 <?php
     if(isset($_GET['excluir'])&&($_GET['cad'])){
         $cad = $_GET['cad'];
@@ -157,25 +178,25 @@
     Cadastro cursos
 -->
 <?php
-if(isset($_POST['nomeCurso']) && isset($_POST['categoria'])){    
-    $nomeCurso = $_POST['nomeCurso'];    
-    $categoria_id = $_POST['categoria'];
-    $dtIni = $_POST['dataInicio'];
-    $dtFim = $_POST['dataFim'];
-    $cargaHoraria = $_POST['cargahoraria'];
-    $capacidade = $_POST['capacidade'];
-    $conexao = new PDO("mysql:dbname=recepcao;host=localhost","root","");
-    $sqlinsert = $conexao->PREPARE(
-        "INSERT INTO cursos (nome, dtIni, dtFim, cargaHoraria, capacidade, categoria_id) 
-        VALUES (:NOME,:DTINI, :DTFIM, :CARGAHORARIA, :CAPACIDADE, :CATEGORIA_ID)");
-    $sqlinsert->bindParam(":NOME",$nomeCurso);
-    $sqlinsert->bindParam(":DTINI",$dtIni);
-    $sqlinsert->bindParam(":DTFIM",$dtFim);
-    $sqlinsert->bindParam(":CARGAHORARIA",$cargaHoraria);
-    $sqlinsert->bindParam(":CAPACIDADE",$capacidade);
-    $sqlinsert->bindParam(":CATEGORIA_ID",$categoria_id);
-    $sqlinsert->execute();    
-}
+    if(isset($_POST['nomeCurso']) && isset($_POST['categoria'])){    
+        $nomeCurso = $_POST['nomeCurso'];    
+        $categoria_id = $_POST['categoria'];
+        $dtIni = $_POST['dataInicio'];
+        $dtFim = $_POST['dataFim'];
+        $cargaHoraria = $_POST['cargahoraria'];
+        $capacidade = $_POST['capacidade'];
+        $conexao = new PDO("mysql:dbname=recepcao;host=localhost","root","");
+        $sqlinsert = $conexao->PREPARE(
+            "INSERT INTO cursos (nome, dtIni, dtFim, cargaHoraria, capacidade, categoria_id) 
+            VALUES (:NOME,:DTINI, :DTFIM, :CARGAHORARIA, :CAPACIDADE, :CATEGORIA_ID)");
+        $sqlinsert->bindParam(":NOME",$nomeCurso);
+        $sqlinsert->bindParam(":DTINI",$dtIni);
+        $sqlinsert->bindParam(":DTFIM",$dtFim);
+        $sqlinsert->bindParam(":CARGAHORARIA",$cargaHoraria);
+        $sqlinsert->bindParam(":CAPACIDADE",$capacidade);
+        $sqlinsert->bindParam(":CATEGORIA_ID",$categoria_id);
+        $sqlinsert->execute();    
+    }
 ?>
 <!--
     Atualizar cursos
@@ -226,11 +247,10 @@ if(isset($_POST['nomeCurso']) && isset($_POST['categoria'])){
         }
     }               
 ?>
-
-    <!--
-    Cadastrar Interesses
-    -->
-    <?php    
+<!--
+Cadastrar Interesses
+-->
+<?php    
     if(isset($_POST['cadcurso']) && isset($_POST['cadinteressado'])){
         print "<h1> Cadastro </h1>";
         $idCurso = $_POST['cadcurso'];
@@ -244,4 +264,41 @@ if(isset($_POST['nomeCurso']) && isset($_POST['categoria'])){
         $sqlinsert->execute();
     }
 ?>
+<!--
+Logon
+-->
+<?php
+if(isset($_POST['action'])){
+    $action = $_POST['action'];
+    if($action == "logar"){
+        $conexao = new PDO("mysql:dbname=recepcao;host=localhost","root","");        
+        $selectUser = $conexao->PREPARE("SELECT * FROM usuarios WHERE username = :USUARIO;");
+        $usuario = $_POST['usuario'];
+        $selectUser->bindParam(":USUARIO",$usuario);        
+        $selectUser->execute();
+        $resultUser = $selectUser->fetchAll(PDO::FETCH_ASSOC);
+        //var_dump($resultUser);
+        $senha = $_POST['senha'];
+        if(isset($resultUser[0]["senha"])){            
+            if($senha == $resultUser[0]["senha"]){
+                if(session_status()==PHP_SESSION_NONE){
+                    session_start();
+                    $_SESSION["usuario"]=$resultUser[0]["username"];
+                    $_SESSION["nome"]=$resultUser[0]["nome"];
+                    var_dump($_SESSION);
+                }                                
+            }
+            else{
+                print "Senha Incorreta";
+            }
+        }
+        else{
+            print "usuario inexistente";
+        }
+    }
+}
+?>
+
+
+
 
