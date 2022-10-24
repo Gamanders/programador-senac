@@ -67,16 +67,13 @@
                     case PHP_SESSION_DISABLED:
                     echo "Sessões desabilitadas";
                     break;
-                
                     case PHP_SESSION_NONE:
                         echo "Sessões habilitadas, mas não existem";
                         echo session_id();
                     break;
-                
                     case PHP_SESSION_ACTIVE:
                     echo "Sessões habilitadas e existem";
                     break;
-                
                 }
             ?>              
         </a>        
