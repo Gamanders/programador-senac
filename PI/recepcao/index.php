@@ -21,23 +21,19 @@
         display:flex;
         justify-content:center;
         align-items:center;
-    }
-    header a{        
-        padding: 10px;
-        margin: 10px;
-        border-radius:20px;
-        border: 2px solid gray;
-        font-style:italic;
-        text-decoration:none;
-    }
+    }    
     li a{       
         font-style:italic;
         text-decoration:none;
+    }header a{        
+        padding: 10px;
+        margin: 10px;
+        border-radius:5px;
+        border: 2px solid lightgray;
+        font-style:italic;
+        text-decoration:none;
     }
-    header a:hover{  
-        background-color:gray;
-        color:white;
-    }
+    
     main{
         min-height:70vh;        
         display:flex;
@@ -54,29 +50,100 @@
         justify-content:center;
     }
 </style>
+<!--
+Logon
+-->
+<?php
+    if(isset($_POST['action'])){
+        $action = $_POST['action'];
+        if($action == "logar"){
+            $conexao = new PDO("mysql:dbname=recepcao;host=localhost","root","");        
+            $selectUser = $conexao->PREPARE("SELECT * FROM usuarios WHERE username = :USUARIO;");
+            $usuario = $_POST['usuario'];
+            $selectUser->bindParam(":USUARIO",$usuario);        
+            $selectUser->execute();
+            $resultUser = $selectUser->fetchAll(PDO::FETCH_ASSOC);        
+            $senha = $_POST['senha'];
+            if(isset($resultUser[0]["senha"])){            
+                if($senha == $resultUser[0]["senha"]){                
+                    if(session_status()==PHP_SESSION_NONE){                    
+                        session_start();                    
+                        $_SESSION["usuario"]=$resultUser[0]["username"];
+                        $_SESSION["nome"]=$resultUser[0]["nome"];        
+                        //echo $_SESSION["usuario"];
+                    }                                
+                }
+                else{
+                    print "Senha Incorreta";
+                }
+            }
+            else{
+                print "usuario inexistente";
+            }
+        }
+    }
+?>
+<!--
+Logout
+-->
+<?php
+if(isset($_POST['action'])){
+    $action = $_POST['action'];
+    if($action == "logout"){
+       session_destroy();
+       session_unset();
+    }
+}
+?>
 <body>
     <header>
-        <a href="?pagina=home">Home</a>
-        <a href="?pagina=cadastro">Cadastro</a>
-        <a href="?pagina=interessados">Interessados</a>
-        <a href="?pagina=sobre">Sobre</a>
-        <a href="?pagina=login">Login</a>
-        <a href="">
-            <?php
-                switch(session_status()) {
-                    case PHP_SESSION_DISABLED:
-                    echo "Sessões desabilitadas";
-                    break;
-                    case PHP_SESSION_NONE:
-                        echo "Sessões habilitadas, mas não existem";
-                        echo session_id();
-                    break;
-                    case PHP_SESSION_ACTIVE:
-                    echo "Sessões habilitadas e existem";
-                    break;
-                }
-            ?>              
-        </a>        
+        <nav class="navbar navbar-expand-lg bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="?pagina=home">Recepção</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">                   
+                        <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="?pagina=cadastro">Cadastro</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="?pagina=interessados">Interessados</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="?pagina=interessados">Interessados                            
+                        </a>
+                        </li>                         
+                        <?php                          
+                            if(isset($_SESSION['usuario'])){                                
+                                print "
+                                    <li class='nav-item dropdown'>                       
+                                        <a class='nav-link dropdown-toggle' href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false'>
+                                        "
+                                         .$_SESSION['usuario'].
+                                        "
+                                        </a>
+                                        <ul class='dropdown-menu'>
+                                            <li><a class='dropdown-item' href='#'>Alterar Senha</a></li>                                
+                                            <li><hr class='dropdown-divider'></li>
+                                            <li><a class='dropdown-item' href='?pagina=home&action=logout'>Sair</a></li>
+                                        </ul>
+                                    </li>
+                                ";
+                            }
+                        ?>
+                    </ul>
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Previsão de cursos" aria-label="Search">
+                        <button class="btn btn-outline-dark" type="submit">Buscar</button>
+                    </form>
+                    <a href="?pagina=login">
+                        <i class="fa-solid fa-lock text-dark"></i>
+                    </a>
+                </div>
+            </div>
+            </nav>
     </header>
     <main>
         <?php
@@ -116,186 +183,6 @@
 </body> 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 </html>
-<!--
-Cadastrar categoria
--->
-<?php    
-    if(isset($_POST['nomeCategoria']) && isset($_POST['modalidade'])&&!isset($_GET['editar'])){
-        print "<h1> Cadastro </h1>";
-        $nome = $_POST['nomeCategoria'];
-        $modalidade = $_POST['modalidade'];
-        $conexao = new PDO("mysql:dbname=recepcao;host=localhost","root","");
-        $sqlinsert = $conexao->PREPARE(
-            "INSERT INTO categoria (nome,modalidade) 
-            VALUES (:NOME,:MODALIDADE)");
-        $sqlinsert->bindParam(":NOME",$nome);
-        $sqlinsert->bindParam(":MODALIDADE",$modalidade);
-        $sqlinsert->execute();             
-    }
-?>
-<!--
-Atualizar categoria
---> 
 <?php
-    if(isset($_POST['nomeCategoria']) && isset($_POST['modalidade'])&&isset($_GET['editar'])){
-        print "<h1> Atualizar </h1>";
-        $nome = $_POST['nomeCategoria'];
-        $modalidade = $_POST['modalidade'];
-        $id = $_GET['editar'];
-        $conexao = new PDO("mysql:dbname=recepcao;host=localhost","root","");
-        $sqlupdate = $conexao->PREPARE(
-            "UPDATE categoria SET nome = :NOME, modalidade = :MODALIDADE WHERE id = :ID");
-        $sqlupdate->bindParam(":ID",$id);
-        $sqlupdate->bindParam(":NOME",$nome);
-        $sqlupdate->bindParam(":MODALIDADE",$modalidade);
-        $sqlupdate->execute();             
-    }
+    include('codes/include.php');
 ?>
-<!--
-Excluir categoria
--->
-<?php
-    if(isset($_GET['excluir'])&&($_GET['cad'])){
-        $cad = $_GET['cad'];
-        if($cad == "categoria"){
-            $id = $_GET['excluir'];        
-            $con = new PDO("mysql:dbname=recepcao;host=localhost","root","");
-            $verifica = $con->PREPARE("SELECT count(*) AS 'qtd' FROM categoria JOIN cursos ON categoria.id = cursos.categoria_id WHERE categoria.id = :ID");
-            $verifica->bindParam(":ID",$id);
-            $verifica->execute();
-            $result = $verifica->fetchAll(PDO::FETCH_ASSOC);
-            print $result[0]['qtd'];
-            $delete = $con->PREPARE("DELETE FROM categoria WHERE id = :ID");
-            $delete->bindParam(":ID",$id);
-            $delete->execute();
-        }
-    }               
-?>
-<!--
-    Cadastro cursos
--->
-<?php
-    if(isset($_POST['nomeCurso']) && isset($_POST['categoria'])){    
-        $nomeCurso = $_POST['nomeCurso'];    
-        $categoria_id = $_POST['categoria'];
-        $dtIni = $_POST['dataInicio'];
-        $dtFim = $_POST['dataFim'];
-        $cargaHoraria = $_POST['cargahoraria'];
-        $capacidade = $_POST['capacidade'];
-        $conexao = new PDO("mysql:dbname=recepcao;host=localhost","root","");
-        $sqlinsert = $conexao->PREPARE(
-            "INSERT INTO cursos (nome, dtIni, dtFim, cargaHoraria, capacidade, categoria_id) 
-            VALUES (:NOME,:DTINI, :DTFIM, :CARGAHORARIA, :CAPACIDADE, :CATEGORIA_ID)");
-        $sqlinsert->bindParam(":NOME",$nomeCurso);
-        $sqlinsert->bindParam(":DTINI",$dtIni);
-        $sqlinsert->bindParam(":DTFIM",$dtFim);
-        $sqlinsert->bindParam(":CARGAHORARIA",$cargaHoraria);
-        $sqlinsert->bindParam(":CAPACIDADE",$capacidade);
-        $sqlinsert->bindParam(":CATEGORIA_ID",$categoria_id);
-        $sqlinsert->execute();    
-    }
-?>
-<!--
-    Atualizar cursos
--->
-<?php
-    if(isset($_POST['nomeCurso']) && isset($_POST['categoria'])&&isset($_GET['editar'])){
-        print "<h1> Atualizar </h1>";
-        $nome = $_POST['nomeCurso'];        
-        $categoria = $_POST['categoria'];
-        $dtIni = $_POST['dtInicio'];
-        $dtFim = $_POST['dtFim'];
-        $cargaHoraria = $_POST['cargaHoraria'];
-        $capacidade = $_POST['capacidade'];   
-        $id = $_GET['editar'];
-        $conexao = new PDO("mysql:dbname=recepcao;host=localhost","root","");
-        // id nome dtIni dtFim cargaHoraria capacidade categoria_id
-        $sqlupdate = $conexao->PREPARE(
-            "UPDATE cursos SET nome = :NOME, categoria_id = :CATEGORIA, dtIni = :DTINI, dtFim = :DTFIM, cargaHoraria = :CARGAHORARIA, capacidade = :CAPACIDADE WHERE id = :ID");
-        $sqlupdate->bindParam(":ID",$id);
-        $sqlupdate->bindParam(":NOME",$nome);
-        $sqlupdate->bindParam(":CATEGORIA",$categoria);
-        $sqlupdate->bindParam(":DTINI",$dtIni);
-        $sqlupdate->bindParam(":DTFIM",$dtFim);
-        $sqlupdate->bindParam(":CARGAHORARIA",$cargaHoraria);
-        $sqlupdate->bindParam(":CAPACIDADE",$capacidade);        
-        print "<h1>Alterar</h1>".$cad." ".$id;            
-        //$sqlupdate->execute();             
-    }
-?>
-<!--
-    Excluir Cursos
--->
-<?php
-    if(isset($_GET['excluir'])&&($_GET['cad'])){
-        $cad = $_GET['cad'];
-        if($cad == "curso"){
-            $id = $_GET['excluir'];        
-            $con = new PDO("mysql:dbname=recepcao;host=localhost","root","");
-                //$verifica = $con->PREPARE("SELECT count(*) AS 'qtd' FROM categoria JOIN cursos ON 
-                //categoria.id = cursos.categoria_id WHERE categoria.id = :ID");
-                //$verifica->bindParam(":ID",$id);
-                //$verifica->execute();
-                //$result = $verifica->fetchAll(PDO::FETCH_ASSOC);
-                //print $result[0]['qtd'];
-            $delete = $con->PREPARE("DELETE FROM cursos WHERE id = :ID");
-            $delete->bindParam(":ID",$id);
-            $delete->execute();
-        }
-    }               
-?>
-<!--
-Cadastrar Interesses
--->
-<?php    
-    if(isset($_POST['cadcurso']) && isset($_POST['cadinteressado'])){
-        print "<h1> Cadastro </h1>";
-        $idCurso = $_POST['cadcurso'];
-        $idInteressado = $_POST['cadinteressado'];  
-        $conexao = new PDO("mysql:dbname=recepcao;host=localhost","root","");
-        $sqlinsert = $conexao->PREPARE(
-            "INSERT INTO cursosinteressados (cursos_id,interessados_id) 
-            VALUES (:CADCURSO,:CADINTERESSADO)");
-        $sqlinsert->bindParam(":CADCURSO",$idCurso);
-        $sqlinsert->bindParam(":CADINTERESSADO",$idInteressado);
-        $sqlinsert->execute();
-    }
-?>
-<!--
-Logon
--->
-<?php
-if(isset($_POST['action'])){
-    $action = $_POST['action'];
-    if($action == "logar"){
-        $conexao = new PDO("mysql:dbname=recepcao;host=localhost","root","");        
-        $selectUser = $conexao->PREPARE("SELECT * FROM usuarios WHERE username = :USUARIO;");
-        $usuario = $_POST['usuario'];
-        $selectUser->bindParam(":USUARIO",$usuario);        
-        $selectUser->execute();
-        $resultUser = $selectUser->fetchAll(PDO::FETCH_ASSOC);
-        //var_dump($resultUser);
-        $senha = $_POST['senha'];
-        if(isset($resultUser[0]["senha"])){            
-            if($senha == $resultUser[0]["senha"]){
-                if(session_status()==PHP_SESSION_NONE){
-                    session_start();
-                    $_SESSION["usuario"]=$resultUser[0]["username"];
-                    $_SESSION["nome"]=$resultUser[0]["nome"];
-                    var_dump($_SESSION);
-                }                                
-            }
-            else{
-                print "Senha Incorreta";
-            }
-        }
-        else{
-            print "usuario inexistente";
-        }
-    }
-}
-?>
-
-
-
-
