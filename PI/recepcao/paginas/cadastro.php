@@ -1,51 +1,70 @@
-<div class="items">
-    <ul>
-        <li>
-            <a href="?pagina=cadastro&cad=categoria">
-                Categoria
-            </a>
-        </li>
-        <li>
-            <a href="?pagina=cadastro&cad=curso">
-                Curso
-            </a>
-        </li>
-        <li>
-            <a href="?pagina=cadastro&cad=interessados">
-                Interessados
-            </a>
-        </li>
-        <li>
-            <a href="?pagina=cadastro&cad=interesses">
-                Interesses
-            </a>
-        </li>        
-    </ul>
-</div>
-<div class="conteudo">
-    <?php
-        if(isset($_GET['cad'])){
-            $cadastro = $_GET['cad'];
-            switch($cadastro){
-                case "categoria":
-                    include_once('paginas/cadastro/categoria.php');
-                    break;
-                case "curso":
-                    include_once('paginas/cadastro/cursos.php');
-                    break;
-                case "interessados":
-                    include_once('paginas/cadastro/interessados.php');
-                    break;
-                case "interesses":
-                    include_once('paginas/cadastro/interesses.php');
-                    break; 
-                default:
-                    include_once('paginas/cadastro/default.php');
-                    break;
+<?php
+    if(isset($_SESSION['usuario'])){
+        $tipo = $_SESSION['usuario'];
+        if($tipo){
+?>
+    <div class="items">
+        <ul>
+            <li>
+                <a href="?pagina=cadastro&cad=categoria">
+                    Categoria
+                </a>
+            </li>
+            <li>
+                <a href="?pagina=cadastro&cad=curso">
+                    Curso
+                </a>
+            </li>
+            <li>
+                <a href="?pagina=cadastro&cad=interessados">
+                    Interessados
+                </a>
+            </li>
+            <li>
+                <a href="?pagina=cadastro&cad=interesses">
+                    Interesses
+                </a>
+            </li>        
+        </ul>
+    </div>
+    <div class="conteudo">
+        <?php
+            if(isset($_GET['cad'])){
+                $cadastro = $_GET['cad'];
+                switch($cadastro){
+                    case "categoria":
+                        include_once('paginas/cadastro/categoria.php');
+                        break;
+                    case "curso":
+                        include_once('paginas/cadastro/cursos.php');
+                        break;
+                    case "interessados":
+                        include_once('paginas/cadastro/interessados.php');
+                        break;
+                    case "interesses":
+                        include_once('paginas/cadastro/interesses.php');
+                        break; 
+                    default:
+                        include_once('paginas/cadastro/default.php');
+                        break;
+                }
             }
+            else{
+                include_once('paginas/cadastro/default.php');
+            }
+        ?>
+    </div>
+<?php
+            
         }
-        else{
-            include_once('paginas/cadastro/default.php');
-        }
-    ?>
-</div>
+    }
+    else{
+        print"
+            <h1 style='color:red'>
+                Necessário estar logado como usuário Administrador
+                <br>
+                Seja empresário primeiro!
+            </h1>
+        ";
+    }
+?>

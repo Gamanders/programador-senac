@@ -1,3 +1,7 @@
+<?php 
+    include_once("config.php");
+    include_once("codes/include.php");
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -54,31 +58,28 @@
 Logon
 -->
 <?php
-    if(isset($_POST['action'])){
-        $action = $_POST['action'];
+    if(isset($_POST["action"])){
+        $action = $_POST["action"];
         if($action == "logar"){
             $conexao = new PDO("mysql:dbname=recepcao;host=localhost","root","");        
             $selectUser = $conexao->PREPARE("SELECT * FROM usuarios WHERE username = :USUARIO;");
-            $usuario = $_POST['usuario'];
+            $usuario = $_POST["usuario"];
             $selectUser->bindParam(":USUARIO",$usuario);        
             $selectUser->execute();
             $resultUser = $selectUser->fetchAll(PDO::FETCH_ASSOC);        
-            $senha = $_POST['senha'];
+            $senha = $_POST["senha"];
             if(isset($resultUser[0]["senha"])){            
-                if($senha == $resultUser[0]["senha"]){                
-                    if(session_status()==PHP_SESSION_NONE){                    
-                        session_start();                    
-                        $_SESSION["usuario"]=$resultUser[0]["username"];
-                        $_SESSION["nome"]=$resultUser[0]["nome"];        
-                        //echo $_SESSION["usuario"];
-                    }                                
+                if($senha == $resultUser[0]["senha"]){                                      
+                    $_SESSION["usuario"]=$resultUser[0]["username"];
+                    $_SESSION["nome"]=$resultUser[0]["nome"];
+                    $_SESSION["tipo"]=$resultUser[0]["tipo"];                     
                 }
                 else{
-                    print "Senha Incorreta";
+                    print "Usuário ou Senha Incorreta";
                 }
             }
             else{
-                print "usuario inexistente";
+                print "Usuário ou Senha Incorreta";
             }
         }
     }
@@ -87,11 +88,11 @@ Logon
 Logout
 -->
 <?php
-if(isset($_POST['action'])){
-    $action = $_POST['action'];
-    if($action == "logout"){
-       session_destroy();
-       session_unset();
+if(isset($_GET["action"])){
+    $action = $_GET["action"];
+    if($action == "logout"){       
+       unset($_SESSION["usuario"]); 
+       unset($_SESSION["nome"]);       
     }
 }
 ?>
@@ -104,33 +105,43 @@ if(isset($_POST['action'])){
                 <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">                   
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <?php
+                            if(isset($_SESSION["usuario"])){  
+                                $tipo = $_SESSION["tipo"];                                
+                                    if($tipo == "admin"){
+                        ?>
                         <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="?pagina=cadastro">Cadastro</a>
                         </li>
                         <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="?pagina=interessados">Interessados</a>
                         </li>
+                        <?php
+                                    }
+                            }
+                        ?> 
                         <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="?pagina=interessados">Interessados                            
-                        </a>
-                        </li>                         
+                            <a class="nav-link active" aria-current="page" href="?pagina=cdisponiveis">Cursos Disponíveis                 
+                            </a>
+                        </li>                      
                         <?php                          
-                            if(isset($_SESSION['usuario'])){                                
-                                print "
-                                    <li class='nav-item dropdown'>                       
-                                        <a class='nav-link dropdown-toggle' href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false'>
-                                        "
-                                         .$_SESSION['usuario'].
-                                        "
-                                        </a>
-                                        <ul class='dropdown-menu'>
-                                            <li><a class='dropdown-item' href='#'>Alterar Senha</a></li>                                
-                                            <li><hr class='dropdown-divider'></li>
-                                            <li><a class='dropdown-item' href='?pagina=home&action=logout'>Sair</a></li>
-                                        </ul>
-                                    </li>
-                                ";
+                            if(isset($_SESSION["usuario"])){
+                        ?>
+                                
+                            <li class="nav-item dropdown">                       
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <?php
+                                        print $_SESSION["usuario"];
+                                    ?>                                  
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Alterar Senha</a></li>                                
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="?pagina=home&action=logout">Sair</a></li>
+                                </ul>
+                            </li>
+                        <?php                                
                             }
                         ?>
                     </ul>
@@ -147,31 +158,34 @@ if(isset($_POST['action'])){
     </header>
     <main>
         <?php
-            if(isset($_GET['pagina'])){
-                $pagina =  $_GET['pagina'];
+            if(isset($_GET["pagina"])){
+                $pagina =  $_GET["pagina"];
                 switch ($pagina){
                     case "home":
-                        include_once('paginas/home.php');
+                        include_once("paginas/home.php");
                         break;
                     case "cadastro":
-                        include_once('paginas/cadastro.php');
+                        include_once("paginas/cadastro.php");
                         break;
                     case "interessados":
-                        include_once('paginas/interessados.php');
+                        include_once("paginas/interessados.php");
                         break;
                     case "sobre":
-                        include_once('paginas/sobre.php');
+                        include_once("paginas/sobre.php");
                         break;
                     case "login":
-                        include_once('paginas/login.php');
+                        include_once("paginas/login.php");
+                        break;
+                    case "cdisponiveis":
+                        include_once("paginas/cdisponiveis.php");
                         break;
                     default:
-                        include_once('paginas/home.php');
+                        include_once("paginas/home.php");
                         break;
                 }
             }
             else{
-                include_once('paginas/home.php');
+                include_once("paginas/home.php");
             }
         ?>
     </main>
@@ -183,6 +197,3 @@ if(isset($_POST['action'])){
 </body> 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 </html>
-<?php
-    include('codes/include.php');
-?>
