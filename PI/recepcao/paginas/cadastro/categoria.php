@@ -1,5 +1,4 @@
-<?php
-    $conexao = new PDO("mysql:dbname=recepcao;host:localhost","root","");
+<?php    
     if(isset($_GET['editar'])){
         $edicao = $_GET['editar'];
         $atualiza = $conexao->PREPARE("SELECT * FROM categoria WHERE id = :ID;");
@@ -8,13 +7,17 @@
         $ratualiza = $atualiza->fetchAll(PDO::FETCH_ASSOC);
     }
 ?>
-
-<h1 style="text-align:center;">
-    Categoria
-</h1>
-<hr>
-<div style="display:flex; justify-content:center;">
-    <div style="width: 30vw; margin:auto;">
+<div class="row">
+    <div class="col-12">
+        <p class="h2 text-center">
+            Categoria
+        </p>
+        <hr>
+    </div>
+    <div class="col-4">
+        <p class="h4 text-center">
+            Cadastro
+        </p>    
         <form method="POST">
             <input type="hidden" name="pagina" value="cadastro">
             <input type="hidden" name="cad" value="categoria">
@@ -23,20 +26,20 @@
                     print "<input type='hidden' name='atualizar' value='".$edicao."'>";                    
                 }
             ?>
-            <label>
+            <label class="control-label">
                 Nome
             </label>
-            <input style="width:100%; margin-bottom:10px;" type="text" name="nomeCategoria"
+            <input class="form-control" type="text" name="nomeCategoria"
                 <?php                    
                         if(isset($ratualiza)){
                             print "value='".$ratualiza[0]['nome']."'";
                         }
                 ?>
             >
-            <label>
+            <label class="control-label">
                 Modalidade
             </label>
-            <select style="width:100%; margin-bottom:10px;" name="modalidade">
+            <select class="form-control" name="modalidade">
                 <option value="ead"
                         <?php
                             if(isset($ratualiza)){
@@ -72,7 +75,7 @@
                 </option>
             </select>
             <br>
-            <button>
+            <button class="btn btn-primary">
                 <?php
                     if(isset($ratualiza)){
                         print "Atualizar";
@@ -84,42 +87,54 @@
             </button>
         </form> 
     </div>
-    <div style="width: 30vw;">
-        <h4 style="text-align:center;">
-            Listagem de Categorias
-        </h4>        
-        <table>
-            <thead>
-                <tr>
-                    <td>ID</td>
-                    <td>Nome</td>
-                    <td>Modalidade</td>
-                    <td>Ação</td>
-                </tr>
-            </thead>
-            <tbody>
-                <?php                    
-                    $sqlselect = $conexao->PREPARE("SELECT * FROM categoria");
-                    $sqlselect->execute();
-                    $categorias = $sqlselect->fetchAll(PDO::FETCH_ASSOC);
-                    foreach($categorias as $categoria){
-                        print "
-                            <tr>
-                                <td>".$categoria['id']."</td>
-                                <td>".$categoria['nome']."</td>
-                                <td>".$categoria['modalidade']."</td>
-                                <td> <a href='?pagina=cadastro&cad=categoria&editar=".$categoria['id']."'> <i style='color:orange;'class='fa-solid fa-pencil'> </a> | <a href='?pagina=cadastro&cad=categoria&excluir=".$categoria['id']."'><i style='color:red;' class='fa-solid fa-trash'></a></td>
-                            </tr>
-                        ";
-                    }
-                ?>              
-            </tbody>
-        </table>
+    <div class="col-8">
+        <p class="h4 text-center">
+            Listagem
+        </p>        
+        <?php                    
+            $sqlselect = $conexao->PREPARE("SELECT nome AS 'categoria' ,count(*) AS 'qtd' FROM categoria GROUP BY nome");
+            $sqlselect->execute();
+            $categorias = $sqlselect->fetchAll(PDO::FETCH_ASSOC);
+            $cat = array();
+            $i = 0;
+            foreach($categorias as $categoria){                 
+                ?>
+                <button type="button" class="btn btn-outline-primary m-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <?php
+                        $i++;      
+                        array_push($cat,$categoria['categoria']);
+                        print $categoria['categoria'];
+                    ?>
+                </button>
+            <?php                        
+            }
+        ?>  
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">
+                    <?php
+                        print $cat[$i];
+                    ?>
+                </h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p class="h5 text-center">
+                    Modalidades
+                </p>
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-warning">Alterar</button>
+                <button type="button" class="btn btn-danger">Excluir</button>
+                <button type="button" class="btn btn-info" data-bs-dismiss="modal">Fechar</button>
+            </div>
+            </div>
+        </div>
+        </div>    
     </div>
-</div>
-
-<?php
-  //  print isset($_GET['excluir'])?$_GET['excluir']:"sem info";
-?>
-    
+</div>  
 

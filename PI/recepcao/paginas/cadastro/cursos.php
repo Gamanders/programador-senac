@@ -22,7 +22,6 @@
     }
 ?>
 
-
 <div style="display:flex; justify-content:center;">
     <div style="width:30vw; margin:auto; font-size:1.2em">
         <form  method="POST">

@@ -3,31 +3,29 @@
         $tipo = $_SESSION['usuario'];
         if($tipo){
 ?>
-    <div class="items">
-        <ul>
-            <li>
-                <a href="?pagina=cadastro&cad=categoria">
-                    Categoria
-                </a>
-            </li>
-            <li>
-                <a href="?pagina=cadastro&cad=curso">
-                    Curso
-                </a>
-            </li>
-            <li>
-                <a href="?pagina=cadastro&cad=interessados">
-                    Interessados
-                </a>
-            </li>
-            <li>
-                <a href="?pagina=cadastro&cad=interesses">
-                    Interesses
-                </a>
-            </li>        
-        </ul>
-    </div>
-    <div class="conteudo">
+<style>
+    aside{
+        height: 500px;
+    }
+</style>
+<div class="container">
+    <div class="row">
+        <aside class="col-3 p-5">
+            
+            <a class="col-12 mt-5 btn btn-outline-dark" href="?pagina=cadastro&cad=categoria">
+                Categoria
+            </a>            
+            <a class="col-12 mt-5 btn btn-outline-dark" href="?pagina=cadastro&cad=curso">
+                Curso
+            </a>                
+            <a class="col-12 mt-5 btn btn-outline-dark" href="?pagina=cadastro&cad=interessados">
+                Interessados
+            </a>
+            <a class="col-12 mt-5 btn btn-outline-dark" href="?pagina=cadastro&cad=interesses">
+                Interesses
+            </a>
+        </aside>
+        <section class="col-9">
         <?php
             if(isset($_GET['cad'])){
                 $cadastro = $_GET['cad'];
@@ -53,9 +51,10 @@
                 include_once('paginas/cadastro/default.php');
             }
         ?>
+        </section>
     </div>
-<?php
-            
+</div>    
+<?php      
         }
     }
     else{
