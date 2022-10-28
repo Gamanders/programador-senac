@@ -95,6 +95,20 @@
                         <input style="width:100%; margin-bottom:10px; "type="number" name="capacidade">
                     </td>
                 </tr>
+                <tr>
+                    <td>
+                        <label>
+                            Disponilibidade
+                        </label>    
+                    </td>
+                    <td>
+                        <select name="disponibilidade">
+                            <option value="manha">Manhã</option>
+                            <option value="manha">Tarde</option>
+                            <option value="manha">Noite</option>
+                        </select>
+                    </td>
+                </tr>
             </table>
 
             <button>
@@ -107,8 +121,7 @@
             $conexao = new PDO("mysql:dbname=recepcao;host=localhost","root","");
             $selectCursos = $conexao->PREPARE("select cursos.id, cursos.nome, categoria.nome as 'categoria', categoria.modalidade FROM cursos join categoria ON cursos.categoria_id = categoria.id");
             $selectCursos->execute();
-            $cursos = $selectCursos->fetchAll(PDO::FETCH_ASSOC);
-            //var_dump($cursos);
+            $cursos = $selectCursos->fetchAll(PDO::FETCH_ASSOC);            
          ?>
         <table>
             <thead>

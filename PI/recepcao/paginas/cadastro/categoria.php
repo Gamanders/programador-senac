@@ -91,51 +91,55 @@
         <p class="h4 text-center">
             Listagem
         </p>        
-        <?php                    
+            <?php                    
             $sqlselect = $conexao->PREPARE("SELECT nome AS 'categoria' ,count(*) AS 'qtd' FROM categoria GROUP BY nome");
             $sqlselect->execute();
             $categorias = $sqlselect->fetchAll(PDO::FETCH_ASSOC);
             $cat = array();
             $i = 0;
             foreach($categorias as $categoria){                 
-                ?>
-                <button type="button" class="btn btn-outline-primary m-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    <?php                    
-                        $i++;      
+                print "<button type='button' class='btn btn-outline-primary m-2' data-bs-toggle='modal' data-bs-target='#categoriaModal'".$i."'>";
+                        ++$i;      
                         array_push($cat,$categoria['categoria']);
                         print $categoria['categoria'];
                     ?>
                 </button>
             <?php                        
             }
+            ?>
+        <?php
+            for($j=0;$j<=$i;$j++){
+            print "
+                <div class='modal fade' id='categoriaModal'".$j."' tabindex='-1' aria-labelledby='categoriaModal'".$j." aria-hidden='true'>
+            ";
+            print "<h1>".$j."</h1>";    
         ?>
-        <  
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">
-                    <?php
-                        print $cat[$i-1];
-                    ?>
-                </h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p class="h5 text-center">
-                    Modalidades
-                </p>
-                ...
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-warning">Alterar</button>
-                <button type="button" class="btn btn-danger">Excluir</button>
-                <button type="button" class="btn btn-info" data-bs-dismiss="modal">Fechar</button>
-            </div>
-            </div>
-        </div>
-        </div>    
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">
+                            <?php
+                                print $cat[$j];
+                            ?>
+                        </h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p class="h5 text-center">
+                            Modalidades
+                        </p>
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-warning">Alterar</button>
+                        <button type="button" class="btn btn-danger">Excluir</button>
+                        <button type="button" class="btn btn-info" data-bs-dismiss="modal">Fechar</button>
+                    </div>
+                    </div>
+                </div>
+        <?php
+            print "</div>";
+        }
+         ?>       
     </div>
-</div>  
-
+</div>
