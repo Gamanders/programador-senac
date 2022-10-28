@@ -18,7 +18,6 @@
     }
 
 </style>
-
 <?php    
     $selectcategoria = $conexao->PREPARE("SELECT * FROM categoria");
     $selectcategoria->execute();
@@ -27,7 +26,6 @@
     $selectci->execute();
     $cursointeressados = $selectci->fetchAll(PDO::FETCH_ASSOC);
 ?>
-
 <?php
     if(isset($_SESSION["usuario"])){
         $tipo = $_SESSION["tipo"];        
