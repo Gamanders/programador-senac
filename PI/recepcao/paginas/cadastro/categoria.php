@@ -100,7 +100,7 @@
             foreach($categorias as $categoria){                 
                 ?>
                 <button type="button" class="btn btn-outline-primary m-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    <?php
+                    <?php                    
                         $i++;      
                         array_push($cat,$categoria['categoria']);
                         print $categoria['categoria'];
@@ -108,7 +108,8 @@
                 </button>
             <?php                        
             }
-        ?>  
+        ?>
+        <  
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -116,7 +117,7 @@
             <div class="modal-header">
                 <h1 class="modal-title fs-5" id="exampleModalLabel">
                     <?php
-                        print $cat[$i];
+                        print $cat[$i-1];
                     ?>
                 </h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
