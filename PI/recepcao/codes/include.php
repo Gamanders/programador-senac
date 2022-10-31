@@ -2,8 +2,7 @@
 Cadastrar categoria
 -->
 <?php    
-    if(isset($_POST['nomeCategoria']) && isset($_POST['modalidade'])&&!isset($_GET['editar'])){
-        print "<h1> Cadastro </h1>";
+    if(isset($_POST['nomeCategoria']) && isset($_POST['modalidade'])&&!isset($_GET['editar'])){        
         $nome = $_POST['nomeCategoria'];
         $modalidade = $_POST['modalidade'];
         $conexao = new PDO("mysql:dbname=recepcao;host=localhost","root","");
