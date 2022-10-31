@@ -142,12 +142,12 @@
                             <?php
                                 if ($cat[$j] == $m["categoria"]){
                                     print "<hr>";
-                                    print "<span class='btn btn-light'>";
+                                    print "<span class='btn btn-light text-uppercase'>";
                                     print $m["modalidade"];                                                                                          
                                     print"
                                         </span>
                                         <sup>                                        
-                                            <a href='?cad=categoria&alterar=".$m["id"]."'><button type='button' class='btn btn-sm btn-warning'><i class='fa-solid fa-pencil'></i></button> </a>
+                                            <a href='?pagina=cadastro&cad=categoria&editar=".$m["id"]."'><button type='button' class='btn btn-sm btn-warning'><i class='fa-solid fa-pencil'></i></button> </a>
                                             <a href='?cad=categoria&excluir=".$m["id"]."'><button type='button' class='btn btn-sm btn-danger'><i class='fa-solid fa-trash'></i></button> </a>
                                         </sup>";
                                 } 

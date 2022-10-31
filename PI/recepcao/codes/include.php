@@ -18,8 +18,7 @@ Cadastrar categoria
 Atualizar categoria
 --> 
 <?php
-    if(isset($_POST['nomeCategoria']) && isset($_POST['modalidade'])&&isset($_GET['editar'])){
-        print "<h1> Atualizar </h1>";
+    if(isset($_POST['nomeCategoria']) && isset($_POST['modalidade'])&&isset($_GET['editar'])){        
         $nome = $_POST['nomeCategoria'];
         $modalidade = $_POST['modalidade'];
         $id = $_GET['editar'];
@@ -29,7 +28,8 @@ Atualizar categoria
         $sqlupdate->bindParam(":ID",$id);
         $sqlupdate->bindParam(":NOME",$nome);
         $sqlupdate->bindParam(":MODALIDADE",$modalidade);
-        $sqlupdate->execute();             
+        $sqlupdate->execute();
+        header("Location:http://localhost/?pagina=cadastro&cad=categoria");
     }
 ?>
 <!--
@@ -47,7 +47,7 @@ Excluir categoria
             $result = $verifica->fetchAll(PDO::FETCH_ASSOC);
             print $result[0]['qtd'];
             $delete = $con->PREPARE("DELETE FROM categoria WHERE id = :ID");
-            $delete->bindParam(":ID",$id);
+            $delete->bindParam(":ID",$id);            
             $delete->execute();
         }
     }               
