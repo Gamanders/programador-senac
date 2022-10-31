@@ -106,11 +106,24 @@
                 }
             ?>
         <?php
+            $mod = array(); 
             for($j=0;$j<=$i;$j++){
             print "
                 <div class='modal fade' id='categoriaModal".$j."' tabindex='-1' aria-labelledby='categoriaModal".$j." aria-hidden='true'>
             ";
-            print "<h1>".$j."</h1>";    
+            print "<h1>".$j."</h1>";
+            $selectModalidades = $conexao->PREPARE("SELECT id, modalidade from categoria where nome = :NOME");            
+            $selectModalidades->bindParam(":NOME",$cat[$j]);
+            $selectModalidades->execute();
+            $modalidades=$selectModalidades->fetchAll(PDO::FETCH_ASSOC);            
+            foreach ($modalidades as $modal){
+                array("categoria"=>$cat[$j],"id"=>$modal['id'],"modalidade"=>$modal['modalidade']);
+                array_push($mod,array("categoria"=>$cat[$j],"id"=>$modal['id'],"modalidade"=>$modal['modalidade']));
+            }
+            
+            //$item = array(modalidades[0]["id"],modalidades[0]["modalidade"]);
+            //var_dump($item);
+            //array_push($mod,$item);
         ?>
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -122,11 +135,26 @@
                         </h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body text-center">
                         <p class="h5 text-center">
                             Modalidades
                         </p>
-                        ...
+                        <?php             
+                           // var_dump($mod);
+                            foreach($mod as $m){
+                        ?>
+                        
+                               <?php
+                                    if ($cat[$j] == $m["categoria"]){
+                                        print "<span class='btn btn-info'>";
+                                        print $m["modalidade"];
+                                        print "</span>";
+                                    } 
+                                ?>     
+                        
+                        <?php
+                            }
+                        ?>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-warning">Alterar</button>
