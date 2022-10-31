@@ -92,25 +92,23 @@
             Listagem
         </p>        
             <?php                    
-            $sqlselect = $conexao->PREPARE("SELECT nome AS 'categoria' ,count(*) AS 'qtd' FROM categoria GROUP BY nome");
-            $sqlselect->execute();
-            $categorias = $sqlselect->fetchAll(PDO::FETCH_ASSOC);
-            $cat = array();
-            $i = 0;
-            foreach($categorias as $categoria){                 
-                print "<button type='button' class='btn btn-outline-primary m-2' data-bs-toggle='modal' data-bs-target='#categoriaModal'".$i."'>";
-                        ++$i;      
-                        array_push($cat,$categoria['categoria']);
-                        print $categoria['categoria'];
-                    ?>
-                </button>
-            <?php                        
-            }
+                $sqlselect = $conexao->PREPARE("SELECT nome AS 'categoria' ,count(*) AS 'qtd' FROM categoria GROUP BY nome");
+                $sqlselect->execute();
+                $categorias = $sqlselect->fetchAll(PDO::FETCH_ASSOC);
+                $cat = array();
+                $i = 0;
+                foreach($categorias as $categoria){                 
+                    print "<button type='button' class='btn btn-outline-primary m-2' data-bs-toggle='modal' data-bs-target='#categoriaModal".$i."'>";
+                            ++$i;      
+                            array_push($cat,$categoria['categoria']);
+                            print $categoria['categoria'];            
+                    print "</button>";            
+                }
             ?>
         <?php
             for($j=0;$j<=$i;$j++){
             print "
-                <div class='modal fade' id='categoriaModal'".$j."' tabindex='-1' aria-labelledby='categoriaModal'".$j." aria-hidden='true'>
+                <div class='modal fade' id='categoriaModal".$j."' tabindex='-1' aria-labelledby='categoriaModal".$j." aria-hidden='true'>
             ";
             print "<h1>".$j."</h1>";    
         ?>
