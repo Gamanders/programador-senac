@@ -21,7 +21,7 @@
         }
     }
 ?>
-<div class="row col d-flex justify-content-center">
+<div class="row col d-flex justify-content-center mb-4">
     <form  method="POST">
         <input class="form-control" type="hidden" name="pagina" value="cadastro">
         <input class="form-control" type="hidden" name="cad" value="curso">
@@ -31,14 +31,14 @@
                 print "<input class='form-control' type='hidden' name='atualizar' value='".$edicao."'>";                        
             }
         ?>            
-        <div class="row col d-flex justify-content-center">
-            <div class="col-6">
+        <div class="row">
+            <div class="col">
                 <label class="label-control">
                     Nome
                 </label>
-                <input class="form-control" style="width:100%; margin-bottom:10px; "type="text" name="nomeCurso">
+                <input class="form-control mb-2" type="text" name="nomeCurso">
             </div>    
-            <div class="col-6">
+            <div class="col">
                 <label class="label-control">
                     Categoria
                 </label>
@@ -54,74 +54,73 @@
                 </select>
             </div>
         </div>
-        <div class="row col d-flex justify-content-center">
-            <table class="table table-striped" style = "width:100%;">
-                <tr>
-                        <td>
-                            <label class="label-control">
-                                data de inicio
-                            </label>
-                        </td>
-                        <td>
-                            <label class="label-control">
-                                data de fim
-                            </label>
-                        </td>
-                </tr>
-                <tr>
-                        <td>
-                            <input class="form-control" style="width:100%; margin-bottom:10px; "type="date" name="dataInicio">
-                        
-                        </td>
-                        <td>
-                            <input class="form-control" style="width:100%; margin-bottom:10px; "type="date" name="dataFim">
-                        </td>
-                </tr>
-            </table>
-            <table class="table table-striped" style="width:100%">
-                <tr>
-                    <td>
-                        <label class="label-control">
-                            carga horaria
-                        </label>
-                    </td>
-                    <td>
-                        <input class="form-control" style="width:100%; margin-bottom:10px; "type="number" name="cargahoraria">
-                    </td>
-                    <td>
-                        <label class="label-control">
-                            capacidade
-                        </label>
-                    </td>
-                    <td>
-                        <input class="form-control" style="width:100%; margin-bottom:10px; "type="number" name="capacidade">
-                    </td>
-                    <td>
-                        <label class="label-control">
-                            Disponilibidade
-                        </label>    
-                    </td>
-                    <td>
-                        <select class="form-control" name="disponibilidade">
-                            <option value="manha">Manhã</option>
-                            <option value="manha">Tarde</option>
-                            <option value="manha">Noite</option>
-                        </select>
-                    </td>
-                </tr>
-            </table>
+        <div class="row">
+            <div class="col">
+                <label class="label-control">
+                    Data de Inicio
+                </label>
+                <input class="form-control" type="date" name="dataInicio">
             </div>
-        <button>
-            cadastrar
-        </button>
+            <div class="col">
+                <label class="label-control">
+                    Data de Fim
+                </label>
+                <input class="form-control" type="date" name="dataFim">
+            </div>
+            <div class="col">
+                <label class="label-control">
+                    Carga Horária
+                </label>
+                <input class="form-control" type="number" name="cargahoraria">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label class="label-control">
+                    Capacidade
+                </label>
+                <input class="form-control" type="number" name="capacidade">
+            </div>
+            <div class="col">
+                <label class="label-control">
+                    Disponilibidade
+                </label>
+                <select class="form-control" name="disponibilidade">
+                    <option value="manha">Manhã</option>
+                    <option value="tarde">Tarde</option>
+                    <option value="noite">Noite</option>
+                </select>
+            </div>
+            <div class="col d-flex justify-content-center align-items-end">
+                <button class="btn btn-outline-primary">
+                    Cadastrar
+                </button>
+            </div>
+        </div>
     </form>
 </div>
-<div class="row col d-flex justify-content-center">
-    <?php
-        $conexao = new PDO("mysql:dbname=recepcao;host=localhost","root","");
-        $selectCursos = $conexao->PREPARE("select cursos.id, cursos.nome, categoria.nome as 'categoria', categoria.modalidade FROM cursos join categoria ON cursos.categoria_id = categoria.id");
-        $selectCursos->execute();
-        $cursos = $selectCursos->fetchAll(PDO::FETCH_ASSOC);            
+<div class="row">
+    <div class="col-12">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Todos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Saúde</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Informática</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled">Administração</a>
+            </li>
+        </ul>
+    </div>
+    <div class="col-12">
+        <?php            
+            $selectCursos = $conexao->PREPARE("select cursos.id, cursos.nome, categoria.nome as 'categoria', categoria.modalidade FROM cursos join categoria ON cursos.categoria_id = categoria.id order by categoria.nome");
+            $selectCursos->execute();
+            $cursos = $selectCursos->fetchAll(PDO::FETCH_ASSOC);            
         ?>
         <table class="table table-striped">
             <thead>
@@ -154,4 +153,16 @@
                 ?>
             </tbody>
         </table>
-</div>
+    </div>    
+    <div class="col-12 d-flex justify-content-center align-items-center">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                <li class="page-item"><a class="page-link" href="#">Anterior</a></li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">Próximo</a></li>
+            </ul>
+        </nav>
+    </div>
+    </div>
