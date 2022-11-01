@@ -167,4 +167,3 @@
          ?>       
     </div>
 </div>
-<a href='?cat=categoria&excluir='.$m["id"]></a>

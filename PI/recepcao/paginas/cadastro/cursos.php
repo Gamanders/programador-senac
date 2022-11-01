@@ -21,22 +21,20 @@
         }
     }
 ?>
-
-<div style="display:flex; justify-content:center;">
-    <div style="width:30vw; margin:auto; font-size:1.2em">
-        <form  method="POST">
-            <input type="hidden" name="pagina" value="cadastro">
-            <input type="hidden" name="cad" value="curso">
-            <input type="hidden" name="sucesso" value="true">
+<div class="row col d-flex justify-content-center">
+    <form  method="POST">
+            <input class="form-control" type="hidden" name="pagina" value="cadastro">
+            <input class="form-control" type="hidden" name="cad" value="curso">
+            <input class="form-control" type="hidden" name="sucesso" value="true">
             <?php
                 if(isset($ratualiza)){
-                    print "<input type='hidden' name='atualizar' value='".$edicao."'>";                    
+                    print "<input class='form-control' type='hidden' name='atualizar' value='".$edicao."'>";                        
                 }
-            ?>
-            <label>
+            ?>            
+            <label class="label-control">
                 Categoria
             </label>
-            <select style="width:100%; margin-bottom:10px;" name="categoria" >
+            <select class="form-control" name="categoria" >
                 <?php
                     foreach($resultado as $res){
                         print "<option value=";
@@ -45,64 +43,64 @@
                         echo "</option>";
                     } 
                 ?>
-            </select>
-            <label>
-                nome cursos
+            </select>            
+            <label class="label-control">
+                Nome
             </label>
-            <input style="width:100%; margin-bottom:10px; "type="text" name="nomeCurso">
-            <table style = "width:100%;">
+            <input class="form-control" style="width:100%; margin-bottom:10px; "type="text" name="nomeCurso">
+            <table class="table table-striped" style = "width:100%;">
             <tr>
                     <td>
-                        <label>
+                        <label class="label-control">
                             data de inicio
                         </label>
                     </td>
                     <td>
-                        <label>
+                        <label class="label-control">
                             data de fim
                         </label>
                     </td>
             </tr>
             <tr>
                     <td>
-                        <input style="width:100%; margin-bottom:10px; "type="date" name="dataInicio">
+                        <input class="form-control" style="width:100%; margin-bottom:10px; "type="date" name="dataInicio">
                     
                     </td>
                     <td>
-                        <input style="width:100%; margin-bottom:10px; "type="date" name="dataFim">
+                        <input class="form-control" style="width:100%; margin-bottom:10px; "type="date" name="dataFim">
                     </td>
             </tr>
             </table>
 
-            <table style="width:100%">
+            <table class="table table-striped" style="width:100%">
                 <tr>
                     <td>
-                        <label>
+                        <label class="label-control">
                             carga horaria
                         </label>
                     </td>
                     <td>
-                        <label>
+                        <label class="label-control">
                             capacidade
                         </label>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <input style="width:100%; margin-bottom:10px; "type="number" name="cargahoraria">
+                        <input class="form-control" style="width:100%; margin-bottom:10px; "type="number" name="cargahoraria">
                     </td>
                     <td>
-                        <input style="width:100%; margin-bottom:10px; "type="number" name="capacidade">
+                        <input class="form-control" style="width:100%; margin-bottom:10px; "type="number" name="capacidade">
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <label>
+                        <label class="label-control">
                             Disponilibidade
                         </label>    
                     </td>
                     <td>
-                        <select name="disponibilidade">
+                        <select class="form-control" name="disponibilidade">
                             <option value="manha">Manhã</option>
                             <option value="manha">Tarde</option>
                             <option value="manha">Noite</option>
@@ -115,46 +113,45 @@
                 cadastrar
             </button>
         </form>
-    </div>
-    <div style="width:40vw; margin:auto; font-size:0.9em">
-         <?php
-            $conexao = new PDO("mysql:dbname=recepcao;host=localhost","root","");
-            $selectCursos = $conexao->PREPARE("select cursos.id, cursos.nome, categoria.nome as 'categoria', categoria.modalidade FROM cursos join categoria ON cursos.categoria_id = categoria.id");
-            $selectCursos->execute();
-            $cursos = $selectCursos->fetchAll(PDO::FETCH_ASSOC);            
-         ?>
-        <table>
-            <thead>
-                <tr style="font-weight:900; text-align:center;">
-                    <td>id</td>
-                    <td>Curso</td>
-                    <td>Categoria</td>
-                    <td>Modalidade</td>
-                    <td>Ações</td>
-                </tr>
-            </thead>
-            
-            <tbody>
-                <?php
-                    foreach($cursos as $curso){
-                        print 
-                            "
-                            <tr style='text-align:center;'>
-                                <td>".$curso['id']."</td>
-                                <td>".$curso['nome']."</td>
-                                <td>".$curso['categoria']."</td>
-                                <td>".$curso['modalidade']."</td>
-                                <td>"."
-                                    <a href='?pagina=cadastro&cad=curso&editar=".$curso['id']."'><i style='color:orange;'class='fa-solid fa-pencil'></i></a>
-                                    <a href='?pagina=cadastro&cad=curso&excluir=".$curso['id']."'><i style='color:red;' class='fa-solid fa-trash'></i></a> 
-                                    <a href='?pagina=cadastro&cad=curso&detalhes=".$curso['id']."'><i style='color:blue;'class='fa-solid fa-eye'></i></a>"."</td>
-                            </tr>";
+</div>
+<div class="row col d-flex justify-content-center">
+    <?php
+        $conexao = new PDO("mysql:dbname=recepcao;host=localhost","root","");
+        $selectCursos = $conexao->PREPARE("select cursos.id, cursos.nome, categoria.nome as 'categoria', categoria.modalidade FROM cursos join categoria ON cursos.categoria_id = categoria.id");
+        $selectCursos->execute();
+        $cursos = $selectCursos->fetchAll(PDO::FETCH_ASSOC);            
+        ?>
+    <table class="table table-striped">
+        <thead>
+            <tr style="font-weight:900; text-align:center;">
+                <td>id</td>
+                <td>Curso</td>
+                <td>Categoria</td>
+                <td>Modalidade</td>
+                <td>Ações</td>
+            </tr>
+        </thead>
+        
+        <tbody>
+            <?php
+                foreach($cursos as $curso){
+                    print 
+                        "
+                        <tr style='text-align:center;'>
+                            <td>".$curso['id']."</td>
+                            <td>".$curso['nome']."</td>
+                            <td>".$curso['categoria']."</td>
+                            <td>".$curso['modalidade']."</td>
+                            <td>"."
+                                <a href='?pagina=cadastro&cad=curso&editar=".$curso['id']."'><i style='color:orange;'class='fa-solid fa-pencil'></i></a>
+                                <a href='?pagina=cadastro&cad=curso&excluir=".$curso['id']."'><i style='color:red;' class='fa-solid fa-trash'></i></a> 
+                                <a href='?pagina=cadastro&cad=curso&detalhes=".$curso['id']."'><i style='color:blue;'class='fa-solid fa-eye'></i></a>"."</td>
+                        </tr>";
 
-                    }
-                ?>
-            </tbody>
-        </table>
-    </div>
+                }
+            ?>
+        </tbody>
+    </table>
 </div>
 
 
