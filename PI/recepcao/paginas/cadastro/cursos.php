@@ -120,10 +120,19 @@
         <?php
             $selectQtdCursos = $conexao->PREPARE("select count(*) AS 'qtd' from cursos");
             $selectQtdCursos->execute();
-            $qtdCursos = $selectQtdCursos->fetchAll(PDO::FETCH_OBJ);
-           
-            $numPagina = "0";           
-            $selectCursos = $conexao->PREPARE("select cursos.id, cursos.nome, categoria.nome as 'categoria', categoria.modalidade FROM cursos join categoria ON cursos.categoria_id = categoria.id order by categoria.nome LIMIT 5 OFFSET " .$numPagina);
+            $qtdCursos =  $selectQtdCursos->fetchAll(PDO::FETCH_ASSOC);
+            $qCursos = $qtdCursos[0]["qtd"];
+            if(($qCursos%10)==0){
+                $paginas = intval($qCursos/10);    
+            }
+            else{
+                $paginas = intval($qCursos/10)+1;
+            }            
+            print $qCursos." / ".$paginas;
+            //var_dump($qtdCursos);
+            $pagina = "0";
+            $selectCursos = $conexao->PREPARE("select cursos.id, cursos.nome, categoria.nome as 'categoria', categoria.modalidade FROM cursos join categoria ON cursos.categoria_id = categoria.id order by categoria.nome LIMIT 10 OFFSET ".$pagina);            
+            //$selectCursos->bindParam(":PAGINA","1");
             $selectCursos->execute();
             $cursos = $selectCursos->fetchAll(PDO::FETCH_ASSOC);            
         ?>
