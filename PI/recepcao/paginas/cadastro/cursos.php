@@ -117,8 +117,13 @@
         </ul>
     </div>
     <div class="col-12">
-        <?php            
-            $selectCursos = $conexao->PREPARE("select cursos.id, cursos.nome, categoria.nome as 'categoria', categoria.modalidade FROM cursos join categoria ON cursos.categoria_id = categoria.id order by categoria.nome");
+        <?php
+            $selectQtdCursos = $conexao->PREPARE("select count(*) AS 'qtd' from cursos");
+            $selectQtdCursos->execute();
+            $qtdCursos = $selectQtdCursos->fetchAll(PDO::FETCH_OBJ);
+           
+            $numPagina = "0";           
+            $selectCursos = $conexao->PREPARE("select cursos.id, cursos.nome, categoria.nome as 'categoria', categoria.modalidade FROM cursos join categoria ON cursos.categoria_id = categoria.id order by categoria.nome LIMIT 5 OFFSET " .$numPagina);
             $selectCursos->execute();
             $cursos = $selectCursos->fetchAll(PDO::FETCH_ASSOC);            
         ?>
