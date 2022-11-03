@@ -67,12 +67,13 @@ Logon
             $selectUser->bindParam(":USUARIO",$usuario);        
             $selectUser->execute();
             $resultUser = $selectUser->fetchAll(PDO::FETCH_ASSOC);        
-            $senha = $_POST["senha"];
+            $senha = $_POST["senha"];            
             if(isset($resultUser[0]["senha"])){            
                 if($senha == $resultUser[0]["senha"]){                                      
                     $_SESSION["usuario"]=$resultUser[0]["username"];
                     $_SESSION["nome"]=$resultUser[0]["nome"];
                     $_SESSION["tipo"]=$resultUser[0]["tipo"];                     
+                    $_GET['pagina']="admin";
                 }
                 else{
                     print "Usuário ou Senha Incorreta";
@@ -179,6 +180,9 @@ if(isset($_GET["action"])){
                     case "cdisponiveis":
                         include_once("paginas/cdisponiveis.php");
                         break;
+                        case "admin":
+                            include_once("paginas/admin.php");
+                            break;
                     default:
                         include_once("paginas/home.php");
                         break;
