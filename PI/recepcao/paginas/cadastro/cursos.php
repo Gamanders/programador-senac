@@ -122,16 +122,16 @@
             $selectQtdCursos->execute();
             $qtdCursos =  $selectQtdCursos->fetchAll(PDO::FETCH_ASSOC);
             $qCursos = $qtdCursos[0]["qtd"];
-            if(($qCursos%10)==0){
-                $paginas = intval($qCursos/10);    
+            if(($qCursos%limitCursos)==0){
+                $paginas = intval($qCursos/limitCursos);    
             }
             else{
-                $paginas = intval($qCursos/10)+1;
+                $paginas = intval($qCursos/limitCursos)+1;
             }            
-            print $qCursos." / ".$paginas;
             //var_dump($qtdCursos);
-            $pagina = "0";
-            $selectCursos = $conexao->PREPARE("select cursos.id, cursos.nome, categoria.nome as 'categoria', categoria.modalidade FROM cursos join categoria ON cursos.categoria_id = categoria.id order by categoria.nome LIMIT 10 OFFSET ".$pagina);            
+            $paginacao = "0";
+            $paginacao=isset($_GET["paginacao"])?$_GET["paginacao"]:"0";
+            $selectCursos = $conexao->PREPARE("select cursos.id, cursos.nome, categoria.nome as 'categoria', categoria.modalidade FROM cursos join categoria ON cursos.categoria_id = categoria.id order by categoria.nome LIMIT ".limitCursos ." OFFSET ".$paginacao);            
             //$selectCursos->bindParam(":PAGINA","1");
             $selectCursos->execute();
             $cursos = $selectCursos->fetchAll(PDO::FETCH_ASSOC);            
@@ -173,14 +173,25 @@
         <nav aria-label="Page navigation example">
             <ul class="pagination">
                 <li class="page-item"><a class="page-link" href="#">Anterior</a></li>
-                <?php                    
+                <?php                     
                     for($i = 0; $i<$paginas ;$i++){
-                        print 
-                        "<li class='page-item'>
-                            <a class='page-link' href='#'>"
-                                .($i+1)."
-                            </a>
-                        </li>";
+                        $p = limitCursos * $i;
+                        if($p==$paginacao){
+                            print
+                            "<li class='page-item active'>
+                                <a class='page-link' href='?pagina=cadastro&cad=curso&paginacao=$p'>"
+                                    .($i+1)."
+                                </a>
+                            </li>";
+                        }
+                        else{
+                            print 
+                            "<li class='page-item'>
+                                <a class='page-link' href='?pagina=cadastro&cad=curso&paginacao=$p'>"
+                                    .($i+1)."
+                                </a>
+                            </li>";
+                        }
                     }
                 ?>                
                 <li class="page-item"><a class="page-link" href="#">Próximo</a></li>
