@@ -117,22 +117,21 @@
         </ul>
     </div>
     <div class="col-12">
-        <?php
+        <?php            
             $selectQtdCursos = $conexao->PREPARE("select count(*) AS 'qtd' from cursos");
             $selectQtdCursos->execute();
-            $qtdCursos =  $selectQtdCursos->fetchAll(PDO::FETCH_ASSOC);
-            $qCursos = $qtdCursos[0]["qtd"];
-            if(($qCursos%10)==0){
-                $paginas = intval($qCursos/10);    
+            $qtdCursos =  $selectQtdCursos->fetchAll(PDO::FETCH_ASSOC);            
+            $qCursos = $qtdCursos[0]["qtd"];            
+            if(($qCursos%QTDPAGINACAO)==0){
+                $paginas = intval($qCursos/10);                    
+                print $paginas;
             }
             else{
-                $paginas = intval($qCursos/10)+1;
-            }            
-            print $qCursos." / ".$paginas;
-            //var_dump($qtdCursos);
-            $pagina = "0";
-            $selectCursos = $conexao->PREPARE("select cursos.id, cursos.nome, categoria.nome as 'categoria', categoria.modalidade FROM cursos join categoria ON cursos.categoria_id = categoria.id order by categoria.nome LIMIT 10 OFFSET ".$pagina);            
-            //$selectCursos->bindParam(":PAGINA","1");
+                $paginas = intval($qCursos/10)+1;                
+                print $paginas;
+            }                                   
+            $paginacao=isset($_GET["paginacao"])?$_GET["paginacao"]:"0";                                    
+            $selectCursos = $conexao->PREPARE("select cursos.id, cursos.nome, categoria.nome as 'categoria', categoria.modalidade FROM cursos join categoria ON cursos.categoria_id = categoria.id order by categoria.nome LIMIT ".QTDPAGINACAO." OFFSET ".$paginacao);            
             $selectCursos->execute();
             $cursos = $selectCursos->fetchAll(PDO::FETCH_ASSOC);            
         ?>
@@ -173,11 +172,12 @@
         <nav aria-label="Page navigation example">
             <ul class="pagination">
                 <li class="page-item"><a class="page-link" href="#">Anterior</a></li>
-                <?php                    
-                    for($i = 0; $i<$paginas ;$i++){
+                <?php                                        
+                    for($i = 0; $i<$paginas;$i++){
+                        $p=$i*QTDPAGINACAO;
                         print 
                         "<li class='page-item'>
-                            <a class='page-link' href='#'>"
+                            <a class='page-link' href='?pagina=cadastro&cad=curso&paginacao=".$p."'>"
                                 .($i+1)."
                             </a>
                         </li>";
