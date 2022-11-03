@@ -2,54 +2,54 @@
     Cursos
 </h1>
 <hr>
-<?php    
-    $sqlselect = $conexao->PREPARE("SELECT * FROM categoria");
-    $sqlselect->execute();
-    $resultado=$sqlselect->fetchAll(PDO::FETCH_ASSOC);
+<?php
+$sqlselect = $conexao->PREPARE("SELECT * FROM categoria");
+$sqlselect->execute();
+$resultado = $sqlselect->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <?php
-    if(isset($_POST['sucesso'])){
-        $sucesso = $_POST['sucesso'];
-        if($sucesso == "true"){
-            print "
+if (isset($_POST['sucesso'])) {
+    $sucesso = $_POST['sucesso'];
+    if ($sucesso == "true") {
+        print "
                 <div style='width:60vw; margin:auto; font-size:1.2em; padding:5px; border: solid 2px green; border-radius:10px; background:lightgreen;'>
                     <p style='text-align:center; color:darkgreen; font-weight:900;'>
                         Cadastro realizado com sucesso!
                     </p>
                 </div>
             ";
-        }
     }
+}
 ?>
 <div class="row col d-flex justify-content-center mb-4">
-    <form  method="POST">
+    <form method="POST">
         <input class="form-control" type="hidden" name="pagina" value="cadastro">
         <input class="form-control" type="hidden" name="cad" value="curso">
         <input class="form-control" type="hidden" name="sucesso" value="true">
         <?php
-            if(isset($ratualiza)){
-                print "<input class='form-control' type='hidden' name='atualizar' value='".$edicao."'>";                        
-            }
-        ?>            
+        if (isset($ratualiza)) {
+            print "<input class='form-control' type='hidden' name='atualizar' value='" . $edicao . "'>";
+        }
+        ?>
         <div class="row">
             <div class="col">
                 <label class="label-control">
                     Nome
                 </label>
                 <input class="form-control mb-2" type="text" name="nomeCurso">
-            </div>    
+            </div>
             <div class="col">
                 <label class="label-control">
                     Categoria
                 </label>
-                <select class="form-control" name="categoria" >
+                <select class="form-control" name="categoria">
                     <?php
-                        foreach($resultado as $res){
-                            print "<option value=";
-                            print $res['id'].">";
-                            print $res['nome']." / ".$res['modalidade'];
-                            echo "</option>";
-                        } 
+                    foreach ($resultado as $res) {
+                        print "<option value=";
+                        print $res['id'] . ">";
+                        print $res['nome'] . " / " . $res['modalidade'];
+                        echo "</option>";
+                    }
                     ?>
                 </select>
             </div>
@@ -146,29 +146,28 @@
                     <td>Ações</td>
                 </tr>
             </thead>
-            
+
             <tbody>
                 <?php
-                    $item=1;
-                    foreach($cursos as $curso){
-                        print 
-                            "
+                $item = 1;
+                foreach ($cursos as $curso) {
+                    print
+                        "
                             <tr style='text-align:center;'>
-                                <td>".($item++)."</td>
-                                <td>".$curso['nome']."</td>
-                                <td>".$curso['categoria']."</td>
-                                <td>".$curso['modalidade']."</td>
-                                <td>"."
-                                    <a href='?pagina=cadastro&cad=curso&editar=".$curso['id']."'><i style='color:orange;'class='fa-solid fa-pencil'></i></a>
-                                    <a href='?pagina=cadastro&cad=curso&excluir=".$curso['id']."'><i style='color:red;' class='fa-solid fa-trash'></i></a> 
-                                    <a href='?pagina=cadastro&cad=curso&detalhes=".$curso['id']."'><i style='color:blue;'class='fa-solid fa-eye'></i></a>"."</td>
+                                <td>" . ($item++) . "</td>
+                                <td>" . $curso['nome'] . "</td>
+                                <td>" . $curso['categoria'] . "</td>
+                                <td>" . $curso['modalidade'] . "</td>
+                                <td>" . "
+                                    <a href='?pagina=cadastro&cad=curso&editar=" . $curso['id'] . "'><i style='color:orange;'class='fa-solid fa-pencil'></i></a>
+                                    <a href='?pagina=cadastro&cad=curso&excluir=" . $curso['id'] . "'><i style='color:red;' class='fa-solid fa-trash'></i></a> 
+                                    <a href='?pagina=cadastro&cad=curso&detalhes=" . $curso['id'] . "'><i style='color:blue;'class='fa-solid fa-eye'></i></a>" . "</td>
                             </tr>";
-
-                    }
+                }
                 ?>
             </tbody>
         </table>
-    </div>    
+    </div>
     <div class="col-12 d-flex justify-content-center align-items-center">
         <nav aria-label="Page navigation example">
             <ul class="pagination">
@@ -198,4 +197,4 @@
             </ul>
         </nav>
     </div>
-    </div>
+</div>
