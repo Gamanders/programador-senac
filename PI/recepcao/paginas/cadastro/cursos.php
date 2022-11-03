@@ -149,11 +149,12 @@
             
             <tbody>
                 <?php
+                    $item=1;
                     foreach($cursos as $curso){
                         print 
                             "
                             <tr style='text-align:center;'>
-                                <td>".$curso['id']."</td>
+                                <td>".($item++)."</td>
                                 <td>".$curso['nome']."</td>
                                 <td>".$curso['categoria']."</td>
                                 <td>".$curso['modalidade']."</td>
@@ -172,9 +173,16 @@
         <nav aria-label="Page navigation example">
             <ul class="pagination">
                 <li class="page-item"><a class="page-link" href="#">Anterior</a></li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <?php                    
+                    for($i = 0; $i<$paginas ;$i++){
+                        print 
+                        "<li class='page-item'>
+                            <a class='page-link' href='#'>"
+                                .($i+1)."
+                            </a>
+                        </li>";
+                    }
+                ?>                
                 <li class="page-item"><a class="page-link" href="#">Próximo</a></li>
             </ul>
         </nav>
