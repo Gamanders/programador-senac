@@ -171,7 +171,19 @@ if (isset($_POST['sucesso'])) {
     <div class="col-12 d-flex justify-content-center align-items-center">
         <nav aria-label="Page navigation example">
             <ul class="pagination">
-                <li class="page-item"><a class="page-link" href="#">Anterior</a></li>
+                <?php
+                $lim = $paginacao-limitCursos;
+                if($paginacao==0){
+                    print"
+                    <li class='page-item disabled'><a class='page-link' href='?pagina=cadastro&cad=curso&paginacao=$lim'>Anterior</a></li>
+                    ";
+                }
+                else{
+                    print"
+                    <li class='page-item'><a class='page-link' href='?pagina=cadastro&cad=curso&paginacao=$lim'>Anterior</a></li>
+                    ";
+                }
+                ?>                
                 <?php                     
                     for($i = 0; $i<$paginas ;$i++){
                         $p = limitCursos * $i;
@@ -193,8 +205,22 @@ if (isset($_POST['sucesso'])) {
                         }
                     }
                 ?>                
-                <li class="page-item"><a class="page-link" href="#">Próximo</a></li>
+                <?php
+                $lim = $paginacao+limitCursos;
+                $posicao = (intval($qCursos/limitCursos))*limitCursos;
+                if($paginacao==$posicao){
+                    print"
+                    <li class='page-item disabled'><a class='page-link' href='?pagina=cadastro&cad=curso&paginacao=$lim'>Proximo</a></li>
+                    ";
+                }
+                else{
+                    print"
+                    <li class='page-item'><a class='page-link' href='?pagina=cadastro&cad=curso&paginacao=$lim'>Proximo</a></li>
+                    ";
+                }
+                ?>
             </ul>
+            
         </nav>
     </div>
 </div>
