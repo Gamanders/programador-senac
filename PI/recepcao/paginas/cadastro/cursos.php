@@ -8,6 +8,17 @@ $sqlselect->execute();
 $resultado = $sqlselect->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <?php
+if(isset($_GET['alterpag'])){
+    $alterpag = $_GET['alterpag'];
+    if($alterpag == "ant"){
+        $paginacao=$paginacao-limitCursos;
+        print $paginacao." / ".limitCursos; 
+    }
+    if($alterpag == "prox"){
+        $paginacao=$paginacao+limitCursos;
+        print $paginacao." / ".limitCursos;
+    }
+}    
 if (isset($_POST['sucesso'])) {
     $sucesso = $_POST['sucesso'];
     if ($sucesso == "true") {
@@ -171,9 +182,20 @@ if (isset($_POST['sucesso'])) {
     <div class="col-12 d-flex justify-content-center align-items-center">
         <nav aria-label="Page navigation example">
             <ul class="pagination">
-                <li class="page-item"><a class="page-link" href="#">Anterior</a></li>
-                <?php                     
-                    for($i = 0; $i<$paginas ;$i++){
+                <?php
+                    if($paginacao==0){
+                ?>
+                <li class="page-item"><a class="page-link disabled" href="?pagina=cadastro&cad=curso&alterpag=ant">Anterior</a></li>
+                <?php
+                }
+                else{                
+                ?>
+                <li class="page-item"><a class="page-link" href="?pagina=cadastro&cad=curso&alterpag=ant">Anterior</a></li>
+                <?php
+                }
+                ?>
+                <?php                    
+                    for($i=0; $i<$paginas ;$i++){
                         $p = limitCursos * $i;
                         if($p==$paginacao){
                             print
@@ -191,10 +213,29 @@ if (isset($_POST['sucesso'])) {
                                 </a>
                             </li>";
                         }
-                    }
-                ?>                
-                <li class="page-item"><a class="page-link" href="#">Próximo</a></li>
+                    }                               
+                ?>
+                <?php                
+                $posicao = (intval($qCursos/limitCursos))*limitCursos;                  
+                if($paginacao==$posicao){
+                    print"
+                    <li class='page-item'><a class='page-link disabled' href='?pagina=cadastro&cad=curso&alterpag=prox&paginacao=".$paginacao.">Próximo</a></li>";
+                }                
+                else{
+                    print"
+                    <li class='page-item'><a class='page-link' href='?pagina=cadastro&cad=curso&alterpag=prox&paginacao=".$paginacao.">Próximo</a></li>";                                    
+                }
+                ?>                             
             </ul>
         </nav>
+        <!--
+            Desafio .... alterar paginação
+        <form action="?alt=paginacao">            
+            <input type="number" step="5" length="5" class="form-control">
+            <button class="btn btn-primary">
+                Mudar Paginação 
+            </button>
+        </form>
+        -->
     </div>
 </div>
