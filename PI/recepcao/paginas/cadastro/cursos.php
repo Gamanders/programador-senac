@@ -8,6 +8,17 @@ $sqlselect->execute();
 $resultado = $sqlselect->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <?php
+if(isset($_GET['alterpag'])){
+    $alterpag = $_GET['alterpag'];
+    if($alterpag == "ant"){
+        $paginacao=$paginacao-limitCursos;
+        print $paginacao." / ".limitCursos; 
+    }
+    if($alterpag == "prox"){
+        $paginacao=$paginacao+limitCursos;
+        print $paginacao." / ".limitCursos;
+    }
+}    
 if (isset($_POST['sucesso'])) {
     $sucesso = $_POST['sucesso'];
     if ($sucesso == "true") {
@@ -222,5 +233,14 @@ if (isset($_POST['sucesso'])) {
             </ul>
             
         </nav>
+        <!--
+            Desafio .... alterar paginação
+        <form action="?alt=paginacao">            
+            <input type="number" step="5" length="5" class="form-control">
+            <button class="btn btn-primary">
+                Mudar Paginação 
+            </button>
+        </form>
+        -->
     </div>
 </div>
