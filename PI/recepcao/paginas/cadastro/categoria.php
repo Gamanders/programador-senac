@@ -90,8 +90,8 @@
     <div class="col-8">
         <p class="h4 text-center">
             Listagem
-        </p>
-        <div class="d-flex justify-content-around">
+        </p>        
+        <div class="mx-auto">
             <?php                    
                 $sqlselect = $conexao->PREPARE("SELECT nome AS 'categoria' ,count(*) AS 'qtd' FROM categoria GROUP BY nome");
                 $sqlselect->execute();
@@ -106,7 +106,8 @@
                     print "</button>";            
                 }
             ?>
-        </div>        
+        </div>   
+        
         <?php
             $mod = array(); 
             for($j=0;$j<=$i;$j++){

@@ -113,18 +113,34 @@ if (isset($_POST['sucesso'])) {
 <div class="row">
     <div class="col-12">
         <ul class="nav nav-tabs">
-            <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Todos</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Saúde</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Informática</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled">Administração</a>
-            </li>
+            <?php
+                if(isset($_GET['catcurso'])){
+            ?>
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="#">Todos</a>
+                </li>            
+            <?php
+                }
+                else{
+            ?>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Todos</a>
+                </li>
+            <?php
+                }
+            ?>
+            <?php
+                $sqlselect = $conexao->PREPARE("SELECT nome AS 'categoria' ,count(*) AS 'qtd' FROM categoria GROUP BY nome");
+                $sqlselect->execute();
+                $categorias = $sqlselect->fetchAll(PDO::FETCH_ASSOC);
+                foreach($categorias as $cat){
+                    print "
+                        <li class='nav-item'>
+                            <a class='nav-link' href='#'>".$cat["categoria"]."</a>
+                        </li>
+                    ";
+                }
+            ?>   
         </ul>
     </div>
     <div class="col-12">
@@ -138,12 +154,10 @@ if (isset($_POST['sucesso'])) {
             }
             else{
                 $paginas = intval($qCursos/limitCursos)+1;
-            }            
-            //var_dump($qtdCursos);
+            } 
             $paginacao = "0";
             $paginacao=isset($_GET["paginacao"])?$_GET["paginacao"]:"0";
-            $selectCursos = $conexao->PREPARE("select cursos.id, cursos.nome, categoria.nome as 'categoria', categoria.modalidade FROM cursos join categoria ON cursos.categoria_id = categoria.id order by categoria.nome LIMIT ".limitCursos ." OFFSET ".$paginacao);            
-            //$selectCursos->bindParam(":PAGINA","1");
+            $selectCursos = $conexao->PREPARE("select cursos.id, cursos.nome, categoria.nome as 'categoria', categoria.modalidade FROM cursos join categoria ON cursos.categoria_id = categoria.id order by categoria.nome LIMIT ".limitCursos ." OFFSET ".$paginacao);                        
             $selectCursos->execute();
             $cursos = $selectCursos->fetchAll(PDO::FETCH_ASSOC);            
         ?>
