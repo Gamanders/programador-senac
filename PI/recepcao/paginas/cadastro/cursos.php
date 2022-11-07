@@ -134,9 +134,10 @@ if (isset($_POST['sucesso'])) {
                 $sqlselect->execute();
                 $categorias = $sqlselect->fetchAll(PDO::FETCH_ASSOC);
                 foreach($categorias as $cat){
+                    $catn = $cat["categoria"];
                     print "
                         <li class='nav-item'>
-                            <a class='nav-link' href='#'>".$cat["categoria"]."</a>
+                            <a class='nav-link' href='?pagina=cadastro&cad=curso&catcurso=$catn'>".$cat["categoria"]."</a>
                         </li>
                     ";
                 }
@@ -157,7 +158,14 @@ if (isset($_POST['sucesso'])) {
             } 
             $paginacao = "0";
             $paginacao=isset($_GET["paginacao"])?$_GET["paginacao"]:"0";
-            $selectCursos = $conexao->PREPARE("select cursos.id, cursos.nome, categoria.nome as 'categoria', categoria.modalidade FROM cursos join categoria ON cursos.categoria_id = categoria.id order by categoria.nome LIMIT ".limitCursos ." OFFSET ".$paginacao);                        
+            $categoria=isset($_GET['catcurso'])?$_GET['catcurso']:"0";
+            print $categoria;
+            if(isset($_GET['catcurso'])){
+                $selectCursos = $conexao->PREPARE("select cursos.id, cursos.nome, categoria.nome as 'categoria', categoria.modalidade FROM cursos join categoria ON cursos.categoria_id = categoria.id WHERE categoria.nome ='".$categoria."' order by categoria.nome LIMIT ".limitCursos ." OFFSET ".$paginacao);
+            }
+            else{
+                $selectCursos = $conexao->PREPARE("select cursos.id, cursos.nome, categoria.nome as 'categoria', categoria.modalidade FROM cursos join categoria ON cursos.categoria_id = categoria.id order by categoria.nome LIMIT ".limitCursos ." OFFSET ".$paginacao);
+            }
             $selectCursos->execute();
             $cursos = $selectCursos->fetchAll(PDO::FETCH_ASSOC);            
         ?>
