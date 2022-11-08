@@ -1,3 +1,4 @@
+
 <?php 
     include_once("config.php");
     include_once("codes/include.php");
@@ -197,6 +198,18 @@ if(isset($_GET["action"])){
         <p>
             Desenvolvido em sala - SENAC Garanhuns
         </p>
+        <?php
+            function test() {
+                    try {
+                        throw new Exception('foo');
+                    } catch (Exception $e) {
+                        return 'catch';
+                    } finally {
+                        return 'finally';
+                    }
+                }
+                test();
+            ?>
     </footer>    
 </body> 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>

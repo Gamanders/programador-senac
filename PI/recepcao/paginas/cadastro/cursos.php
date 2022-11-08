@@ -320,18 +320,9 @@ if (isset($_POST['sucesso'])) {
             <?php
             }
             else{
-                print "<p class='h2 text-center text-danger'>não a itens para essa categoria</p>";
+                print "<p class='h4 text-center text-danger mt-4'>Não há cursos para essa categoria</p>";
             }
             ?>
-        </nav>
-        <!--
-            Desafio .... alterar paginação
-        <form action="?alt=paginacao">            
-            <input type="number" step="5" length="5" class="form-control">
-            <button class="btn btn-primary">
-                Mudar Paginação 
-            </button>
-        </form>
-        -->
+        </nav>        
     </div>
 </div>

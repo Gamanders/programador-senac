@@ -110,14 +110,16 @@ Excluir categoria
     if(isset($_GET['excluir'])&&($_GET['cad'])){
         $cad = $_GET['cad'];
         if($cad == "curso"){
-            $id = $_GET['excluir'];        
+            $id = $_GET['excluir'];
+            //$int = $conexao->PREPARE("");
             $con = new PDO("mysql:dbname=recepcao;host=localhost","root","");                
             $delete = $con->PREPARE("DELETE FROM cursos WHERE id = :ID");
             $delete->bindParam(":ID",$id);
             $delete->execute();
         }
-    }               
+    }           
 ?>
+
 <!--
 Cadastrar Interesses
 -->
