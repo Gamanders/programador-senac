@@ -173,7 +173,6 @@ if (isset($_POST['sucesso'])) {
             else{
                 $paginas = intval($qCursos/limitCursos)+1;
             }
-            print $paginas;
             if ($qCursos!=0){
         ?>
         <table class="table table-striped">
