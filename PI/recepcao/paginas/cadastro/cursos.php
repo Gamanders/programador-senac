@@ -212,50 +212,99 @@ if (isset($_POST['sucesso'])) {
             <ul class="pagination">
                 <?php
                 $lim = $paginacao-limitCursos;
-                if($paginacao==0){
-                    print"
-                    <li class='page-item disabled'><a class='page-link' href='?pagina=cadastro&cad=curso&paginacao=$lim'>Anterior</a></li>
-                    ";
+                if(isset($_GET['catcurso'])){
+                    if($paginacao==0){
+                        print"
+                        <li class='page-item disabled'><a class='page-link' href='?pagina=cadastro&cad=curso&catcurso=$categoria&paginacao=$lim'>Anterior</a></li>
+                        ";
+                    }
+                    else{
+                        print"
+                        <li class='page-item'><a class='page-link' href='?pagina=cadastro&cad=curso&catcurso=$categoria&paginacao=$lim'>Anterior</a></li>
+                        ";
+                    }
                 }
                 else{
-                    print"
-                    <li class='page-item'><a class='page-link' href='?pagina=cadastro&cad=curso&paginacao=$lim'>Anterior</a></li>
-                    ";
+                    if($paginacao==0){
+                        print"
+                        <li class='page-item disabled'><a class='page-link' href='?pagina=cadastro&cad=curso&paginacao=$lim'>Anterior</a></li>
+                        ";
+                    }
+                    else{
+                        print"
+                        <li class='page-item'><a class='page-link' href='?pagina=cadastro&cad=curso&paginacao=$lim'>Anterior</a></li>
+                        ";
+                    }
                 }
-                ?>                
-                <?php                     
+                ?>
+                <?php
                     for($i = 0; $i<$paginas ;$i++){
                         $p = limitCursos * $i;
-                        if($p==$paginacao){
-                            print
-                            "<li class='page-item active'>
-                                <a class='page-link' href='?pagina=cadastro&cad=curso&paginacao=$p'>"
-                                    .($i+1)."
-                                </a>
-                            </li>";
+                        if(isset($_GET['catcurso'])){    
+                            if($p==$paginacao){
+                                print
+                                "<li class='page-item active'>
+                                    <a class='page-link' href='?pagina=cadastro&cad=curso&catcurso=$categoria&paginacao=$p'>"
+                                        .($i+1)."
+                                    </a>
+                                </li>";
+                            }
+                            else{
+                                print 
+                                "<li class='page-item'>
+                                    <a class='page-link' href='?pagina=cadastro&cad=curso&catcurso=$categoria&paginacao=$p'>"
+                                        .($i+1)."
+                                    </a>
+                                </li>";
+                            }
                         }
                         else{
-                            print 
-                            "<li class='page-item'>
-                                <a class='page-link' href='?pagina=cadastro&cad=curso&paginacao=$p'>"
-                                    .($i+1)."
-                                </a>
-                            </li>";
+                            if($p==$paginacao){
+                                print
+                                "<li class='page-item active'>
+                                    <a class='page-link' href='?pagina=cadastro&cad=curso&paginacao=$p'>"
+                                        .($i+1)."
+                                    </a>
+                                </li>";
+                            }
+                            else{
+                                print 
+                                "<li class='page-item'>
+                                    <a class='page-link' href='?pagina=cadastro&cad=curso&paginacao=$p'>"
+                                        .($i+1)."
+                                    </a>
+                                </li>";
+                            }
                         }
+                    
                     }
                 ?>                
                 <?php
                 $lim = $paginacao+limitCursos;
                 $posicao = (intval($qCursos/limitCursos))*limitCursos;
-                if($paginacao==$posicao){
-                    print"
-                    <li class='page-item disabled'><a class='page-link' href='?pagina=cadastro&cad=curso&paginacao=$lim'>Proximo</a></li>
-                    ";
+                if(isset($_GET['catcurso'])){
+                    if($paginacao==$posicao){
+                        print"
+                        <li class='page-item disabled'><a class='page-link' href='?pagina=cadastro&cad=curso&catcurso=$categoria&paginacao=$lim'>Proximo</a></li>
+                        ";
+                    }
+                    else{
+                        print"
+                        <li class='page-item'><a class='page-link' href='?pagina=cadastro&cad=curso&catcurso=$categoria&paginacao=$lim'>Proximo</a></li>
+                        ";
+                    }
                 }
                 else{
-                    print"
-                    <li class='page-item'><a class='page-link' href='?pagina=cadastro&cad=curso&paginacao=$lim'>Proximo</a></li>
-                    ";
+                    if($paginacao==$posicao){
+                        print"
+                        <li class='page-item disabled'><a class='page-link' href='?pagina=cadastro&cad=curso&paginacao=$lim'>Proximo</a></li>
+                        ";
+                    }
+                    else{
+                        print"
+                        <li class='page-item'><a class='page-link' href='?pagina=cadastro&cad=curso&paginacao=$lim'>Proximo</a></li>
+                        ";
+                    }
                 }
                 ?>
             </ul>
