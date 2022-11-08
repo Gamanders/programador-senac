@@ -1,6 +1,6 @@
-<h1 style="text-align:center;">
+<p class="h2 text-center mt-5">
     Interesses
-</h1>
+</p>
 <hr>
 <?php
 $conexao = new PDO("mysql:dbname=recepcao;host=localhost", "root", "");
@@ -88,7 +88,6 @@ $cursointeressados = $selectci->fetchAll(PDO::FETCH_ASSOC);
         ?>
     </tbody>
 </table>
-
 <div style="display:flex; justify-content:center; margin-top: 30px ;">
 
     <nav aria-label="Page navigation example">
