@@ -165,7 +165,6 @@ if (isset($_POST['sucesso'])) {
                 $selectQtdCursos = $conexao->PREPARE("select count(*) AS 'qtd' from cursos join categoria on cursos.categoria_id = categoria.id WHERE categoria.nome ='".$categoria."'");
                 $selectQtdCursos->execute();
                 $qtdCursos =  $selectQtdCursos->fetchAll(PDO::FETCH_ASSOC);
-                var_dump($qtdCursos);
                 $qCursos = $qtdCursos[0]["qtd"];
             }
             if(($qCursos%limitCursos)==0){
@@ -175,6 +174,7 @@ if (isset($_POST['sucesso'])) {
                 $paginas = intval($qCursos/limitCursos)+1;
             }
             print $paginas;
+            if ($qCursos!=0){
         ?>
         <table class="table table-striped">
             <thead>
@@ -260,7 +260,12 @@ if (isset($_POST['sucesso'])) {
                 }
                 ?>
             </ul>
-            
+            <?php
+            }
+            else{
+                print "<p class='h2 text-center text-danger'>não a itens para essa categoria</p>";
+            }
+            ?>
         </nav>
         <!--
             Desafio .... alterar paginação
