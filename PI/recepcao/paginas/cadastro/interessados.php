@@ -1,8 +1,9 @@
 <div class="row">
     <div class="col">
-        <h1 style="text-align:center;">
+        <p class="h2 text-center mt-5">
             Interessados
-        </h1>
+        </p>
+        <hr>
     </div>
 </div>
 <?php
@@ -21,101 +22,105 @@
 ?>
 <div class="row">
     <div class="col">
-        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseCadastro" aria-expanded="false" aria-controls="collapseCadastro">
-            Seu coração é tão grande quanto o cadastro que vc deve fazer
-        </button>
-        <div class="collapse" id="collapseCadastro">
-            <form  method="POST">
-                <input type="hidden" name="pagina" value="cadastro">
-                <input type="hidden" name="cad" value="interessados">
-                <input type="hidden" name="sucesso" value="true">
-                <?php
-                    if(isset($ratualiza)){
-                        print "<input type='hidden' name='atualizar' value='".$edicao."'>";                    
-                    }
-                ?>
-                <label class="form-label">
-                    Nome
-                </label>
-                <input class="form-control" type="text" name="nome" style="width:100%; margin-bottom:10px;">
-                <table class="table" style="width:100%">
-                    <tr>
-                        <td>
-                            <label class="form-label">
-                            Contato
-                            </label>
-                        </td>
-                        <td>
-                            <label class="form-label">
-                                Tipo de Contato
-                            </label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input class="form-control" type="tel" name="contato" style="width:100%; margin-bottom:10px;">
-                        </td>
-                        <td>
-                        <select style="width:100%; margin-bottom:10px;" name="tpcontato" >
-                            <option value="soligacao">
-                                    Só Ligação
-                            </option>
-                            <option value="whastapp">
-                                    whastapp
-                            </option>
-                            <option value="telegram">
-                                    Telegram
-                            </option>               
-                        </select>            
-                        </td>
-                    </tr>
-                </table>               
-                <label class="form-label">
-                    Email
-                </label>
-                <input class="form-control" type="email" name="email" style="width:100%; margin-bottom:10px;">            
-                <table style = "width:100%;">
-                    <tr>
-                        <td>
-                            <label class="form-label">
-                                Escolaridade
-                            </label>
-                        </td>
-                        <td>
-                            <label class="form-label">
-                                Data de Nascimento
-                            </label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <select style="width:100%; margin-bottom:10px;" name="escolaridade" >
-                                <option value="fundamental">
-                                        Fundamental
+        <p>
+            <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                Novo | <i class="fa-solid fa-arrow-down"></i>
+            </a>
+        </p>
+        <div class="collapse" id="collapseExample">
+            <div class="card card-body">
+                <form  method="POST">
+                    <input type="hidden" name="pagina" value="cadastro">
+                    <input type="hidden" name="cad" value="interessados">
+                    <input type="hidden" name="sucesso" value="true">
+                    <?php
+                        if(isset($ratualiza)){
+                            print "<input type='hidden' name='atualizar' value='".$edicao."'>";                    
+                        }
+                    ?>
+                    <label class="form-label">
+                        Nome
+                    </label>
+                    <input class="form-control" type="text" name="nome" style="width:100%; margin-bottom:10px;">
+                    <table class="table" style="width:100%">
+                        <tr>
+                            <td>
+                                <label class="form-label">
+                                Contato
+                                </label>
+                            </td>
+                            <td>
+                                <label class="form-label">
+                                    Tipo de Contato
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input class="form-control" type="tel" name="contato" style="width:100%; margin-bottom:10px;">
+                            </td>
+                            <td>
+                            <select class="form-control" name="tpcontato" >
+                                <option value="soligacao">
+                                        Só Ligação
                                 </option>
-                                <option value="medio">
-                                        Médio   
+                                <option value="whastapp">
+                                        whastapp
                                 </option>
-                                <option value="superior">
-                                        Superior   
-                                </option>
-                                <option value="posgraduado">
-                                        posgraduado   
-                                </option>
-                            </select>
-                        </td>
-                        <td>
-                            <input class="form-control" style="width:100%; margin-bottom:10px; "type="date" name="dataNascimento">
-                        </td>
-                    </tr>
-                </table>
-                <button>
-                    cadastrar
-                </button>
-            </form>
+                                <option value="telegram">
+                                        Telegram
+                                </option>               
+                            </select>            
+                            </td>
+                        </tr>
+                    </table>               
+                    <label class="form-label">
+                        Email
+                    </label>
+                    <input class="form-control" type="email" name="email" style="width:100%; margin-bottom:10px;">            
+                    <table style = "width:100%;">
+                        <tr>
+                            <td>
+                                <label class="form-label">
+                                    Escolaridade
+                                </label>
+                            </td>
+                            <td>
+                                <label class="form-label">
+                                    Data de Nascimento
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <select class="form-control" name="escolaridade" >
+                                    <option value="fundamental">
+                                            Fundamental
+                                    </option>
+                                    <option value="medio">
+                                            Médio   
+                                    </option>
+                                    <option value="superior">
+                                            Superior   
+                                    </option>
+                                    <option value="posgraduado">
+                                            posgraduado   
+                                    </option>
+                                </select>
+                            </td>
+                            <td>
+                                <input class="form-control" style="width:100%; margin-bottom:10px; "type="date" name="dataNascimento">
+                            </td>
+                        </tr>
+                    </table>
+                    <button class="btn btn-primary">
+                        Cadastrar
+                    </button>
+                </form>
+            </div>
         </div>
     </div>
-</div>    
+</div>
 <div class="row">
     <div class="col">
         <?php
@@ -124,6 +129,9 @@
             $selectInteressados->execute();
             $interessados = $selectInteressados->fetchAll(PDO::FETCH_ASSOC);
         ?>
+        <p class="h4 text-center">
+            Listagem de Interessados
+        </p>
         <table class="table table-striped">
             <thead>
                 <tr style="font-weight:900; text-align:center;">

@@ -1,6 +1,6 @@
-<h1 style="text-align:center;">
+<p class="h2 text-center mt-5">
     Cursos
-</h1>
+</p>
 <hr>
 <?php
 $sqlselect = $conexao->PREPARE("SELECT * FROM categoria");

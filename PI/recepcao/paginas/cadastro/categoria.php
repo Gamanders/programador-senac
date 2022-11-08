@@ -9,7 +9,7 @@
 ?>
 <div class="row">
     <div class="col-12">
-        <p class="h2 text-center">
+        <p class="h2 text-center mt-5">
             Categoria
         </p>
         <hr>
