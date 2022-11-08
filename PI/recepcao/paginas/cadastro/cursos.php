@@ -117,14 +117,14 @@ if (isset($_POST['sucesso'])) {
                 if(isset($_GET['catcurso'])){
             ?>
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="#">Todos</a>
+                    <a class="nav-link" aria-current="page" href="?pagina=cadastro&cad=curso">Todos</a>
                 </li>            
             <?php
                 }
                 else{
             ?>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Todos</a>
+                    <a class="nav-link active" aria-current="page" href="?pagina=cadastro&cad=curso">Todos</a>
                 </li>
             <?php
                 }
@@ -150,16 +150,9 @@ if (isset($_POST['sucesso'])) {
             $selectQtdCursos->execute();
             $qtdCursos =  $selectQtdCursos->fetchAll(PDO::FETCH_ASSOC);
             $qCursos = $qtdCursos[0]["qtd"];
-            if(($qCursos%limitCursos)==0){
-                $paginas = intval($qCursos/limitCursos);    
-            }
-            else{
-                $paginas = intval($qCursos/limitCursos)+1;
-            } 
             $paginacao = "0";
             $paginacao=isset($_GET["paginacao"])?$_GET["paginacao"]:"0";
             $categoria=isset($_GET['catcurso'])?$_GET['catcurso']:"0";
-            print $categoria;
             if(isset($_GET['catcurso'])){
                 $selectCursos = $conexao->PREPARE("select cursos.id, cursos.nome, categoria.nome as 'categoria', categoria.modalidade FROM cursos join categoria ON cursos.categoria_id = categoria.id WHERE categoria.nome ='".$categoria."' order by categoria.nome LIMIT ".limitCursos ." OFFSET ".$paginacao);
             }
@@ -167,7 +160,21 @@ if (isset($_POST['sucesso'])) {
                 $selectCursos = $conexao->PREPARE("select cursos.id, cursos.nome, categoria.nome as 'categoria', categoria.modalidade FROM cursos join categoria ON cursos.categoria_id = categoria.id order by categoria.nome LIMIT ".limitCursos ." OFFSET ".$paginacao);
             }
             $selectCursos->execute();
-            $cursos = $selectCursos->fetchAll(PDO::FETCH_ASSOC);            
+            $cursos = $selectCursos->fetchAll(PDO::FETCH_ASSOC);
+            if(isset($_GET['catcurso'])){
+                $selectQtdCursos = $conexao->PREPARE("select count(*) AS 'qtd' from cursos join categoria on cursos.categoria_id = categoria.id WHERE categoria.nome ='".$categoria."'");
+                $selectQtdCursos->execute();
+                $qtdCursos =  $selectQtdCursos->fetchAll(PDO::FETCH_ASSOC);
+                var_dump($qtdCursos);
+                $qCursos = $qtdCursos[0]["qtd"];
+            }
+            if(($qCursos%limitCursos)==0){
+                $paginas = intval($qCursos/limitCursos);    
+            }
+            else{
+                $paginas = intval($qCursos/limitCursos)+1;
+            }
+            print $paginas;
         ?>
         <table class="table table-striped">
             <thead>
