@@ -133,13 +133,23 @@ if (isset($_POST['sucesso'])) {
                 $sqlselect = $conexao->PREPARE("SELECT nome AS 'categoria' ,count(*) AS 'qtd' FROM categoria GROUP BY nome");
                 $sqlselect->execute();
                 $categorias = $sqlselect->fetchAll(PDO::FETCH_ASSOC);
+                $categoria=isset($_GET['catcurso'])?$_GET['catcurso']:"0";
                 foreach($categorias as $cat){
                     $catn = $cat["categoria"];
-                    print "
-                        <li class='nav-item'>
-                            <a class='nav-link' href='?pagina=cadastro&cad=curso&catcurso=$catn'>".$cat["categoria"]."</a>
-                        </li>
-                    ";
+                    if($catn==$categoria){
+                        print "
+                            <li class='nav-item'>
+                                <a class='nav-link active' href='?pagina=cadastro&cad=curso&catcurso=$catn'>".$cat["categoria"]."</a>
+                            </li>
+                        ";
+                    }
+                    else{
+                        print "
+                            <li class='nav-item'>
+                                <a class='nav-link' href='?pagina=cadastro&cad=curso&catcurso=$catn'>".$cat["categoria"]."</a>
+                            </li>
+                        ";
+                    }
                 }
             ?>   
         </ul>
@@ -152,7 +162,6 @@ if (isset($_POST['sucesso'])) {
             $qCursos = $qtdCursos[0]["qtd"];
             $paginacao = "0";
             $paginacao=isset($_GET["paginacao"])?$_GET["paginacao"]:"0";
-            $categoria=isset($_GET['catcurso'])?$_GET['catcurso']:"0";
             if(isset($_GET['catcurso'])){
                 $selectCursos = $conexao->PREPARE("select cursos.id, cursos.nome, categoria.nome as 'categoria', categoria.modalidade FROM cursos join categoria ON cursos.categoria_id = categoria.id WHERE categoria.nome ='".$categoria."' order by categoria.nome LIMIT ".limitCursos ." OFFSET ".$paginacao);
             }
