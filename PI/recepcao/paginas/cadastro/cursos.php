@@ -43,6 +43,25 @@ if (isset($_POST['sucesso'])) {
         }
         ?>
         <div class="row">
+            <div class="col text-center">
+                <img id="exibeImagemCurso" src="" alt="Não Carregado">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-5">
+                <label class="label-control">
+                    Imagem
+                </label>
+                <input id="imagemCurso" class="form-control mb-2" type="file" name="imagemCurso">                
+            </div>
+            <div class="col-7">
+                <label class="label-control">
+                    Descrição
+                </label>
+                <textarea class="form-control mb-2" id="descricaoCurso" name="descricaoCurso" rows="3"></textarea>
+            </div>
+        </div>
+        <div class="row">            
             <div class="col">
                 <label class="label-control">
                     Nome
@@ -326,3 +345,8 @@ if (isset($_POST['sucesso'])) {
         </nav>        
     </div>
 </div>
+
+<script>
+    
+
+</script>
