@@ -56,7 +56,13 @@ Excluir categoria
     Cadastro cursos
 -->
 <?php
-    if(isset($_POST['nomeCurso']) && isset($_POST['categoria'])){    
+    if(isset($_POST['nomeCurso']) && isset($_POST['categoria'])){        
+        $imagemCurso = $_FILES['imagemCurso'];            
+        if(isset($imagemCurso)){
+            move_uploaded_file($imagemCurso['tmp_name'],"img/".$imagemCurso["name"]);
+        }
+        $imagemCurso = $imagemCurso['name'];
+        $descricaoCurso = $_POST['descricaoCurso'];
         $nomeCurso = $_POST['nomeCurso'];    
         $categoria_id = $_POST['categoria'];
         $dtIni = $_POST['dataInicio'];
@@ -65,15 +71,17 @@ Excluir categoria
         $capacidade = $_POST['capacidade'];
         $conexao = new PDO("mysql:dbname=recepcao;host=localhost","root","");
         $sqlinsert = $conexao->PREPARE(
-            "INSERT INTO cursos (nome, dtIni, dtFim, cargaHoraria, capacidade, categoria_id) 
-            VALUES (:NOME,:DTINI, :DTFIM, :CARGAHORARIA, :CAPACIDADE, :CATEGORIA_ID)");
+            "INSERT INTO cursos (imagem, descricao, nome, dtIni, dtFim, cargaHoraria, capacidade, categoria_id) 
+            VALUES (:IMAGEMCURSO,:DESCRICAOCURSO,:NOME,:DTINI, :DTFIM, :CARGAHORARIA, :CAPACIDADE, :CATEGORIA_ID)");
         $sqlinsert->bindParam(":NOME",$nomeCurso);
+        $sqlinsert->bindParam(":IMAGEMCURSO",$imagemCurso);
+        $sqlinsert->bindParam(":DESCRICAOCURSO",$descricaoCurso);
         $sqlinsert->bindParam(":DTINI",$dtIni);
         $sqlinsert->bindParam(":DTFIM",$dtFim);
         $sqlinsert->bindParam(":CARGAHORARIA",$cargaHoraria);
         $sqlinsert->bindParam(":CAPACIDADE",$capacidade);
         $sqlinsert->bindParam(":CATEGORIA_ID",$categoria_id);
-        $sqlinsert->execute();    
+        $sqlinsert->execute();
     }
 ?>
 <!--

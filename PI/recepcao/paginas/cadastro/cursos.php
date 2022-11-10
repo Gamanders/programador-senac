@@ -33,7 +33,7 @@ if (isset($_POST['sucesso'])) {
 }
 ?>
 <div class="row col d-flex justify-content-center mb-4">
-    <form method="POST">
+    <form method="POST" enctype="multipart/form-data">
         <input class="form-control" type="hidden" name="pagina" value="cadastro">
         <input class="form-control" type="hidden" name="cad" value="curso">
         <input class="form-control" type="hidden" name="sucesso" value="true">
@@ -44,7 +44,7 @@ if (isset($_POST['sucesso'])) {
         ?>
         <div class="row">
             <div class="col text-center">
-                <img id="exibeImagemCurso" src="" alt="Não Carregado">
+                <img id="exibeImagemCurso" class="img-fluid w-25" src="" alt="Não Carregado">
             </div>
         </div>
         <div class="row">
@@ -345,8 +345,20 @@ if (isset($_POST['sucesso'])) {
         </nav>        
     </div>
 </div>
-
 <script>
-    
+    let inImagem = document.getElementById("imagemCurso");
+    let exImagem = document.getElementById("exibeImagemCurso");
+    document.getElementById("descricaoCurso").innerHTML = "texto Inicial";
 
+    //function exibeImagem(){
+        //exImagem.src = inImagem.value;
+        //document.getElementById("descricaoCurso").innerHTML = inImagem.value;
+    //}
+
+    inImagem.addEventListener("change",function(){
+            exImagem.src = "img/"+inImagem.files[0].name;
+            //document.getElementById("descricaoCurso").innerHTML = inImagem.files['name'];
+        }
+      );
+    
 </script>
