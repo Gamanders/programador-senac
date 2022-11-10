@@ -120,6 +120,26 @@ Excluir categoria
     }
 ?>
 <!--
+    Visualizar detalhes 
+
+-->
+
+<?php
+    if(isset($_GET['visualizar'])&&($_GET['cad'])){
+        $cad = $_GET['cad'];
+        if($cad == "curso"){
+            $id = $_GET['visualizar'];
+            //$int = $conexao->PREPARE("");
+            $con = new PDO("mysql:dbname=recepcao;host=localhost","root","");                
+            $detalhes = $con->PREPARE("SELECT * FROM cursos WHERE id = :ID");
+            $detalhes->bindParam(":ID",$id);
+            $detalhes->execute();
+        }
+    }           
+?>
+
+
+<!--
     Excluir Cursos
 -->
 <?php
