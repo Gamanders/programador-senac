@@ -59,7 +59,15 @@ Excluir categoria
     if(isset($_POST['nomeCurso']) && isset($_POST['categoria'])){        
         $imagemCurso = $_FILES['imagemCurso'];            
         if(isset($imagemCurso)){
-            move_uploaded_file($imagemCurso['tmp_name'],"img/".$imagemCurso["name"]);
+            $upload = move_uploaded_file($imagemCurso['tmp_name'],"img/".$imagemCurso["name"]);
+            if($upload){
+                print "<h1>Enviado</h1>";
+                print  "img/".$imagemCurso["name"];
+            }
+            else{
+                print "<h1 class='text-danger'>Erro</h1>";
+            }
+            
         }
         $imagemCurso = $imagemCurso['name'];
         $descricaoCurso = $_POST['descricaoCurso'];
