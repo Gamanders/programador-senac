@@ -228,12 +228,34 @@ if (isset($_POST['sucesso'])) {
                                 <td>" . "
                                     <a href='?pagina=cadastro&cad=curso&editar=" . $curso['id'] . "'><i style='color:orange;'class='fa-solid fa-pencil'></i></a>
                                     <a href='?pagina=cadastro&cad=curso&excluir=" . $curso['id'] . "'><i style='color:red;' class='fa-solid fa-trash'></i></a> 
-                                    <a href='?pagina=cadastro&cad=curso&detalhes=" . $curso['id'] . "'><i style='color:blue;'class='fa-solid fa-eye'></i></a>" . "</td>
+                                    <a data-bs-toggle='modal' data-bs-target='#staticBackdrop". $curso['id']."'><i style='color:blue;'class='fa-solid fa-eye'></i></a>" . "</td>
                             </tr>";
-                }
+                }                
                 ?>
             </tbody>
         </table>
+                <?php
+                    foreach($cursos as $curso){
+                        // Modal 
+                        print "
+                        <div class='modal fade' id='staticBackdrop". $curso['id']."' data-bs-backdrop='static' data-bs-keyboard='false' tabindex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true'>
+                            <div class='modal-dialog'>
+                                <div class='modal-content'>
+                                    <div class='modal-header'>
+                                        <p class='h4 modal-title fs-6' id='staticBackdropLabel'>Detalhes de ".$curso['nome']."</p>
+                                        <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
+                                    </div>
+                                    <div class='modal-body'>".
+                                        $curso['nome']."
+                                    </div>
+                                    <div class='modal-footer'>
+                                        <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Fechar</button>                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>";
+                    }
+                ?>
     </div>
     <div class="col-12 d-flex justify-content-center align-items-center">
         <nav aria-label="Page navigation example">
