@@ -183,7 +183,9 @@ Cadastrar Interesses
         if ($acao == "cadastrar" && $acao == "interessados"){
             $cadinteressados = $conexao->PREPARE("INSERT INTO interessados(contato, email, escolaridade, dtNasc, tpcontato, nome) VALUES (:CONTATO, :EMAIL, :ESCOLARIDADE, :DTNASC, :TPCONTATO, :NOME"); 
             $contato = $_POST['contato'];
+            $dtNasc = $_POST['dataNascimento'];
             $cadinteressados->bindParam(":CONTATO",$contato);
+            $cadinteressados->bindParam(":DTNASC",$dtNasc);
             $cadinteressados->execute();
 
         }
