@@ -182,10 +182,10 @@ if (isset($_POST['sucesso'])) {
             $paginacao = "0";
             $paginacao=isset($_GET["paginacao"])?$_GET["paginacao"]:"0";
             if(isset($_GET['catcurso'])){
-                $selectCursos = $conexao->PREPARE("select cursos.id, cursos.nome, categoria.nome as 'categoria', categoria.modalidade FROM cursos join categoria ON cursos.categoria_id = categoria.id WHERE categoria.nome ='".$categoria."' order by categoria.nome LIMIT ".limitCursos ." OFFSET ".$paginacao);
+                $selectCursos = $conexao->PREPARE("select cursos.*, categoria.nome as 'categoria', categoria.modalidade FROM cursos join categoria ON cursos.categoria_id = categoria.id WHERE categoria.nome ='".$categoria."' order by categoria.nome LIMIT ".limitCursos ." OFFSET ".$paginacao);
             }
             else{
-                $selectCursos = $conexao->PREPARE("select cursos.id, cursos.nome, categoria.nome as 'categoria', categoria.modalidade FROM cursos join categoria ON cursos.categoria_id = categoria.id order by categoria.nome LIMIT ".limitCursos ." OFFSET ".$paginacao);
+                $selectCursos = $conexao->PREPARE("select cursos.*, categoria.nome as 'categoria', categoria.modalidade FROM cursos join categoria ON cursos.categoria_id = categoria.id order by categoria.nome LIMIT ".limitCursos ." OFFSET ".$paginacao);
             }
             $selectCursos->execute();
             $cursos = $selectCursos->fetchAll(PDO::FETCH_ASSOC);
@@ -234,6 +234,7 @@ if (isset($_POST['sucesso'])) {
                 ?>
             </tbody>
         </table>
+                
                 <?php
                     foreach($cursos as $curso){
                         // Modal 
@@ -245,8 +246,20 @@ if (isset($_POST['sucesso'])) {
                                         <p class='h4 modal-title fs-6' id='staticBackdropLabel'>Detalhes de ".$curso['nome']."</p>
                                         <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
                                     </div>
-                                    <div class='modal-body'>".
-                                        $curso['nome']."
+                                    <div class='modal-body'>
+                                        <div class='row'>
+                                            <div class='col-6'>
+                                            <img class='img-fluid' src='img/".$curso['imagem']."'' alt='não encontrado'>
+                                            </div>
+                                            <div class='col-6'>
+                                                <p>categoria: " . $curso['categoria'] . "</p>
+                                                <p>modalidade: " . $curso['modalidade'] . "</p>
+                                                <p>data de inicio: " . $curso['dtIni'] . "</p>
+                                                <p>data de fim: " . $curso['dtFim'] . "</p>
+                                                <p>carga horaria: " . $curso['cargaHoraria'] . "</p>
+                                                <p>capacidade: " . $curso['capacidade'] . "</p>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class='modal-footer'>
                                         <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Fechar</button>                        
