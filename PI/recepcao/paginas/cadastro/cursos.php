@@ -248,16 +248,16 @@ if (isset($_POST['sucesso'])) {
                                     </div>
                                     <div class='modal-body'>
                                         <div class='row'>
-                                            <div class='col-6'>
-                                            <img class='img-fluid' src='img/".$curso['imagem']."'' alt='não encontrado'>
+                                            <div class='col-5 d-flex justify-content-center align-items-center'>
+                                                <img class='img-fluid' src='img/".$curso['imagem']."'' alt='não encontrado'>
                                             </div>
-                                            <div class='col-6'>
-                                                <p>categoria: " . $curso['categoria'] . "</p>
-                                                <p>modalidade: " . $curso['modalidade'] . "</p>
-                                                <p>data de inicio: " . $curso['dtIni'] . "</p>
-                                                <p>data de fim: " . $curso['dtFim'] . "</p>
-                                                <p>carga horaria: " . $curso['cargaHoraria'] . "</p>
-                                                <p>capacidade: " . $curso['capacidade'] . "</p>
+                                            <div class='col-7'>
+                                                <p> <span class='text-capitalize fw-bold fst-italic'>categoria: </span> " . $curso['categoria'] . "</p>
+                                                <p> <span class='text-capitalize fw-bold fst-italic'>modalidade: </span> " . $curso['modalidade'] . "</p>
+                                                <p> <span class='text-capitalize fw-bold fst-italic'>data de inicio: </span> " . $curso['dtIni'] . "</p>
+                                                <p> <span class='text-capitalize fw-bold fst-italic'>data de fim: </span> " . $curso['dtFim'] . "</p>
+                                                <p> <span class='text-capitalize fw-bold fst-italic'>carga horaria: </span> " . $curso['cargaHoraria'] . "</p>
+                                                <p> <span class='text-capitalize fw-bold fst-italic'>capacidade: </span> " . $curso['capacidade'] . "</p>
                                             </div>
                                         </div>
                                     </div>

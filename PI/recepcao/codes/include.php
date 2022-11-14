@@ -172,3 +172,20 @@ Cadastrar Interesses
         $sqlinsert->execute();
     }
 ?>
+
+<!--
+Cadastrar Interesses
+-->
+<?php    
+    if(isset($_POST['acao']) && isset($_POST['cad'])){
+        $acao = $_POST['acao'];
+        $cad = $_POST['cad'];
+        if ($acao == "cadastrar" && $acao == "interessados"){
+            $cadinteressados = $conexao->PREPARE("INSERT INTO interessados(contato, email, escolaridade, dtNasc, tpcontato, nome) VALUES (:CONTATO, :EMAIL, :ESCOLARIDADE, :DTNASC, :TPCONTATO, :NOME"); 
+            $contato = $_POST['contato'];
+            $cadinteressados->bindParam(":CONTATO",$contato);
+            $cadinteressados->execute();
+
+        }
+    }
+?>

@@ -13,6 +13,13 @@
         <div class="col-12">
             <input type="password" class="form-control" name="senha">
         </div>
+        <div class="col-12">            
+            <p class="text-end">
+                <a href="?pagina=cadinteressado">
+                    Não tenho cadastro
+                </a>
+            </p>    
+        </div>
         <div class="offset-8 col-4">
             <button class="btn btn-dark mt-2">
                 Acessar

@@ -22,20 +22,37 @@
 ?>
 <div class="row">
     <div class="col">
-        <p>
+        <p> 
+        <?php       
+            if(!isset($_GET['editar'])){
+        ?>        
             <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                 Novo | <i class="fa-solid fa-arrow-down"></i>
             </a>
+        <?php
+            }
+        ?>
         </p>
-        <div class="collapse" id="collapseExample">
+        <div class="collapse  <?php       
+                                    if(isset($_GET['editar'])){
+                                        print "show";
+                                    }            
+                                ?>" id="collapseExample">
             <div class="card card-body">
                 <form  method="POST">
                     <input type="hidden" name="pagina" value="cadastro">
-                    <input type="hidden" name="cad" value="interessados">
-                    <input type="hidden" name="sucesso" value="true">
+                    <input type="hidden" name="cad" value="interessados">                    
+                    <!--
+                        <input type="hidden" name="sucesso" value="true">
+                    -->
                     <?php
-                        if(isset($ratualiza)){
-                            print "<input type='hidden' name='atualizar' value='".$edicao."'>";                    
+                        if(isset($_GET['editar'])){
+                            $edicao = $_GET['editar'];
+                            print "<input type='hidden' name='acao' value='atualizar'>";                    
+                            print "<input type='hidden' name='id' value='".$edicao."'>";                    
+                        }
+                        else{
+                            print "<input type='hidden' name='acao' value='novo'>";                         
                         }
                     ?>
                     <label class="form-label">
@@ -114,7 +131,14 @@
                         </tr>
                     </table>
                     <button class="btn btn-primary">
-                        Cadastrar
+                        <?php
+                            if(isset($_GET['editar'])){
+                                print "Atualizar";
+                            }
+                            else{
+                                print "Cadastrar";
+                            }
+                        ?>                        
                     </button>
                 </form>
             </div>
@@ -160,9 +184,9 @@
                             <td>".$interessado['tpcontato']."   </td>
                             <td>".$interessado['email']."</td>
                             <td>"."
-                                <a href='?pagina=cadastro&cad=interessado&editar=".$interessado['id']."'><i style='color:orange;'class='fa-solid fa-pencil'></i></a>
-                                <a href='?pagina=cadastro&cad=interessado&excluir=".$interessado['id']."'><i style='color:red;' class='fa-solid fa-trash'></i></a> 
-                                <a href='?pagina=cadastro&cad=interessado&detalhes=".$interessado['id']."'><i style='color:blue;'class='fa-solid fa-eye'></i></a>"."</td>
+                                <a href='?pagina=cadastro&cad=interessados&editar=".$interessado['id']."'><i style='color:orange;'class='fa-solid fa-pencil'></i></a>
+                                <a href='?pagina=cadastro&cad=interessados&excluir=".$interessado['id']."'><i style='color:red;' class='fa-solid fa-trash'></i></a> 
+                                <a href='?pagina=cadastro&cad=interessados&detalhes=".$interessado['id']."'><i style='color:blue;'class='fa-solid fa-eye'></i></a>"."</td>
                         </tr>";
                     }
                 ?>

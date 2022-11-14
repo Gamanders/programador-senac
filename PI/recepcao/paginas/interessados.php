@@ -1,23 +1,3 @@
-
-<style>
-    .caixa{
-        border: 1px solid gray;
-        border-radius:10px;
-        margin:2px;    
-        margin-top:10px!important;
-        margin-bottom:10px!important;       
-    }
-    a{
-        text-decoration:none;
-        color:gray;
-        padding:5px;
-        margin-top:10px!important;
-        margin-bottom:10px!important;
-        text-transform:uppercase;
-        font-size:0.8em;
-    }
-
-</style>
 <?php    
     $selectcategoria = $conexao->PREPARE("SELECT * FROM categoria");
     $selectcategoria->execute();
