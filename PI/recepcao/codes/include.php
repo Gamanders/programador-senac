@@ -180,14 +180,21 @@ Cadastrar Interesses
     if(isset($_POST['acao']) && isset($_POST['cad'])){
         $acao = $_POST['acao'];
         $cad = $_POST['cad'];
-        if ($acao == "cadastrar" && $acao == "interessados"){
-            $cadinteressados = $conexao->PREPARE("INSERT INTO interessados(contato, email, escolaridade, dtNasc, tpcontato, nome) VALUES (:CONTATO, :EMAIL, :ESCOLARIDADE, :DTNASC, :TPCONTATO, :NOME"); 
+        if ($acao == "novo" && $cad == "interessados"){
+            $cadinteressados = $conexao->PREPARE("INSERT INTO interessados(contato, email, escolaridade, dtNasc, tpcontato, nome) VALUES (:CONTATO, :EMAIL, :ESCOLARIDADE, :DTNASC, :TPCONTATO, :NOME)"); 
             $contato = $_POST['contato'];
             $dtNasc = $_POST['dataNascimento'];
+            $tpcontato = $_POST['tpcontato'];
+            $nome = $_POST['nome'];
+            $email = $_POST['email'];
+            $escolaridade = $_POST['escolaridade'];
             $cadinteressados->bindParam(":CONTATO",$contato);
+            $cadinteressados->bindParam(":EMAIL",$email);
+            $cadinteressados->bindParam(":ESCOLARIDADE",$escolaridade);
             $cadinteressados->bindParam(":DTNASC",$dtNasc);
+            $cadinteressados->bindParam(":TPCONTATO",$tpcontato);
+            $cadinteressados->bindParam(":NOME",$nome);
             $cadinteressados->execute();
-
         }
     }
 ?>
