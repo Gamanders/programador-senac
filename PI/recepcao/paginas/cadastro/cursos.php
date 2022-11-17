@@ -234,7 +234,6 @@ if (isset($_POST['sucesso'])) {
                 ?>
             </tbody>
         </table>
-                
                 <?php
                     foreach($cursos as $curso){
                         // Modal 
