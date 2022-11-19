@@ -4,4 +4,5 @@
         session_start();
     }
     define("limitCursos", 5);
+    define("limitDisponiveis",6);
 ?>

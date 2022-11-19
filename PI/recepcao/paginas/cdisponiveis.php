@@ -10,14 +10,14 @@
                 if(isset($_GET['catcurso'])){
             ?>
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="?pagina=cadastro&cad=curso">Todos</a>
+                    <a class="nav-link" aria-current="page" href="?pagina=cdisponiveis">Todos</a>
                 </li>            
             <?php
                 }
                 else{
             ?>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="?pagina=cadastro&cad=curso">Todos</a>
+                    <a class="nav-link active" aria-current="page" href="?pagina=cdisponiveis">Todos</a>
                 </li>
             <?php
                 }
@@ -32,14 +32,14 @@
                     if($catn==$categoria){
                         print "
                             <li class='nav-item'>
-                                <a class='nav-link active' href='?pagina=cadastro&cad=curso&catcurso=$catn'>".$cat["categoria"]."</a>
+                                <a class='nav-link active' href='?pagina=cdisponiveis&catcurso=$catn'>".$cat["categoria"]."</a>
                             </li>
                         ";
                     }
                     else{
                         print "
                             <li class='nav-item'>
-                                <a class='nav-link' href='?pagina=cadastro&cad=curso&catcurso=$catn'>".$cat["categoria"]."</a>
+                                <a class='nav-link' href='?pagina=cdisponiveis&catcurso=$catn'>".$cat["categoria"]."</a>
                             </li>
                         ";
                     }
@@ -56,10 +56,10 @@
             $paginacao = "0";
             $paginacao=isset($_GET["paginacao"])?$_GET["paginacao"]:"0";
             if(isset($_GET['catcurso'])){
-                $selectCursos = $conexao->PREPARE("select cursos.id, cursos.descricao, cursos.imagem, cursos.nome, categoria.nome as 'categoria', categoria.modalidade FROM cursos join categoria ON cursos.categoria_id = categoria.id WHERE categoria.nome ='".$categoria."' order by categoria.nome LIMIT ".limitCursos ." OFFSET ".$paginacao);
+                $selectCursos = $conexao->PREPARE("select cursos.id, cursos.descricao, cursos.imagem, cursos.nome, categoria.nome as 'categoria', categoria.modalidade FROM cursos join categoria ON cursos.categoria_id = categoria.id WHERE categoria.nome ='".$categoria."' order by categoria.nome LIMIT ".limitDisponiveis ." OFFSET ".$paginacao);
             }
             else{
-                $selectCursos = $conexao->PREPARE("select cursos.id, cursos.descricao, cursos.imagem, cursos.nome, categoria.nome as 'categoria', categoria.modalidade FROM cursos join categoria ON cursos.categoria_id = categoria.id order by categoria.nome LIMIT ".limitCursos ." OFFSET ".$paginacao);
+                $selectCursos = $conexao->PREPARE("select cursos.id, cursos.descricao, cursos.imagem, cursos.nome, categoria.nome as 'categoria', categoria.modalidade FROM cursos join categoria ON cursos.categoria_id = categoria.id order by categoria.nome LIMIT ".limitDisponiveis ." OFFSET ".$paginacao);
             }
             $selectCursos->execute();
             $cursos = $selectCursos->fetchAll(PDO::FETCH_ASSOC); 
@@ -69,11 +69,11 @@
                 $qtdCursos =  $selectQtdCursos->fetchAll(PDO::FETCH_ASSOC);
                 $qCursos = $qtdCursos[0]["qtd"];
             }
-            if(($qCursos%limitCursos)==0){
-                $paginas = intval($qCursos/limitCursos);    
+            if(($qCursos%limitDisponiveis)==0){
+                $paginas = intval($qCursos/limitDisponiveis);    
             }
             else{
-                $paginas = intval($qCursos/limitCursos)+1;
+                $paginas = intval($qCursos/limitDisponiveis)+1;
             }
             if ($qCursos!=0){        
         $item = 1;
@@ -115,40 +115,40 @@
         <nav aria-label="Page navigation example">
             <ul class="pagination">
                 <?php
-                $lim = $paginacao-limitCursos;
+                $lim = $paginacao-limitDisponiveis;
                 if(isset($_GET['catcurso'])){
                     if($paginacao==0){
                         print"
-                        <li class='page-item disabled'><a class='page-link' href='?pagina=cadastro&cad=curso&catcurso=$categoria&paginacao=$lim'>Anterior</a></li>
+                        <li class='page-item disabled'><a class='page-link' href='?pagina=cdisponiveis&catcurso=$categoria&paginacao=$lim'>Anterior</a></li>
                         ";
                     }
                     else{
                         print"
-                        <li class='page-item'><a class='page-link' href='?pagina=cadastro&cad=curso&catcurso=$categoria&paginacao=$lim'>Anterior</a></li>
+                        <li class='page-item'><a class='page-link' href='?pagina=cdisponiveis&catcurso=$categoria&paginacao=$lim'>Anterior</a></li>
                         ";
                     }
                 }
                 else{
                     if($paginacao==0){
                         print"
-                        <li class='page-item disabled'><a class='page-link' href='?pagina=cadastro&cad=curso&paginacao=$lim'>Anterior</a></li>
+                        <li class='page-item disabled'><a class='page-link' href='?pagina=cdisponiveis&paginacao=$lim'>Anterior</a></li>
                         ";
                     }
                     else{
                         print"
-                        <li class='page-item'><a class='page-link' href='?pagina=cadastro&cad=curso&paginacao=$lim'>Anterior</a></li>
+                        <li class='page-item'><a class='page-link' href='?pagina=cdisponiveis&paginacao=$lim'>Anterior</a></li>
                         ";
                     }
                 }
                 ?>
                 <?php
                     for($i = 0; $i<$paginas ;$i++){
-                        $p = limitCursos * $i;
+                        $p = limitDisponiveis * $i;
                         if(isset($_GET['catcurso'])){    
                             if($p==$paginacao){
                                 print
                                 "<li class='page-item active'>
-                                    <a class='page-link' href='?pagina=cadastro&cad=curso&catcurso=$categoria&paginacao=$p'>"
+                                    <a class='page-link' href='?pagina=cdisponiveis&catcurso=$categoria&paginacao=$p'>"
                                         .($i+1)."
                                     </a>
                                 </li>";
@@ -156,7 +156,7 @@
                             else{
                                 print 
                                 "<li class='page-item'>
-                                    <a class='page-link' href='?pagina=cadastro&cad=curso&catcurso=$categoria&paginacao=$p'>"
+                                    <a class='page-link' href='?pagina=cdisponiveis&catcurso=$categoria&paginacao=$p'>"
                                         .($i+1)."
                                     </a>
                                 </li>";
@@ -166,7 +166,7 @@
                             if($p==$paginacao){
                                 print
                                 "<li class='page-item active'>
-                                    <a class='page-link' href='?pagina=cadastro&cad=curso&paginacao=$p'>"
+                                    <a class='page-link' href='?pagina=cdisponiveis&paginacao=$p'>"
                                         .($i+1)."
                                     </a>
                                 </li>";
@@ -174,7 +174,7 @@
                             else{
                                 print 
                                 "<li class='page-item'>
-                                    <a class='page-link' href='?pagina=cadastro&cad=curso&paginacao=$p'>"
+                                    <a class='page-link' href='?pagina=cdisponiveis&paginacao=$p'>"
                                         .($i+1)."
                                     </a>
                                 </li>";
@@ -184,29 +184,29 @@
                     }
                 ?>                
                 <?php
-                $lim = $paginacao+limitCursos;
-                $posicao = (intval($qCursos/limitCursos))*limitCursos;
+                $lim = $paginacao+limitDisponiveis;
+                $posicao = (intval($qCursos/limitDisponiveis))*limitDisponiveis;
                 if(isset($_GET['catcurso'])){
                     if($paginacao==$posicao){
                         print"
-                        <li class='page-item disabled'><a class='page-link' href='?pagina=cadastro&cad=curso&catcurso=$categoria&paginacao=$lim'>Proximo</a></li>
+                        <li class='page-item disabled'><a class='page-link' href='?pagina=cdisponiveis&catcurso=$categoria&paginacao=$lim'>Proximo</a></li>
                         ";
                     }
                     else{
                         print"
-                        <li class='page-item'><a class='page-link' href='?pagina=cadastro&cad=curso&catcurso=$categoria&paginacao=$lim'>Proximo</a></li>
+                        <li class='page-item'><a class='page-link' href='?pagina=cdisponiveis&catcurso=$categoria&paginacao=$lim'>Proximo</a></li>
                         ";
                     }
                 }
                 else{
                     if($paginacao==$posicao){
                         print"
-                        <li class='page-item disabled'><a class='page-link' href='?pagina=cadastro&cad=curso&paginacao=$lim'>Proximo</a></li>
+                        <li class='page-item disabled'><a class='page-link' href='?pagina=cdisponiveis&paginacao=$lim'>Proximo</a></li>
                         ";
                     }
                     else{
                         print"
-                        <li class='page-item'><a class='page-link' href='?pagina=cadastro&cad=curso&paginacao=$lim'>Proximo</a></li>
+                        <li class='page-item'><a class='page-link' href='?pagina=cdisponiveis&paginacao=$lim'>Proximo</a></li>
                         ";
                     }
                 }
