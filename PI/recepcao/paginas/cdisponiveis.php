@@ -82,7 +82,7 @@
                     <div class='card-body'>
                         <h5 class='card-title'>".$curso['nome']."</h5>
                         <p class='card-text'>".$curso['descricao']."</p>
-                        <a href='#' class='btn btn-primary'>Tenho Interesse</a>
+                        <a href='#' class='btn btn-primary'>Tenho Interesse img padrao</a>
                     </div>
                     </div>
                 </div>
@@ -95,8 +95,11 @@
                         <img class='img-fluid' src='img/".$curso['imagem']."'>               
                     <div class='card-body'>
                         <h5 class='card-title'>".$curso['nome']."</h5>
-                        <p class='card-text'>".$curso['descricao']."</p>
-                        <a href='#' class='btn btn-primary'>Tenho Interesse</a>
+                        <p class='card-text'>".$curso['descricao']."</p>".
+                            "
+                            <a href='#' class='btn btn-primary'>Tenho Interesse ALTERAR</a>
+                            ".
+                            "
                     </div>
                     </div>
                 </div>

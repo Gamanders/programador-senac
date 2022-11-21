@@ -1,6 +1,9 @@
 <form method="POST">
-    <input type="hidden" name="action" value="logar">
-    <div class="row w-50 mx-auto">                
+    <input type="hidden" name="action" value="logar">    
+    <div class="row w-25 mx-auto">                        
+        <div class="col-12 text-primary text-center h2">
+            Login
+        </div>
         <div class="col-12">
             <label class="label-form">Usuario</label>
         </div>

@@ -174,6 +174,11 @@ if(isset($_GET["action"])){
     <?php                                
         }
         else{
+            if(isset($_GET["pagina"])){
+                $pagina = $_GET["pagina"];
+
+            }
+        if(!isset($pagina) || $pagina != "login"){
     ?>
         <div class="row">
             <div class="offset-1 col-10">
@@ -194,7 +199,8 @@ if(isset($_GET["action"])){
             </div>
             <hr>
         </div>
-        <?php                                
+        <?php 
+            }                               
         }
         ?>
     <main>
@@ -233,7 +239,19 @@ if(isset($_GET["action"])){
             }
         ?>
     </main>
-    <footer>
+    <?php
+            if(isset($_GET["pagina"])){
+                $pagina = $_GET["pagina"];
+                if($pagina="login"){
+                    print"
+                        <div style='height: 15vh;'>
+                           
+                        </div>
+                    ";
+                }
+            }
+        ?>
+    <footer>        
         <p>
             Desenvolvido em sala - SENAC Garanhuns
         </p>
