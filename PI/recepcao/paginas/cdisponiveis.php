@@ -1,9 +1,4 @@
 <div class="row">
-    <div class="col-12">
-        <p class="h2 text-primary text-center mt-3">
-            Cursos Disponíveis
-        </p>
-    </div>
     <div class="col-12 d-flex justify-content-center">
         <ul class="nav nav-tabs">
             <?php

@@ -94,19 +94,24 @@ if(isset($_GET["action"])){
     $action = $_GET["action"];
     if($action == "logout"){       
        unset($_SESSION["usuario"]); 
-       unset($_SESSION["nome"]);       
+       unset($_SESSION["nome"]);
+       header("Location:?pagina=cdisponiveis");       
     }
 }
 ?>
 <body>
+    <?php                          
+        if(isset($_SESSION["usuario"])){
+    ?>
     <header>
-        <nav class="navbar navbar-expand-lg bg-light">
+    
+        <nav class="navbar navbar-expand-lg bg-white">
             <div class="container-fluid">
-                <a class="navbar-brand" href="?pagina=home">Recepção</a>
+                <a class="navbar-brand" href="?pagina=cdisponiveis"><img src="img/senac_logo.png" style="height:2em; width:auto;"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="collapse navbar-collapse  d-flex justify-content-end" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <?php
                             if(isset($_SESSION["usuario"])){  
@@ -114,19 +119,19 @@ if(isset($_GET["action"])){
                                     if($tipo == "admin"){
                         ?>
                         <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="?pagina=cadastro">Cadastro</a>
+                        <a class="nav-link active" aria-current="page" href="?pagina=cadastro">Administração</a>
                         </li>
                         <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="?pagina=interessados">Interessados</a>
+                        </li>                        
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="?pagina=cdisponiveis">Cursos Disponíveis                 
+                            </a>
                         </li>
                         <?php
                                     }
                             }
-                        ?> 
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="?pagina=cdisponiveis">Cursos Disponíveis                 
-                            </a>
-                        </li>                      
+                        ?>                       
                         <?php                          
                             if(isset($_SESSION["usuario"])){
                         ?>
@@ -147,17 +152,51 @@ if(isset($_GET["action"])){
                             }
                         ?>
                     </ul>
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Previsão de cursos" aria-label="Search">
-                        <button class="btn btn-outline-dark" type="submit">Buscar</button>
-                    </form>
-                    <a href="?pagina=login">
-                        <i class="fa-solid fa-lock text-dark"></i>
-                    </a>
+                    <!--
+                        <form class="d-flex" role="search">
+                            <input class="form-control me-2" type="search" placeholder="Previsão de cursos" aria-label="Search">
+                            <button class="btn btn-outline-dark" type="submit">Buscar</button>
+                        </form>
+                    -->
+                    <?php                          
+                        if(!isset($_SESSION["usuario"])){
+                    ?>
+                        <a href="?pagina=login">
+                            <i class="fa-solid fa-lock text-dark"></i>
+                        </a>
+                    <?php                                
+                        }
+                    ?>
                 </div>
             </div>
             </nav>
     </header>
+    <?php                                
+        }
+        else{
+    ?>
+        <div class="row">
+            <div class="offset-1 col-10">
+                <p class="h2 text-primary text-center mt-3">
+                    Cursos Disponíveis
+                </p>        
+            </div>
+            <div class="col-1 d-flex justify-content-center align-items-center">
+                <?php                          
+                    if(!isset($_SESSION["usuario"])){
+                ?>
+                    <a href="?pagina=login">
+                        <i class="fa-solid fa-lock text-primary"></i>
+                    </a>
+                <?php                                
+                    }
+                ?>
+            </div>
+            <hr>
+        </div>
+        <?php                                
+        }
+        ?>
     <main>
         <?php
             if(isset($_GET["pagina"])){
@@ -184,13 +223,13 @@ if(isset($_GET["action"])){
                         case "admin":
                             include_once("paginas/admin.php");
                             break;
-                    default:
-                        include_once("paginas/home.php");
+                    default:    
+                        include_once("paginas/cdisponiveis.php");
                         break;
                 }
             }
             else{
-                include_once("paginas/home.php");
+                include_once("paginas/cdisponiveis.php");
             }
         ?>
     </main>
