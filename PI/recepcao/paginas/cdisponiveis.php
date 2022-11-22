@@ -76,13 +76,13 @@
         foreach ($cursos as $curso) {
             if ($curso['imagem']==null){  
                 print "
-                <div class='col-4'>
+                <div class='col-4 col-md-3'>
                     <div class='card m-1' style='width: 18rem;'>
                         <img class='img-fluid' src='img/Curso-online.jpg'>               
                     <div class='card-body'>
                         <h5 class='card-title'>".$curso['nome']."</h5>
                         <p class='card-text'>".$curso['descricao']."</p>
-                        <a href='#' class='btn btn-primary'>Tenho Interesse img padrao</a>
+                        <a href='?pagina=teminteresse' class='btn btn-primary'>Tenho Interesse</a>
                     </div>
                     </div>
                 </div>
@@ -90,14 +90,14 @@
             }
             else {
                 print "
-                <div class='col-4'>
+                <div class='col-4 col-md-3'>
                     <div class='card m-1' style='width: 18rem;'>
                         <img class='img-fluid' src='img/".$curso['imagem']."'>               
                     <div class='card-body'>
                         <h5 class='card-title'>".$curso['nome']."</h5>
                         <p class='card-text'>".$curso['descricao']."</p>".
                             "
-                            <a href='#' class='btn btn-primary'>Tenho Interesse ALTERAR</a>
+                            <a href='?pagina=teminteresse' class='btn btn-primary'>Tenho Interesse</a>
                             ".
                             "
                     </div>

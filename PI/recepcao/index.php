@@ -223,6 +223,9 @@ if(isset($_GET["action"])){
                     case "login":
                         include_once("paginas/login.php");
                         break;
+                    case "teminteresse":
+                            include_once("paginas/teminteresse.php");
+                            break;
                     case "cdisponiveis":
                         include_once("paginas/cdisponiveis.php");
                         break;
