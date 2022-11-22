@@ -73,8 +73,15 @@ Logon
                 if($senha == $resultUser[0]["senha"]){                                      
                     $_SESSION["usuario"]=$resultUser[0]["username"];
                     $_SESSION["nome"]=$resultUser[0]["nome"];
-                    $_SESSION["tipo"]=$resultUser[0]["tipo"];                     
-                    $_GET['pagina']="admin";
+                    $_SESSION["tipo"]=$resultUser[0]["tipo"];                        
+                    $tipo = $_SESSION['tipo'];
+                    if($tipo =="admin"){
+                        header("Location:?pagina=cadastro");
+                    }   
+                    else{
+                        header("Location:?pagina=cdisponiveis");
+                    }
+                    //$_GET['pagina']="admin";
                 }
                 else{
                     print "Usuário ou Senha Incorreta";
@@ -84,7 +91,7 @@ Logon
                 print "Usuário ou Senha Incorreta";
             }
         }
-    }
+    }    
 ?>
 <!--
 Logout

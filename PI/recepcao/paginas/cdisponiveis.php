@@ -82,7 +82,7 @@
                     <div class='card-body'>
                         <h5 class='card-title'>".$curso['nome']."</h5>
                         <p class='card-text'>".$curso['descricao']."</p>
-                        <a href='?pagina=teminteresse' class='btn btn-primary'>Tenho Interesse</a>
+                        <a href='?pagina=teminteresse&curso=".$curso['nome']."&id=".$curso['id']."' class='btn btn-primary'>Tenho Interesse</a>
                     </div>
                     </div>
                 </div>
@@ -97,7 +97,7 @@
                         <h5 class='card-title'>".$curso['nome']."</h5>
                         <p class='card-text'>".$curso['descricao']."</p>".
                             "
-                            <a href='?pagina=teminteresse' class='btn btn-primary'>Tenho Interesse</a>
+                            <a href='?pagina=teminteresse&curso=".$curso['nome']."&id=".$curso['id']."' class='btn btn-primary'>Tenho Interesse</a>
                             ".
                             "
                     </div>

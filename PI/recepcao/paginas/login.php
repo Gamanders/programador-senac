@@ -28,16 +28,5 @@
                 Acessar
             </button>
         </div>
-    </div>
-    <?php
-        if(isset($_SESSION['usuario'])){
-            $tipo = $_SESSION['tipo'];
-            if($tipo =="admin"){
-                header("Location:?pagina=cadastro");
-            }   
-            else{
-                header("location:?pagina=cdisponiveis");
-            }
-        }
-    ?>        
+    </div>     
 </form>
