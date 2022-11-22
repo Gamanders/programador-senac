@@ -5,8 +5,6 @@ Cadastrar Interessado pelo proprio usuário
     if(isset($_POST['cadastro']) && isset($_POST['tipo'])){        
         $cadastro = $_POST['cadastro'];
         $tipo = $_POST['tipo'];
-
-
         if ($cadastro == "interessado" && $tipo == "usuario")        
         $interessadoInsert = $conexao->PREPARE(
             "INSERT INTO interessados (nome,modalidade) 

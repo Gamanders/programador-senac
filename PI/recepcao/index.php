@@ -54,6 +54,12 @@
         align-items:center;
         justify-content:center;
     }
+    #protecaoTela{
+        width:100%;
+        height:100%;
+        z-index: 1000;
+        background:red;
+    }
 </style>
 <!--
 Logon
@@ -114,6 +120,9 @@ if(isset($_GET["action"])){
 }
 ?>
 <body>
+    <div id="protecaoTela">
+
+    </div>
     <?php                          
         if(isset($_SESSION["usuario"])){
     ?>
@@ -293,4 +302,7 @@ if(isset($_GET["action"])){
     </footer>    
 </body> 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+<!--
+    <script src="js/script.js"></script>
+-->
 </html>
