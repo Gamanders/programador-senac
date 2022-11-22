@@ -81,14 +81,21 @@ Logon
                     else{
                         header("Location:?pagina=cdisponiveis");
                     }
-                    //$_GET['pagina']="admin";
                 }
                 else{
-                    print "Usuário ou Senha Incorreta";
+                    print "
+                            <script>
+                                alert('Usuário ou Senha Incorreta');
+                            </script>
+                        ";
                 }
             }
             else{
-                print "Usuário ou Senha Incorreta";
+                print "
+                            <script>
+                                alert('Usuário ou Senha Incorreta');
+                            </script>
+                        ";
             }
         }
     }    
@@ -111,7 +118,6 @@ if(isset($_GET["action"])){
         if(isset($_SESSION["usuario"])){
     ?>
     <header>
-    
         <nav class="navbar navbar-expand-lg bg-white">
             <div class="container-fluid">
                 <a class="navbar-brand" href="?pagina=cdisponiveis"><img src="img/senac_logo.png" style="height:2em; width:auto;"></a>
@@ -141,8 +147,7 @@ if(isset($_GET["action"])){
                         ?>                       
                         <?php                          
                             if(isset($_SESSION["usuario"])){
-                        ?>
-                                
+                        ?> 
                             <li class="nav-item dropdown">                       
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <?php
@@ -158,13 +163,7 @@ if(isset($_GET["action"])){
                         <?php                                
                             }
                         ?>
-                    </ul>
-                    <!--
-                        <form class="d-flex" role="search">
-                            <input class="form-control me-2" type="search" placeholder="Previsão de cursos" aria-label="Search">
-                            <button class="btn btn-outline-dark" type="submit">Buscar</button>
-                        </form>
-                    -->
+                    </ul>                   
                     <?php                          
                         if(!isset($_SESSION["usuario"])){
                     ?>
@@ -190,7 +189,18 @@ if(isset($_GET["action"])){
         <div class="row">
             <div class="offset-1 col-10">
                 <p class="h2 text-primary text-center mt-3">
-                    Cursos Disponíveis
+                    <?php
+                    if(isset($_GET['pagina'])){
+                        $pagina = $_GET['pagina'];
+                        if($pagina == "cadinteressado"){
+                            print "Cadastro de Interessado";
+                        }
+                    }
+                    else{
+                        print "Cursos Disponíveis";
+                    }
+                    
+                    ?>
                 </p>        
             </div>
             <div class="col-1 d-flex justify-content-center align-items-center">
@@ -227,6 +237,9 @@ if(isset($_GET["action"])){
                     case "sobre":
                         include_once("paginas/sobre.php");
                         break;
+                    case "cadinteressado":
+                            include_once("paginas/cadastroInteressado.php");
+                            break;
                     case "login":
                         include_once("paginas/login.php");
                         break;

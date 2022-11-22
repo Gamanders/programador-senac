@@ -1,4 +1,37 @@
 <!--
+Cadastrar Interessado pelo proprio usuário
+-->
+<?php    
+    if(isset($_POST['cadastro']) && isset($_POST['tipo'])){        
+        $cadastro = $_POST['cadastro'];
+        $tipo = $_POST['tipo'];
+
+
+        if ($cadastro == "interessado" && $tipo == "usuario")        
+        $interessadoInsert = $conexao->PREPARE(
+            "INSERT INTO interessados (nome,modalidade) 
+            VALUES (:NOME,:MODALIDADE)");
+
+            $sqlinsert->bindParam(":NOME",$nome);
+            $sqlinsert->bindParam(":MODALIDADE",$modalidade);
+
+
+            $interessadoInsert->execute();
+        
+            $usuarioInsert = $conexao->PREPARE(
+            "INSERT INTO usuarios (nome,modalidade) 
+            VALUES (:NOME,:MODALIDADE)");
+
+            $usuarioInsert->bindParam(":USUARIO",$usuario);    
+            $usuarioInsert->bindParam(":NOME",$nome);
+            $usuarioInsert->bindParam(":EMAIL",$email);
+            $usuarioInsert->bindParam(":SENHA",$modalidade);
+
+            $usuarioInsert->execute();
+    }
+?>
+
+<!--
 Cadastrar categoria
 -->
 <?php    
