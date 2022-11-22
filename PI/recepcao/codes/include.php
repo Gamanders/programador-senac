@@ -5,29 +5,42 @@ Cadastrar Interessado pelo proprio usuário
     if(isset($_POST['cadastro']) && isset($_POST['tipo'])){        
         $cadastro = $_POST['cadastro'];
         $tipo = $_POST['tipo'];
+        $contato = $_POST['contato'];
+        $email = $_POST['email'];
+        $escolaridade = $_POST['escolaridade'];
+        $dtNasc = $_POST['dtNasc'];
+        $tpcontato = $_POST['tpcontato'];
+        $nome = $_POST['nome'];
 
 
-        if ($cadastro == "interessado" && $tipo == "usuario")        
-        $interessadoInsert = $conexao->PREPARE(
-            "INSERT INTO interessados (nome,modalidade) 
-            VALUES (:NOME,:MODALIDADE)");
+        if ($cadastro == "interessado" && $tipo == "usuario"){        
+            $sqlinsert = $conexao->PREPARE(
+                "INSERT INTO interessados (contato,email,escolaridade,dtNasc,tpcontato,nome) 
+                VALUES (:CONTATO,:EMAIL,:ESCOLARIDADE,:DTNASC,:TPCONTATO,:NOME)");
 
-            $sqlinsert->bindParam(":NOME",$nome);
-            $sqlinsert->bindParam(":MODALIDADE",$modalidade);
+                $sqlinsert->bindParam(":CONTATO",$contato);
+                $sqlinsert->bindParam(":EMAIL",$email);
+                $sqlinsert->bindParam(":ESCOLARIDADE",$escolaridade);
+                $sqlinsert->bindParam(":DTNASC",$dtNasc);
+                $sqlinsert->bindParam(":TPCONTATO",$tpcontato);
+                $sqlinsert->bindParam(":NOME",$nome);
 
+                $sqlinsert->execute();
 
-            $interessadoInsert->execute();
-        
+            $email = $_POST['email'];
+            $nome = $_POST['nome'];
+            $senha = $_POST['senha'];
+            
             $usuarioInsert = $conexao->PREPARE(
-            "INSERT INTO usuarios (nome,modalidade) 
-            VALUES (:NOME,:MODALIDADE)");
+                "INSERT INTO usuarios (username,nome,senha) 
+                VALUES (:USERNAME,:NOME,:SENHA)");
+                
+                $usuarioInsert->bindParam(":USERNAME",$email);    
+                $usuarioInsert->bindParam(":NOME",$nome);
+                $usuarioInsert->bindParam(":SENHA",$senha);
 
-            $usuarioInsert->bindParam(":USUARIO",$usuario);    
-            $usuarioInsert->bindParam(":NOME",$nome);
-            $usuarioInsert->bindParam(":EMAIL",$email);
-            $usuarioInsert->bindParam(":SENHA",$modalidade);
-
-            $usuarioInsert->execute();
+                $usuarioInsert->execute();
+        }
     }
 ?>
 

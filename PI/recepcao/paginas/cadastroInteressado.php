@@ -53,7 +53,7 @@
                 <label class="form-label">
                     Data de Nascimento
                 </label>
-                <input class="form-control" style="width:100%; margin-bottom:10px; "type="date" name="dataNascimento">
+                <input class="form-control" style="width:100%; margin-bottom:10px; "type="date" name="dtNasc">
             </div>
         </div>
         <div class="row">
