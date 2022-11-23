@@ -1,0 +1,15 @@
+<script>
+    window.addEventListener('onload',chamaTela());
+    document.addEventListener('mousemove', function() { //mouse move 
+        if (timeout !== null) {
+            document.querySelector("body").innerHTML = "Voltando ...";
+            clearTimeout(timeout);
+        }
+        chamaTela();
+    }); 
+    function chamaTela(){
+     timeout = setTimeout(function() {
+        document.querySelector("body").innerHTML = "Tela de Proteção ...";    
+     }, 3000);
+ }
+</script>

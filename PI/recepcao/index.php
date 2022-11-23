@@ -55,10 +55,24 @@
         justify-content:center;
     }
     #protecaoTela{
-        width:100%;
-        height:100%;
+        position: absolute;
+        width:100vw;
+        height:100vh;
         z-index: 1000;
         background:red;
+        visibility: hidden;
+    }
+    #protecaoTela>#topo{
+        background:blue;
+        height:20vh;
+    }
+    #protecaoTela>#meio{
+        background:gray;
+        height:70vh;
+    }
+    #protecaoTela>#base{
+        background:green;
+        height:10vh;
     }
 </style>
 <!--
@@ -110,18 +124,30 @@ Logon
 Logout
 -->
 <?php
-if(isset($_GET["action"])){
-    $action = $_GET["action"];
-    if($action == "logout"){       
-       unset($_SESSION["usuario"]); 
-       unset($_SESSION["nome"]);
-       header("Location:?pagina=cdisponiveis");       
+    if(isset($_GET["action"])){
+        $action = $_GET["action"];
+        if($action == "logout"){       
+        unset($_SESSION["usuario"]); 
+        unset($_SESSION["nome"]);
+        header("Location:?pagina=cdisponiveis");       
+        }
     }
-}
 ?>
 <body>
     <div id="protecaoTela">
+        <div id="topo">
 
+        </div>
+        <div id="meio">
+            <div id="horario" style="width:100px; height:50px; border: 5px solid black; border-radius:15px; font-size: 20px;">
+                
+            </div>
+        </div>
+        <div id="base">            
+            <p class="h2">
+                SENAC - Garanhuns
+            </p>
+        </div>
     </div>
     <?php                          
         if(isset($_SESSION["usuario"])){
@@ -302,7 +328,7 @@ if(isset($_GET["action"])){
     </footer>    
 </body> 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-<!--
+
     <script src="js/script.js"></script>
--->
+
 </html>
