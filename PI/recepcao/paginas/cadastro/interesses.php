@@ -10,10 +10,23 @@ $cursos = $selectcursos->fetchAll(PDO::FETCH_ASSOC);
 $selectinteressados = $conexao->PREPARE("SELECT * from interessados");
 $selectinteressados->execute();
 $interessados = $selectinteressados->fetchAll(PDO::FETCH_ASSOC);
-$selectci = $conexao->PREPARE("SELECT ci.* ,inte.contato ,inte.email ,inte.escolaridade ,inte.dtNasc as 'nascimento' ,inte.tpcontato as 'tipocontato' ,inte.nome as 'interessado' ,cur.nome as 'curso' ,cur.dtIni as 'inicio' ,cur.dtFim as 'fim' ,cur.cargaHoraria as 'ch' ,capacidade ,cat.nome as 'categoria' ,modalidade from cursosinteressados ci join interessados inte on ci.interessados_id = inte.id join cursos cur on cur.id = ci.cursos_id join categoria cat on cur.categoria_id = cat.id");
+$limit = limitCursos;
+//var_dump($interessados);
+$selectQtdinteresses = $conexao->PREPARE("select count(*) AS 'qtd' from cursosinteressados");
+$selectQtdinteresses->execute();
+$qtdinteresses =  $selectQtdinteresses->fetchAll(PDO::FETCH_ASSOC);
+$qCursos = $qtdinteresses[0]["qtd"];
+$paginacao = "0";
+$paginacao=isset($_GET["paginacao"])?$_GET["paginacao"]:"0";
+$selectci = $conexao->PREPARE("SELECT ci.* ,inte.contato ,inte.email ,inte.escolaridade ,inte.dtNasc as 'nascimento' ,inte.tpcontato as 'tipocontato' ,inte.nome as 'interessado' ,cur.nome as 'curso' ,cur.dtIni as 'inicio' ,cur.dtFim as 'fim' ,cur.cargaHoraria as 'ch' ,capacidade ,cat.nome as 'categoria' ,modalidade from cursosinteressados ci join interessados inte on ci.interessados_id = inte.id join cursos cur on cur.id = ci.cursos_id join categoria cat on cur.categoria_id = cat.id LIMIT $limit OFFSET $paginacao");
 $selectci->execute();
 $cursointeressados = $selectci->fetchAll(PDO::FETCH_ASSOC);
-//var_dump($interessados);
+if(($qCursos%limitCursos)==0){
+    $paginas = intval($qCursos/limitCursos);    
+}
+else{
+    $paginas = intval($qCursos/limitCursos)+1;
+}
 ?>
 <div style="display: flex; justify-content:center;">
     <form method="POST">
@@ -88,16 +101,57 @@ $cursointeressados = $selectci->fetchAll(PDO::FETCH_ASSOC);
         ?>
     </tbody>
 </table>
-<div style="display:flex; justify-content:center; margin-top: 30px ;">
-
-    <nav aria-label="Page navigation example">
-        <ul class="pagination">
-            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item"><a class="page-link" href="#">Next</a></li>
-        </ul>
-    </nav>
-
-</div> 
+<div class="col-12 d-flex justify-content-center align-items-center">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                <?php
+                $lim = $paginacao-limitCursos;
+                    if($paginacao==0){
+                        print"
+                        <li class='page-item disabled'><a class='page-link' href='?pagina=cadastro&cad=interesses&paginacao=$lim'>Anterior</a></li>
+                        ";
+                    }
+                    else{
+                        print"
+                        <li class='page-item'><a class='page-link' href='?pagina=cadastro&cad=interesses&paginacao=$lim'>Anterior</a></li>
+                        ";
+                    }
+                ?>
+                <?php
+                    for($i = 0; $i<$paginas ;$i++){
+                        $p = limitCursos * $i;    
+                        if($p==$paginacao){
+                            print
+                            "<li class='page-item active'>
+                                <a class='page-link' href='?pagina=cadastro&cad=interesses&paginacao=$p'>"
+                                    .($i+1)."
+                                </a>
+                            </li>";
+                        }
+                        else{
+                            print 
+                            "<li class='page-item'>
+                                <a class='page-link' href='?pagina=cadastro&cad=interesses&paginacao=$p'>"
+                                    .($i+1)."
+                                </a>
+                            </li>";
+                        }
+                    }
+                ?>                
+                <?php
+                $lim = $paginacao+limitCursos;
+                $posicao = (intval($qCursos/limitCursos))*limitCursos;
+                if($paginacao==$posicao){
+                    print"
+                    <li class='page-item disabled'><a class='page-link' href='?pagina=cadastro&cad=interesses&paginacao=$lim'>Proximo</a></li>
+                    ";
+                }
+                else{
+                    print"
+                    <li class='page-item'><a class='page-link' href='?pagina=cadastro&cad=interesses&paginacao=$lim'>Proximo</a></li>
+                    ";
+                }
+                ?>
+            </ul>
+        </nav>        
+    </div>
