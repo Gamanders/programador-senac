@@ -153,8 +153,8 @@ Logout
                 </div>
                 <div class="col-7 d-flex flex-column justify-content-center align-items-center fs-6">
                     <dl>
-                        <dt>
-                            É o instrutor
+                        <dt class="fw-light">
+                            E é o instrutor ...
                         </dt>
                         <dd>
                             <strong>Jean</strong> Elder Santana Araújo
@@ -165,32 +165,32 @@ Logout
                             <small>
                                 <blockquote>
                                     <dl>                        
-                                        <dt>
-                                            É o Comandante
+                                        <dt class="fw-light">
+                                            E é o Comandante ..
                                         </dt>
                                         <dd>
                                             <strong>Amilton</strong> da Silva Borburema Júnior
                                         </dd>
-                                        <dt>
-                                            É o Red Pill
+                                        <dt class="fw-light">
+                                            E é o Red Pill ...
                                         </dt>
                                         <dd>
                                             <strong>Anderson</strong> Clayton da Silva Gama
                                         </dd>                       
-                                        <dt>
-                                            É o Empresário
+                                        <dt class="fw-light">
+                                            E é o Empresário ...
                                         </dt>
                                         <dd>                            
                                             <strong>Gabriel</strong> Silva Gomes
                                         </dd>                                    
-                                        <dt>
-                                            É o Corazon
+                                        <dt class="fw-light">
+                                            E é o Corazon ...
                                         </dt>
                                         <dd>                            
                                             <strong>Humberto</strong> Bezerra Siqueira 
                                         </dd>
-                                        <dt>
-                                            É o Back Man
+                                        <dt class="fw-light">
+                                            E é o Back Man ...
                                         </dt>
                                         <dd>                            
                                             <strong>Jairo </strong>da Silva Soares
@@ -205,35 +205,35 @@ Logout
                             <small>
                                 <blockquote>
                                     <dl>
-                                        <dt>
-                                            É o Perigoso
+                                        <dt class="fw-light">
+                                            E é o Perigoso ...
                                         </dt>
                                         <dd>
                                             Janailson da Silva <strong>Sobral</strong>
                                         </dd>
-                                        <dt>
-                                            É o Hacker Man
+                                        <dt class="fw-light">
+                                            E é o Hacker Man ...
                                         </dt>
                                         <dd>
                                             João <strong>Emanuel</strong> Ribeiro Marinho 
                                         </dd>
-                                        <dt>
-                                            É o Hacker Man
+                                        <dt class="fw-light">
+                                            E é a Robot ...
                                         </dt>
                                         <dd>
-                                            João <strong>Emanuel</strong> Ribeiro Marinho 
+                                            <strong>Laura</strong> Maria Farias Silva                                            
                                         </dd>                                    
-                                        <dt>
-                                            É o Habilitado
+                                        <dt class="fw-light">
+                                            E é o Habilitado ... 
                                         </dt>
                                         <dd>
                                             José <strong>Walter</strong> de Melo Sobral Filho
                                         </dd>                                    
-                                        <dt>
-                                            É o modelo
+                                        <dt class="fw-light">
+                                            E é o modelo ...
                                         </dt>
                                         <dd>
-                                        <strong>Ryan</strong>Víctor Ferreira Constantino da Silva 
+                                        <strong>Ryan </strong>Víctor Ferreira Constantino da Silva 
                                         </dd>
                                     </dl>
                                 </blockquote>
@@ -249,14 +249,22 @@ Logout
                     <p class="h6">
                         SENAC <small>Serviço Nacional de Aprendizagem do Comercio</small>
                     </p>
-                    <p class="text-center">
+                    <p class="text-center fst-italic fs-6">
                         Travessa Maria Ramos, 22, 
                         <strong>
                             Garanhuns/PE
                         </strong>
                     </p>
                 </div>
-                <div class="col">
+                <div class="col d-flex flex-column justify-content-between align-items-center">
+                    <p>
+                        <strong class="pt-5">E é a turma ...</strong>                       
+                    </p>
+                    <p>
+                        <small>
+                            Programador de Sistemas<sup>2022.3.115</sup>
+                        </small>
+                    </p>
                 </div>
                 <div class="col-4 d-flex justify-content-around align-items-center">
                     <img class="img-fluid" src="img\tela\senac-logo-sem-fundo.webp" style="height:2.5em; width:auto;">

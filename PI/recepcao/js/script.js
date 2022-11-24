@@ -11,5 +11,5 @@
     function chamaTela(){
      timeout = setTimeout(function() {
         document.querySelector("#protecaoTela").style.visibility = "visible";
-     }, 2000);
+     }, 8000);
  }
