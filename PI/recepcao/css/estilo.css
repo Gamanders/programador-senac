@@ -17,3 +17,64 @@
     width: 80vw;
     float:right;            
 }
+
+
+
+body{
+    margin:none;
+}
+header{        
+    height:15vh;
+    border-bottom: 5px solid darkgray;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}    
+li a{       
+    font-style:italic;
+    text-decoration:none;
+}header a{        
+    padding: 10px;
+    margin: 10px;
+    border-radius:5px;
+    border: 2px solid lightgray;
+    font-style:italic;
+    text-decoration:none;
+}
+
+main{
+    min-height:70vh;        
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+footer{
+    background-color:darkgray;
+    color:white;
+    text-align:center;
+    height:15vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+#protecaoTela{
+    position: absolute;
+    width:100vw;
+    height:100vh;
+    z-index: 1000;
+    background:red;
+    visibility: hidden;
+}
+#protecaoTela>#topo{
+    background:white;
+    height:20vh;
+    border-bottom: 10px solid #005594;
+}
+#protecaoTela>#meio{        
+    height:70vh;
+}
+#protecaoTela>#base{
+    background:white;
+    height:10vh;
+    border-top:5px solid #F78B1F;        
+}

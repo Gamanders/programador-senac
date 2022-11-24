@@ -61,18 +61,18 @@
         z-index: 1000;
         background:red;
         visibility: hidden;
-    }
+    }   
     #protecaoTela>#topo{
         background:white;
         height:20vh;
         border-bottom: 10px solid #005594;
     }
     #protecaoTela>#meio{        
-        height:70vh;
+        height:65vh;
     }
     #protecaoTela>#base{
         background:white;
-        height:10vh;
+        height:15vh;
         border-top:5px solid #F78B1F;        
     }
 </style>
@@ -136,113 +136,108 @@ Logout
 ?>
 <body>
     <div id="protecaoTela">
-        <div id="topo">
-            <p class="h2 text-center pt-5">
+        <div id="topo" class="d-flex flex-column justify-content-center align-items-center">
+            <p class="h2 text-center">
                 <strong>
                     Gestão Cursos
                 </strong>
             </p>
-            <p class="h5 text-center mt-3">
+            <p class="h5 text-center">
                 Sistemas para reservas e registro de interesses
             </p>
         </div>
-        <div id="meio" class="bg-light">
+        <div id="meio" class="bg-light d-flex flex-column justify-content-center">
             <div class="row">
-                <div class="col p3">
+                <div class="col-5 d-flex flex-column justify-content-center align-items-center">
                     <img class=" img-thumbnail mx-auto rounded d-block" src="img\tela\programadores.jpeg" style="height:60vh;">
                 </div>
-                <div class="col">
+                <div class="col-7 d-flex flex-column justify-content-center align-items-center fs-6">
                     <dl>
                         <dt>
-                            É o dançarino
+                            É o instrutor
                         </dt>
                         <dd>
                             <strong>Jean</strong> Elder Santana Araújo
                         </dd>
-                    </dl>
-                    <p class="fs-6 fw-bold">
-                        É a turma! É os programadores!
-                    </p>
+                    </dl>                    
                     <div class="row">
                         <div class="col">
-                            <blockquote>
-                                <dl>                        
-                                    <dt>
-                                        É o Comandante
-                                    </dt>
-                                    <dd>
-                                        <strong>Amilton</strong> da Silva Borburema Júnior
-                                    </dd>
-                                    <dt>
-                                        É o Red Pill
-                                    </dt>
-                                    <dd>
-                                        <strong>Anderson</strong> Clayton da Silva Gama
-                                    </dd>                       
-                                    <dt>
-                                        É o Empresário
-                                    </dt>
-                                    <dd>                            
-                                        <strong>Gabriel</strong> Silva Gomes
-                                    </dd>                                    
-                                    <dt>
-                                        É o Corazon
-                                    </dt>
-                                    <dd>                            
-                                        <strong>Humberto</strong> Bezerra Siqueira 
-                                    </dd>
-                                    <dt>
-                                        É o Back Man
-                                    </dt>
-                                    <dd>                            
-                                        <strong>Jairo </strong>da Silva Soares
-                                    </dd>
-                                    
-                                </dl>
-                            </blockquote>
+                            <small>
+                                <blockquote>
+                                    <dl>                        
+                                        <dt>
+                                            É o Comandante
+                                        </dt>
+                                        <dd>
+                                            <strong>Amilton</strong> da Silva Borburema Júnior
+                                        </dd>
+                                        <dt>
+                                            É o Red Pill
+                                        </dt>
+                                        <dd>
+                                            <strong>Anderson</strong> Clayton da Silva Gama
+                                        </dd>                       
+                                        <dt>
+                                            É o Empresário
+                                        </dt>
+                                        <dd>                            
+                                            <strong>Gabriel</strong> Silva Gomes
+                                        </dd>                                    
+                                        <dt>
+                                            É o Corazon
+                                        </dt>
+                                        <dd>                            
+                                            <strong>Humberto</strong> Bezerra Siqueira 
+                                        </dd>
+                                        <dt>
+                                            É o Back Man
+                                        </dt>
+                                        <dd>                            
+                                            <strong>Jairo </strong>da Silva Soares
+                                        </dd>
+                                        
+                                    </dl>
+                                </blockquote>
+                            </small>
+                            
                         </div>
                         <div class="col">
-                            <blockquote>
-                                <dl>
-                                    <dt>
-                                        É o Perigoso
-                                    </dt>
-                                    <dd>
-                                        Janailson da Silva <strong>Sobral</strong>
-                                    </dd>
-                                    <dt>
-                                        É o Hacker Man
-                                    </dt>
-                                    <dd>
-                                        João <strong>Emanuel</strong> Ribeiro Marinho 
-                                    </dd>
-                                    <dt>
-                                        É o Hacker Man
-                                    </dt>
-                                    <dd>
-                                        João <strong>Emanuel</strong> Ribeiro Marinho 
-                                    </dd>                                    
-                                    <dt>
-                                        É o Habilitado
-                                    </dt>
-                                    <dd>
-                                        José <strong>Walter</strong> de Melo Sobral Filho
-                                    </dd>
-                                    <dt>
-                                        É a Representante
-                                    </dt>
-                                    <dd>
-                                    <strong>Laura</strong> Maria Farias Silva
-                                    </dd>
-                                    <dt>
-                                        É o modelo
-                                    </dt>
-                                    <dd>
-                                    <strong>Ryan</strong>Víctor Ferreira Constantino da Silva 
-                                    </dd>
-                                </dl>
-                            </blockquote>
-
+                            <small>
+                                <blockquote>
+                                    <dl>
+                                        <dt>
+                                            É o Perigoso
+                                        </dt>
+                                        <dd>
+                                            Janailson da Silva <strong>Sobral</strong>
+                                        </dd>
+                                        <dt>
+                                            É o Hacker Man
+                                        </dt>
+                                        <dd>
+                                            João <strong>Emanuel</strong> Ribeiro Marinho 
+                                        </dd>
+                                        <dt>
+                                            É o Hacker Man
+                                        </dt>
+                                        <dd>
+                                            João <strong>Emanuel</strong> Ribeiro Marinho 
+                                        </dd>                                    
+                                        <dt>
+                                            É o Habilitado
+                                        </dt>
+                                        <dd>
+                                            José <strong>Walter</strong> de Melo Sobral Filho
+                                        </dd>                                    
+                                        <dt>
+                                            É o modelo
+                                        </dt>
+                                        <dd>
+                                        <strong>Ryan</strong>Víctor Ferreira Constantino da Silva 
+                                        </dd>
+                                    </dl>
+                                </blockquote>
+                            </small>
                         </div>
                     </div>
                 </div>
@@ -250,11 +245,11 @@ Logout
         </div>
         <div id="base">
             <div class="row">
-                <div class="col-4">
-                    <p class="h5 text-center mt-2">
+                <div class="col-5 d-flex flex-column justify-content-center align-items-center">
+                    <p class="h6">
                         SENAC <small>Serviço Nacional de Aprendizagem do Comercio</small>
                     </p>
-                    <p class="fs-6 text-center">
+                    <p class="text-center">
                         Travessa Maria Ramos, 22, 
                         <strong>
                             Garanhuns/PE
@@ -262,11 +257,10 @@ Logout
                     </p>
                 </div>
                 <div class="col">
-
                 </div>
-                <div class="col-3 d-flex justify-content-around align-items-center">
-                    <img class="img-fluid" src="img\tela\senac-logo-sem-fundo.webp" style="height:50px; width:auto;">
-                    <img class="img-fluid" src="img\tela\PortoDigital_2019.png" style="height:50px; width:auto;">
+                <div class="col-4 d-flex justify-content-around align-items-center">
+                    <img class="img-fluid" src="img\tela\senac-logo-sem-fundo.webp" style="height:2.5em; width:auto;">
+                    <img class="img-fluid" src="img\tela\PortoDigital_2019.png" style="height:2.5em; width:auto;">
                 </div>
             </div>                        
         </div>
