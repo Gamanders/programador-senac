@@ -18,7 +18,7 @@
                 }
             ?>
             <?php
-                $sqlselect = $conexao->PREPARE("SELECT nome AS 'categoria' ,count(*) AS 'qtd' FROM categoria GROUP BY nome");
+                $sqlselect = $conexao->PREPARE("SELECT categoria.nome AS 'categoria' ,count(*) AS 'qtd' FROM categoria join cursos on cursos.categoria_id = categoria.id GROUP BY categoria.nome");
                 $sqlselect->execute();
                 $categorias = $sqlselect->fetchAll(PDO::FETCH_ASSOC);
                 $categoria=isset($_GET['catcurso'])?$_GET['catcurso']:"0";
