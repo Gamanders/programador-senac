@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/estilo.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">    
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,300&display=swap" rel="stylesheet"> 
     <title>
         SENAC - Procura Cursos
     </title>
@@ -138,7 +141,7 @@ Logout
     <div id="protecaoTela">
         <div id="topo" class="d-flex flex-column justify-content-center align-items-center">
             <p class="h2 text-center">
-                <strong>
+                <strong style="font-family: Xilosa;">
                     Gestão Cursos
                 </strong>
             </p>
@@ -154,7 +157,7 @@ Logout
                 <div class="col-7 d-flex flex-column justify-content-center align-items-center fs-6">
                     <dl>
                         <dt class="fw-light">
-                            E é o instrutor ...
+                            E é o instrutor  é ...
                         </dt>
                         <dd>
                             <strong>Jean</strong> Elder Santana Araújo
@@ -166,31 +169,31 @@ Logout
                                 <blockquote>
                                     <dl>                        
                                         <dt class="fw-light">
-                                            E é o Comandante ..
+                                            E é o Comandante é  ...
                                         </dt>
                                         <dd>
                                             <strong>Amilton</strong> da Silva Borburema Júnior
                                         </dd>
                                         <dt class="fw-light">
-                                            E é o Red Pill ...
+                                            E é o Red Pill  é ...
                                         </dt>
                                         <dd>
                                             <strong>Anderson</strong> Clayton da Silva Gama
                                         </dd>                       
                                         <dt class="fw-light">
-                                            E é o Empresário ...
+                                            E é o Empresário  é ...
                                         </dt>
                                         <dd>                            
                                             <strong>Gabriel</strong> Silva Gomes
                                         </dd>                                    
                                         <dt class="fw-light">
-                                            E é o Corazon ...
+                                            E é o Corazon  é ...
                                         </dt>
                                         <dd>                            
                                             <strong>Humberto</strong> Bezerra Siqueira 
                                         </dd>
                                         <dt class="fw-light">
-                                            E é o Back Man ...
+                                            E é o Back Man  é ...
                                         </dt>
                                         <dd>                            
                                             <strong>Jairo </strong>da Silva Soares
@@ -206,31 +209,31 @@ Logout
                                 <blockquote>
                                     <dl>
                                         <dt class="fw-light">
-                                            E é o Perigoso ...
+                                            E é o Perigoso  é ...
                                         </dt>
                                         <dd>
                                             Janailson da Silva <strong>Sobral</strong>
                                         </dd>
                                         <dt class="fw-light">
-                                            E é o Hacker Man ...
+                                            E é o Hacker Man  é ...
                                         </dt>
                                         <dd>
                                             João <strong>Emanuel</strong> Ribeiro Marinho 
                                         </dd>
                                         <dt class="fw-light">
-                                            E é a Robot ...
+                                            E é a Robot  é ...
                                         </dt>
                                         <dd>
                                             <strong>Laura</strong> Maria Farias Silva                                            
                                         </dd>                                    
                                         <dt class="fw-light">
-                                            E é o Habilitado ... 
+                                            E é o Habilitado  é ... 
                                         </dt>
                                         <dd>
                                             José <strong>Walter</strong> de Melo Sobral Filho
                                         </dd>                                    
                                         <dt class="fw-light">
-                                            E é o modelo ...
+                                            E é o modelo  é ...
                                         </dt>
                                         <dd>
                                         <strong>Ryan </strong>Víctor Ferreira Constantino da Silva 
@@ -258,7 +261,7 @@ Logout
                 </div>
                 <div class="col d-flex flex-column justify-content-between align-items-center">
                     <p>
-                        <strong class="pt-5">E é a turma ...</strong>                       
+                        <strong class="pt-5">E é a turma  é ...</strong>                       
                     </p>
                     <p>
                         <small>

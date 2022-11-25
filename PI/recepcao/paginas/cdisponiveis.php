@@ -80,9 +80,10 @@
                     <div class='card m-1' style='width: 14em;'>
                         <img class='img-fluid mx-auto pt-2' src='img/Curso-online.jpg' style='width:12em; height:10em;'>               
                     <div class='card-body'>
-                        <h5 class='card-title'>".$curso['nome']."</h5>
+                        <h5 class='card-title'>".$curso['nome']."</h5>                        
                         <p class='card-text'>".$curso['descricao']."</p>
                         <a href='?pagina=teminteresse&curso=".$curso['nome']."&id=".$curso['id']."' class='btn btn-primary'>Tenho Interesse</a>
+                        <a href='?pagina=teminteresse&curso=".$curso['nome']."&id=".$curso['id']."' class='btn btn-primary'><i class='fa-solid fa-eye'></i></a>
                     </div>
                     </div>
                 </div>
@@ -98,6 +99,9 @@
                         <p class='card-text'>".$curso['descricao']."</p>".
                             "
                             <a href='?pagina=teminteresse&curso=".$curso['nome']."&id=".$curso['id']."' class='btn btn-primary'>Tenho Interesse</a>
+                            ".
+                            "
+                            <a href='?pagina=teminteresse&curso=".$curso['nome']."&id=".$curso['id']."' class='btn btn-primary'><i class='fa-solid fa-eyes'></i></a>
                             ".
                             "
                     </div>
