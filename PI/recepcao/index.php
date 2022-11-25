@@ -78,6 +78,16 @@
         height:15vh;
         border-top:5px solid #F78B1F;        
     }
+    .cx-curso{
+        height: 2.5em;
+        text-align:center;
+        line-height: 50%;
+    }
+    .cx-descricao{
+        height: 5em;
+        text-align:center;
+        line-height: 50%;
+    }
 </style>
 <!--
 Logon
@@ -101,9 +111,11 @@ Logon
                     $tipo = $_SESSION['tipo'];
                     if($tipo =="admin"){
                         header("Location:?pagina=cadastro");
+                        //ob_clean(); 
                     }   
                     else{
                         header("Location:?pagina=cdisponiveis");
+                        //ob_clean(); 
                     }
                 }
                 else{
@@ -131,9 +143,12 @@ Logout
     if(isset($_GET["action"])){
         $action = $_GET["action"];
         if($action == "logout"){       
-        unset($_SESSION["usuario"]); 
-        unset($_SESSION["nome"]);
-        header("Location:?pagina=cdisponiveis");       
+            unset($_SESSION["usuario"]); 
+            unset($_SESSION["nome"]);
+            $bifee = ob_get_contents();
+            var_dump($bifee);
+            header("Location:?pagina=cdisponiveis");
+            //ob_clean();
         }
     }
 ?>

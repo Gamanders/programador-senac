@@ -76,6 +76,7 @@ Atualizar categoria
         $sqlupdate->bindParam(":MODALIDADE",$modalidade);
         $sqlupdate->execute();
         header("Location:http://localhost/?pagina=cadastro&cad=categoria");
+        //ob_clean();
     }
 ?>
 <!--

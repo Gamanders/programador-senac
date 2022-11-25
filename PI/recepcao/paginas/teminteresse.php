@@ -1,3 +1,8 @@
+
+<h1 class="text-center">
+    Confirmação de Interesse
+</h1>
+
 <?php    
     if(isset($_SESSION['usuario'])){
         $tipo = $_SESSION['tipo'];
@@ -8,9 +13,14 @@
         }
         else{
             include("paginas/confirmarInteresse.php");
+             
         }        
     }
     else{
-        header("Location:?pagina=login");
+
+        $redirecionar = headers_sent(header("Location:?pagina=login"))?"sim":"não";
+        print "<h1> ".$redirecionar."</h1>";
+        //header("Location:?pagina=login");
+        //ob_clean();
     }
 ?>
