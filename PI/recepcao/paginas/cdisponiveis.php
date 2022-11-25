@@ -77,8 +77,8 @@
             if ($curso['imagem']==null){  
                 print "
                 <div class='col-4 col-md-3'>
-                    <div class='card m-1' style='width: 18rem;'>
-                        <img class='img-fluid' src='img/Curso-online.jpg'>               
+                    <div class='card m-1' style='width: 14em;'>
+                        <img class='img-fluid mx-auto pt-2' src='img/Curso-online.jpg' style='width:12em; height:10em;'>               
                     <div class='card-body'>
                         <h5 class='card-title'>".$curso['nome']."</h5>
                         <p class='card-text'>".$curso['descricao']."</p>
@@ -91,8 +91,8 @@
             else {
                 print "
                 <div class='col-4 col-md-3'>
-                    <div class='card m-1' style='width: 18rem;'>
-                        <img class='img-fluid' src='img/".$curso['imagem']."'>               
+                    <div class='card m-1' style='width: 14em;'>
+                        <img class='img-fluid mx-auto pt-2' src='img/".$curso['imagem']."' style='width:12em; height:10em;'>               
                     <div class='card-body'>
                         <h5 class='card-title'>".$curso['nome']."</h5>
                         <p class='card-text'>".$curso['descricao']."</p>".
