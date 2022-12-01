@@ -145,9 +145,9 @@ Logout
         if($action == "logout"){       
             unset($_SESSION["usuario"]); 
             unset($_SESSION["nome"]);
-            $bifee = ob_get_contents();
-            var_dump($bifee);
-            header("Location:?pagina=cdisponiveis");
+            //$bifee = ob_get_contents();
+            //var_dump($bifee);
+            //header("Location:?pagina=cdisponiveis");
             //ob_clean();
         }
     }
