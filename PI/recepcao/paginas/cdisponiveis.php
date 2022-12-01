@@ -54,10 +54,10 @@
                 $selectCursos = $conexao->PREPARE("select cursos.id, cursos.descricao, cursos.imagem, cursos.nome, categoria.nome as 'categoria', categoria.modalidade FROM cursos join categoria ON cursos.categoria_id = categoria.id WHERE categoria.nome ='".$categoria."' order by categoria.nome LIMIT ".limitDisponiveis ." OFFSET ".$paginacao);
             }
             else{
-                $selectCursos = $conexao->PREPARE("select cursos.id, cursos.descricao, cursos.imagem, cursos.nome, categoria.nome as 'categoria', categoria.modalidade FROM cursos join categoria ON cursos.categoria_id = categoria.id order by categoria.nome LIMIT ".limitDisponiveis ." OFFSET ".$paginacao);
+                $selectCursos = $conexao->PREPARE("select cursos.*, categoria.nome as 'categoria', categoria.modalidade FROM cursos join categoria ON cursos.categoria_id = categoria.id order by categoria.nome LIMIT ".limitDisponiveis ." OFFSET ".$paginacao);
             }
             $selectCursos->execute();
-            $cursos = $selectCursos->fetchAll(PDO::FETCH_ASSOC); 
+            $cursos = $selectCursos->fetchAll(PDO::FETCH_ASSOC);            
             if(isset($_GET['catcurso'])){
                 $selectQtdCursos = $conexao->PREPARE("select count(*) AS 'qtd' from cursos join categoria on cursos.categoria_id = categoria.id WHERE categoria.nome ='".$categoria."'");
                 $selectQtdCursos->execute();
@@ -87,8 +87,8 @@
                                 <p class='card-text'>".$curso['descricao']."</p>
                             </div>
                             <div class='d-flex justify-content-around align-items-center'>
-                                <a href='?pagina=teminteresse&curso=".$curso['nome']."&id=".$curso['id']."' class='btn btn-primary'>Tenho Interesse</a>
-                                <a href='?pagina=teminteresse&curso=".$curso['nome']."&id=".$curso['id']."' class='btn btn-primary'><i class='fa-solid fa-eye'></i></a>
+                                <a href='?pagina=teminteresse&curso=".$curso['nome']."&id=".$curso['id']."' class='btn btn-primary'>Tenho Interesse</a>                                
+                                <a class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#staticBackdrop". $curso['id']."'><i style='color:white;'class='fa-solid fa-eye'></i></a>
                             </div>
                         </div>
                     </div>
@@ -233,4 +233,38 @@
             ?>
         </nav>        
     </div>
+    <?php
+        foreach($cursos as $curso){
+            // Modal 
+            print "
+            <div class='modal fade' id='staticBackdrop". $curso['id']."' data-bs-backdrop='static' data-bs-keyboard='false' tabindex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true'>
+                <div class='modal-dialog'>
+                    <div class='modal-content'>
+                        <div class='modal-header'>
+                            <p class='h4 modal-title fs-6' id='staticBackdropLabel'>Detalhes de ".$curso['nome']."</p>
+                            <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
+                        </div>
+                        <div class='modal-body'>
+                            <div class='row'>
+                                <div class='col-5 d-flex justify-content-center align-items-center'>
+                                    <img class='img-fluid' src='img/".$curso['imagem']."'' alt='não encontrado'>
+                                </div>
+                                <div class='col-7'>
+                                    <p> <span class='text-capitalize fw-bold fst-italic'>categoria: </span> " . $curso['categoria'] . "</p>
+                                    <p> <span class='text-capitalize fw-bold fst-italic'>modalidade: </span> " . $curso['modalidade'] . "</p>
+                                    <p> <span class='text-capitalize fw-bold fst-italic'>data de inicio: </span> " . $curso['dtIni'] . "</p>
+                                    <p> <span class='text-capitalize fw-bold fst-italic'>data de fim: </span> " . $curso['dtFim'] . "</p>
+                                    <p> <span class='text-capitalize fw-bold fst-italic'>carga horaria: </span> " . $curso['cargaHoraria'] . "</p>
+                                    <p> <span class='text-capitalize fw-bold fst-italic'>capacidade: </span> " . $curso['capacidade'] . "</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class='modal-footer'>
+                            <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Fechar</button>                        
+                        </div>
+                    </div>
+                </div>
+            </div>";
+        }
+    ?>
 </div>
