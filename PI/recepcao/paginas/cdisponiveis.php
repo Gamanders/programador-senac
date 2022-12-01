@@ -77,18 +77,18 @@
             if ($curso['imagem']==null){  
                 print "
                 <div class='col-4 col-md-3 col-lg-2'>
-                    <div class='card m-1' style='width: 14em;'>
-                        <img class='img-fluid mx-auto pt-2' src='img/Curso-online.jpg' style='width:12em; height:10em;'>               
+                    <div class='card m-1' style='width: 12em;'>
+                        <img class='img-fluid mx-auto pt-2' src='img/Curso-online.jpg' style='width:10em; height:10em;'>               
                         <div class='card-body'>
                             <div class='cx-curso'>
-                                <h5 class='card-title'>".$curso['nome']."</h5>                        
+                                <p class='h6 card-title'>".$curso['nome']."</p>
                             </div>
                             <div class='cx-descricao'>
                                 <p class='card-text'>".$curso['descricao']."</p>
                             </div>
                             <div class='d-flex justify-content-around align-items-center'>
-                                <a href='?pagina=teminteresse&curso=".$curso['nome']."&id=".$curso['id']."' class='btn btn-primary'>Tenho Interesse</a>                                
-                                <a class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#staticBackdrop". $curso['id']."'><i style='color:white;'class='fa-solid fa-eye'></i></a>
+                                <a href='?pagina=teminteresse&curso=".$curso['nome']."&id=".$curso['id']."' class='btn btn-sm btn-primary'>Interesse | <i class='fa-sharp fa-solid fa-heart'></i></a>                                
+                                <a class='btn btn-sm btn-primary' data-bs-toggle='modal' data-bs-target='#staticBackdrop". $curso['id']."'><i style='color:white;'class='fa-solid fa-eye'></i></a>
                             </div>
                         </div>
                     </div>
@@ -97,21 +97,21 @@
             }
             else {
                 print "
-                <div class='col-4 col-md-3'>
-                    <div class='card m-1' style='width: 14em;'>
-                        <img class='img-fluid mx-auto pt-2' src='img/".$curso['imagem']."' style='width:12em; height:10em;'>               
+                <div class='col-4 col-md-3 col-lg-2'    >
+                    <div class='card m-1' style='width: 12em;'>
+                        <img class='img-fluid mx-auto pt-2' src='img/".$curso['imagem']."' style='width:10em; height:10em;'>               
                         <div class='card-body'>
                             <div class='cx-curso'>
-                                <h5 class='card-title'>".$curso['nome']."</h5>
+                                <p class='h6 card-title'>".$curso['nome']."</p>
                             </div>
                             <div class='cx-descricao'>
                                 <p class='card-text'>".$curso['descricao']."</p>
                             </div>
                             <div class='d-flex justify-content-around align-items-center'>
-                                <a href='?pagina=teminteresse&curso=".$curso['nome']."&id=".$curso['id']."' class='btn btn-primary'>Tenho Interesse</a>
+                                <a href='?pagina=teminteresse&curso=".$curso['nome']."&id=".$curso['id']."' class='btn btn-sm btn-primary'>Interesse | <i class='fa-sharp fa-solid fa-heart'></i></a>
                                 ".
                                 "
-                                <a href='?pagina=teminteresse&curso=".$curso['nome']."&id=".$curso['id']."' class='btn btn-primary'><i class='fa-solid fa-eye'></i></a>
+                                <a class='btn btn-sm btn-primary' data-bs-toggle='modal' data-bs-target='#staticBackdrop". $curso['id']."'><i style='color:white;'class='fa-solid fa-eye'></i></a>
                                 ".
                                 "
                             </div>
