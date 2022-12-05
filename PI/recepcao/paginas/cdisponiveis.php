@@ -51,7 +51,7 @@
             $paginacao = "0";
             $paginacao=isset($_GET["paginacao"])?$_GET["paginacao"]:"0";
             if(isset($_GET['catcurso'])){
-                $selectCursos = $conexao->PREPARE("select cursos.id, cursos.descricao, cursos.imagem, cursos.nome, categoria.nome as 'categoria', categoria.modalidade FROM cursos join categoria ON cursos.categoria_id = categoria.id WHERE categoria.nome ='".$categoria."' order by categoria.nome LIMIT ".limitDisponiveis ." OFFSET ".$paginacao);
+                $selectCursos = $conexao->PREPARE("select cursos.*, categoria.nome as 'categoria', categoria.modalidade FROM cursos join categoria ON cursos.categoria_id = categoria.id WHERE categoria.nome ='".$categoria."' order by categoria.nome LIMIT ".limitDisponiveis ." OFFSET ".$paginacao);
             }
             else{
                 $selectCursos = $conexao->PREPARE("select cursos.*, categoria.nome as 'categoria', categoria.modalidade FROM cursos join categoria ON cursos.categoria_id = categoria.id order by categoria.nome LIMIT ".limitDisponiveis ." OFFSET ".$paginacao);
@@ -235,6 +235,10 @@
     </div>
     <?php
         foreach($cursos as $curso){
+            $date=date_create($curso['dtIni']);
+            $dini = date_format($date,"d/m/Y");
+            $date=date_create($curso['dtIni']);
+            $dfim = date_format($date,"d/m/Y");
             // Modal 
             print "
             <div class='modal fade' id='staticBackdrop". $curso['id']."' data-bs-backdrop='static' data-bs-keyboard='false' tabindex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true'>
@@ -252,8 +256,8 @@
                                 <div class='col-7'>
                                     <p> <span class='text-capitalize fw-bold fst-italic'>categoria: </span> " . $curso['categoria'] . "</p>
                                     <p> <span class='text-capitalize fw-bold fst-italic'>modalidade: </span> " . $curso['modalidade'] . "</p>
-                                    <p> <span class='text-capitalize fw-bold fst-italic'>data de inicio: </span> " . $curso['dtIni'] . "</p>
-                                    <p> <span class='text-capitalize fw-bold fst-italic'>data de fim: </span> " . $curso['dtFim'] . "</p>
+                                    <p> <span class='text-capitalize fw-bold fst-italic'>data de inicio: </span> " . $dini . "</p>
+                                    <p> <span class='text-capitalize fw-bold fst-italic'>data de fim: </span> " . $dfim . "</p>
                                     <p> <span class='text-capitalize fw-bold fst-italic'>carga horaria: </span> " . $curso['cargaHoraria'] . "</p>
                                     <p> <span class='text-capitalize fw-bold fst-italic'>capacidade: </span> " . $curso['capacidade'] . "</p>
                                 </div>

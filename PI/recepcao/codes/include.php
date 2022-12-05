@@ -43,6 +43,20 @@ Cadastrar Interessado pelo proprio usuário
         }
     }
 ?>
+<?php    
+    if(isset($_POST['acao'])){
+        $acao = $_POST['acao'];
+        if($acao == 'confirmarInteresse'){
+            print
+                    "
+                        <script>
+                            alert('Corfirmar Interesse');
+                        </script>
+                    ";
+        }        
+    }
+?>
+
 
 <!--
 Cadastrar categoria
