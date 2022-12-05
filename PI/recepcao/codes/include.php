@@ -53,6 +53,15 @@ Cadastrar Interessado pelo proprio usuário
                             alert('Corfirmar Interesse');
                         </script>
                     ";
+                
+            //    $idCurso = $_POST['cadcurso'];
+            //    $idInteressado = $_POST['cadinteressado'];              
+            //    $sqlinsert = $conexao->PREPARE(
+            //        "INSERT INTO cursosinteressados (cursos_id,interessados_id) VALUES (:CADCURSO,:CADINTERESSADO)");
+            //    $sqlinsert->bindParam(":CADCURSO",$idCurso);
+            //    $sqlinsert->bindParam(":CADINTERESSADO",$idInteressado);
+            //    $sqlinsert->execute();
+                
         }        
     }
 ?>
