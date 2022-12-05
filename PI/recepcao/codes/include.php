@@ -55,10 +55,10 @@ Cadastrar Interessado pelo proprio usuário
             $resultUser = $selectUser->fetchAll(PDO::FETCH_ASSOC);        
             $senha = $_POST["senha"];            
             if(isset($resultUser[0]["senha"])){            
-                if($senha == $resultUser[0]["senha"]){                                      
-                   $_SESSION["usuario"]=$resultUser[0]["username"];
-                   $_SESSION["nome"]=$resultUser[0]["nome"];
-                
+                if($senha == $resultUser[0]["senha"]){
+                    
+                    Código de Registro de Interesse
+
                 }
                 else{
                     print "
