@@ -5,7 +5,7 @@
             Login
         </div>
         <div class="col-12">
-            <label class="label-form">Usuario</label>
+            <label class="label-form">Email</label>
         </div>
         <div class="col-12">
             <input type="text" class="form-control" name="usuario">

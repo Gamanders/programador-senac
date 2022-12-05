@@ -47,12 +47,6 @@ Cadastrar Interessado pelo proprio usuário
     if(isset($_POST['acao'])){
         $acao = $_POST['acao'];
         if($acao == 'confirmarInteresse'){
-            print
-                    "
-                        <script>
-                            alert('Corfirmar Interesse');
-                        </script>
-                    ";
                 
             //    $idCurso = $_POST['cadcurso'];
             //    $idInteressado = $_POST['cadinteressado'];              
@@ -61,6 +55,13 @@ Cadastrar Interessado pelo proprio usuário
             //    $sqlinsert->bindParam(":CADCURSO",$idCurso);
             //    $sqlinsert->bindParam(":CADINTERESSADO",$idInteressado);
             //    $sqlinsert->execute();
+
+                print
+                    "
+                        <script>
+                            alert('Usuário ou Senha Incorreto');
+                        </script>
+                    ";
                 
         }        
     }
