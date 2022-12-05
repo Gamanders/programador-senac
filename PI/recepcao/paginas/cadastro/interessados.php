@@ -184,9 +184,10 @@
                             <td>".$interessado['tpcontato']."   </td>
                             <td>".$interessado['email']."</td>
                             <td>"."
-                                <a href='?pagina=cadastro&cad=interessados&editar=".$interessado['id']."'><i style='color:orange;'class='fa-solid fa-pencil'></i></a>
-                                <a href='?pagina=cadastro&cad=interessados&excluir=".$interessado['id']."'><i style='color:red;' class='fa-solid fa-trash'></i></a> 
-                                <a href='?pagina=cadastro&cad=interessados&detalhes=".$interessado['id']."'><i style='color:blue;'class='fa-solid fa-eye'></i></a>"."</td>
+                                <a title='Adicionar Interesse' href='?pagina=cadastro&cad=interessados&acrescentar=".$interessado['id']."'><i style='color:blue'; class='fa-sharp fa-solid fa-plus'></i></a>
+                                <a title='Editar Interessado' href='?pagina=cadastro&cad=interessados&editar=".$interessado['id']."'><i style='color:orange;'class='fa-solid fa-pencil'></i></a>
+                                <a title='Excluir Interessado' href='?pagina=cadastro&cad=interessados&excluir=".$interessado['id']."'><i style='color:red;' class='fa-solid fa-trash'></i></a> 
+                                <a title='Visualizar Interesses' href='?pagina=cadastro&cad=interessados&detalhes=".$interessado['id']."'><i style='color:gray;' class='fa-solid fa-eye'></i></a>"."</td>
                         </tr>";
                     }
                 ?>

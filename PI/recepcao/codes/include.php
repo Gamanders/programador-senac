@@ -46,19 +46,23 @@ Cadastrar Interessado pelo proprio usuário
 <?php    
     if(isset($_POST['acao'])){
         $acao = $_POST['acao'];
-        if($acao == 'confirmarInteresse'){
-            /*
+        if($acao == 'confirmarInteresse'){            
             $selectUser = $conexao->PREPARE("SELECT * FROM usuarios WHERE username = :USUARIO;");
-            $usuario = $_POST["usuario"];
-            $selectUser->bindParam(":USUARIO",$usuario);        
+            $usuario = $_SESSION['usuario'];
+            $selectUser->bindParam(":USUARIO",$usuario);
             $selectUser->execute();
-            $resultUser = $selectUser->fetchAll(PDO::FETCH_ASSOC);        
+            $resultUser = $selectUser->fetchAll(PDO::FETCH_ASSOC);            
             $senha = $_POST["senha"];            
-            if(isset($resultUser[0]["senha"])){            
+            if(isset($resultUser[0]["senha"])){      
+                //var_dump($_SESSION);      
                 if($senha == $resultUser[0]["senha"]){
-                    
-                    Código de Registro de Interesse
-
+                    $idCurso = $_POST['id'];                    
+                    $idInteressado = $_SESSION['usuario_id'];
+                    $sqlinsert = $conexao->PREPARE(
+                        "INSERT INTO cursosinteressados (cursos_id,interessados_id) VALUES (:CADCURSO,:CADINTERESSADO)");
+                    $sqlinsert->bindParam(":CADCURSO",$idCurso);
+                    $sqlinsert->bindParam(":CADINTERESSADO",$idInteressado);
+                    //$sqlinsert->execute();
                 }
                 else{
                     print "
@@ -75,27 +79,7 @@ Cadastrar Interessado pelo proprio usuário
                             </script>
                         ";
             }            
-        }
-        */
-           // código inserção
-
-        /*
-               $idCurso = $_POST['cadcurso'];
-               $idInteressado = $_POST['cadinteressado'];              
-               $sqlinsert = $conexao->PREPARE(
-                   "INSERT INTO cursosinteressados (cursos_id,interessados_id) VALUES (:CADCURSO,:CADINTERESSADO)");
-               $sqlinsert->bindParam(":CADCURSO",$idCurso);
-               $sqlinsert->bindParam(":CADINTERESSADO",$idInteressado);
-               $sqlinsert->execute();
-
-                print
-                    "
-                        <script>
-                            alert('Usuário ou Senha Incorreto');
-                        </script>
-                    ";
-        */        
-        }        
+        }      
     }
 ?>
 
