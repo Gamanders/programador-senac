@@ -2,6 +2,27 @@
 Cadastrar Interessado pelo proprio usuário
 -->
 <?php    
+    if(isset($_GET['visualizar'])){
+        $visualizar = $_GET['visualizar'];
+        if($visualizar == "interesses"){
+            $selectInteresses = $conexao->PREPARE(
+                "select * from cursosinteresses 
+                join cursos on cursos.id = cursosinteresses.cursos_id
+                join interesses on interesses.id = cursosinteresses.cursos_id
+                where
+                interesses.email = :INTERESSADO                
+                ");                
+            $selectInteresses->bindParam(":INTERESSADO",$_SESSION['usuario']);
+            $selectInteresses->execute();
+            $interesses = $selectInteresses->fetchAll(PDO::FETCH_ASSOC);
+            var_dump($interesses);
+        }
+    }
+?>
+<!--
+Cadastrar Interessado pelo proprio usuário
+-->
+<?php    
     if(isset($_POST['cadastro']) && isset($_POST['tipo'])){        
         $cadastro = $_POST['cadastro'];
         $tipo = $_POST['tipo'];

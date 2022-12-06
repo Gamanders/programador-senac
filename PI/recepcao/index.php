@@ -41,7 +41,6 @@
         font-style:italic;
         text-decoration:none;
     }
-    
     main{
         min-height:70vh;        
         display:flex;
@@ -70,7 +69,7 @@
         height:20vh;
         border-bottom: 10px solid #005594;
     }
-    #protecaoTela>#meio{        
+    #protecaoTela>#meio{
         height:65vh;
     }
     #protecaoTela>#base{
@@ -96,7 +95,7 @@ Logon
     if(isset($_POST["action"])){
         $action = $_POST["action"];
         if($action == "logar"){
-            $conexao = new PDO("mysql:dbname=recepcao;host=localhost","root","");        
+            $conexao = new PDO("mysql:dbname=recepcao;host=localhost","root","");
             $selectUser = $conexao->PREPARE("SELECT * FROM usuarios WHERE username = :USUARIO;");
             $usuario = $_POST["usuario"];
             $selectUser->bindParam(":USUARIO",$usuario);        
@@ -110,9 +109,20 @@ Logon
                     $_SESSION["nome"]=$resultUser[0]["nome"];
                     $_SESSION["tipo"]=$resultUser[0]["tipo"];                        
                     $tipo = $_SESSION['tipo'];
+                    $selectInteresses = $conexao->PREPARE(
+                        "select * from cursosinteressados
+                        join cursos on cursos.id = cursosinteressados.cursos_id
+                        join interessados on interessados.id = cursosinteressados.interessados_id
+                        where
+                        interessados.email = :INTERESSADO                
+                        ");                
+                    $selectInteresses->bindParam(":INTERESSADO",$_SESSION['usuario']);
+                    $selectInteresses->execute();
+                    $interesses = $selectInteresses->fetchAll(PDO::FETCH_ASSOC);
+                    var_dump($interesses);
                     if($tipo =="admin"){
                         header("Location:?pagina=cadastro");
-                        //ob_clean(); 
+                        //ob_clean();
                     }   
                     else{
                         header("Location:?pagina=cdisponiveis");
@@ -336,12 +346,12 @@ Logout
                                         print $_SESSION["usuario"];
                                     ?>                                  
                                 </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Alterar Senha</a></li>
+                                <ul class="dropdown-menu w-25">
+                                    <li><a class="dropdown-item w-25" data-bs-toggle="modal" data-bs-target="#alterarSenhaModal">Alterar Senha</a></li>
                                     <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item" href="#">Meus Interesses</a></li>
+                                    <li><a class="dropdown-item w-25" href="?pagina=home&visualizar=interesses" data-bs-toggle="modal" data-bs-target="#meusInteressesModal">Meus Interesses</a></li>                                                                        
                                     <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item" href="?pagina=home&action=logout">Sair</a></li>
+                                    <li><a class="dropdown-item w-25" href="?pagina=home&action=logout">Sair</a></li>
                                 </ul>
                             </li>
                         <?php                                
@@ -476,6 +486,43 @@ Logout
             ?>
     </footer>    
 </body> 
+
+<!-- Modal Alteração de Senha -->
+<div class="modal fade" id="alterarSenhaModal" tabindex="-1" aria-labelledby="alterarSenhaModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="alterarSenhaModalLabel">Alteração de Senha</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>        
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Meus Interesses -->
+<div class="modal fade" id="meusInteressesModal" tabindex="-1" aria-labelledby="meusInteressesModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="meusInteressesModalLabel">Meus Interesses</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>        
+      </div>
+    </div>
+  </div>
+</div>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 
     <script src="js/script.js"></script>
