@@ -337,7 +337,9 @@ Logout
                                     ?>                                  
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Alterar Senha</a></li>                                
+                                    <li><a class="dropdown-item" href="#">Alterar Senha</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="#">Meus Interesses</a></li>
                                     <li><hr class="dropdown-divider"></li>
                                     <li><a class="dropdown-item" href="?pagina=home&action=logout">Sair</a></li>
                                 </ul>
