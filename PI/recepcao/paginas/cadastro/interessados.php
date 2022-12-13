@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col">
         <p class="h2 text-center mt-5">
-            Interessados
+            Cadastrados
         </p>
         <hr>
     </div>
@@ -154,7 +154,7 @@
             $interessados = $selectInteressados->fetchAll(PDO::FETCH_ASSOC);
         ?>
         <p class="h4 text-center">
-            Listagem de Interessados
+            Listagem de Cadastrados
         </p>
         <table class="table table-striped">
             <thead>

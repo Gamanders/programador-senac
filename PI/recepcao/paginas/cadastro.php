@@ -19,7 +19,7 @@
                 Curso
             </a>                
             <a class="col-12 mt-5 btn btn-outline-dark" href="?pagina=cadastro&cad=interessados">
-                Interessados
+                Cadastrados
             </a>
             <a class="col-12 mt-5 btn btn-outline-dark" href="?pagina=cadastro&cad=interesses">
                 Interesses
